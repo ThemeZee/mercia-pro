@@ -109,19 +109,19 @@ class Mercia_Pro {
 
 		// Include Pro Features.
 		require_once MERCIA_PRO_PLUGIN_DIR . 'includes/modules/class-author-bio.php';
-		require_once MERCIA_PRO_PLUGIN_DIR . 'includes/modules/class-custom-colors.php';
-		require_once MERCIA_PRO_PLUGIN_DIR . 'includes/modules/class-custom-fonts.php';
+		#require_once MERCIA_PRO_PLUGIN_DIR . 'includes/modules/class-custom-colors.php';
+		#require_once MERCIA_PRO_PLUGIN_DIR . 'includes/modules/class-custom-fonts.php';
 		require_once MERCIA_PRO_PLUGIN_DIR . 'includes/modules/class-footer-line.php';
 		require_once MERCIA_PRO_PLUGIN_DIR . 'includes/modules/class-footer-widgets.php';
 		require_once MERCIA_PRO_PLUGIN_DIR . 'includes/modules/class-header-bar.php';
-		require_once MERCIA_PRO_PLUGIN_DIR . '/includes/modules/class-header-search.php';
+		require_once MERCIA_PRO_PLUGIN_DIR . 'includes/modules/class-header-search.php';
 		require_once MERCIA_PRO_PLUGIN_DIR . 'includes/modules/class-scroll-to-top.php';
 
 		// Include Magazine Widgets.
-		require_once MERCIA_PRO_PLUGIN_DIR . 'includes/widgets/widget-magazine-posts-horizontal-box.php';
-		require_once MERCIA_PRO_PLUGIN_DIR . 'includes/widgets/widget-magazine-posts-vertical-box.php';
-		require_once MERCIA_PRO_PLUGIN_DIR . 'includes/widgets/widget-magazine-posts-list.php';
-		require_once MERCIA_PRO_PLUGIN_DIR . 'includes/widgets/widget-magazine-posts-single.php';
+		require_once MERCIA_PRO_PLUGIN_DIR . 'includes/widgets/widget-magazine-horizontal-box.php';
+		require_once MERCIA_PRO_PLUGIN_DIR . 'includes/widgets/widget-magazine-vertical-box.php';
+		require_once MERCIA_PRO_PLUGIN_DIR . 'includes/widgets/widget-magazine-list.php';
+		require_once MERCIA_PRO_PLUGIN_DIR . 'includes/widgets/widget-magazine-single.php';
 	}
 
 	/**
