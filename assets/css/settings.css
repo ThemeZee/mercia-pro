@@ -1,0 +1,38 @@
+/*
+ * Chronus Settings CSS
+ *
+ * CSS Stylesheet for settings page on Appearance -> Pro Version
+ *
+ * @package Chronus Pro
+ */
+
+/* License Settings */
+.chronus-pro-settings-wrap {
+	margin: 25px 0 0;
+}
+
+.chronus-pro-settings-wrap .license-status {
+	display: inline-block;
+	margin: 0 12px 0 0;
+	padding: 4px 8px;
+	background: #444;
+	color: #fff;
+	text-transform: uppercase;
+}
+
+.chronus-pro-settings-wrap .license-active {
+	background: green;
+}
+
+.chronus-pro-settings-wrap .license-invalid,
+.chronus-pro-settings-wrap .license-expired {
+	background: red;
+}
+
+.chronus-pro-settings-wrap .license-description {
+	margin: 16px 0 0;
+}
+
+.chronus-pro-settings-wrap .license-renewal {
+	margin: 16px 0 0;
+}

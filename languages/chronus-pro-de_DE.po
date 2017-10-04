@@ -1,0 +1,404 @@
+# Translation of Themes + Pro Versions + Add-ons in German
+# This file is distributed under the same license as the Themes + Pro Versions + Add-ons package.
+msgid ""
+msgstr ""
+"Project-Id-Version: Chronus Pro\n"
+"Report-Msgid-Bugs-To: https://themezee.com/\n"
+"POT-Creation-Date: 2017-08-31 11:10+0200\n"
+"PO-Revision-Date: 2017-08-31 11:25+0200\n"
+"Last-Translator: \n"
+"Language-Team: ThemeZee <support@themezee.com>\n"
+"Language: de_DE\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Poedit 2.0.3\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+
+#: chronus-pro.php:207
+msgid "Settings"
+msgstr "Einstellungen"
+
+#: includes/admin/class-admin-notices.php:52
+#, php-format
+msgid ""
+"Please enter your license key for the %1$s add-on in order to receive "
+"updates and support. <a href=\"%2$s\">Enter License Key</a>"
+msgstr ""
+"Bitte trage deinen Lizenzschlüssel für das %1$s Add-on ein, um automatische "
+"Updates und Support zu erhalten. <a href=\"%2$s\">Lizenzschlüssel eingeben</"
+"a>"
+
+#: includes/admin/class-admin-notices.php:57
+#: includes/admin/class-admin-notices.php:86
+msgid "Dismiss Notice"
+msgstr "Nachricht verbergen"
+
+#: includes/admin/class-admin-notices.php:81
+#, php-format
+msgid ""
+"Your license for %1$s has expired. Please <a href=\"%2$s\">renew</a> to "
+"continue getting updates and support!"
+msgstr ""
+"Deine Lizenz für %1$s  ist abgelaufen. Bitte <a href=\"%2$s\">erneuere "
+"diese</a>, um weiterhin Updates und Support zu erhalten!"
+
+#: includes/admin/class-admin-notices.php:108
+msgid "Security check failed"
+msgstr "Sicherheitscheck fehlgeschlagen"
+
+#: includes/admin/class-admin-notices.php:108
+#: includes/admin/class-plugin-updater.php:395
+msgid "Error"
+msgstr "Fehler"
+
+#: includes/admin/class-plugin-updater.php:201
+#, php-format
+msgid ""
+"There is a new version of %1$s available. %2$sView version %3$s details%4$s."
+msgstr ""
+"Es ist eine neue Version von %1$s verfügbar. %2$sDetails zu Version %3$s "
+"ansehen%4$s."
+
+#: includes/admin/class-plugin-updater.php:209
+#, php-format
+msgid ""
+"There is a new version of %1$s available. %2$sView version %3$s details%4$s "
+"or %5$supdate now%6$s."
+msgstr ""
+"Es ist eine neue Version von %1$s verfügbar. %2$sDetails zu Version %3$s "
+"ansehen%4$s oder %5$sjetzt aktualisieren%6$s."
+
+#: includes/admin/class-plugin-updater.php:395
+msgid "You do not have permission to install plugin updates"
+msgstr "Du hast keine Berechtigung zur Installation von Plugin Updates"
+
+#: includes/admin/class-settings-page.php:46
+#: includes/admin/class-settings-page.php:47
+msgid "Pro Version"
+msgstr "Pro Version"
+
+#: includes/admin/class-settings-page.php:81
+#, php-format
+msgid ""
+"You can find your license keys and manage your active sites on <a href=\"%s"
+"\" target=\"_blank\">themezee.com</a>."
+msgstr ""
+"Du kannst deine Lizenzschlüssel und aktive Seiten unter <a href=\"%s\" "
+"target=\"_blank\">themezee.com</a> einsehen."
+
+#: includes/admin/class-settings-page.php:81
+msgid "https://themezee.com/license-keys/"
+msgstr "https://themezee.com/de/lizenzschluessel/"
+
+#: includes/admin/class-settings.php:118
+msgid "Automatic Updates"
+msgstr "Automatische Updates"
+
+#: includes/admin/class-settings.php:123
+msgid "License Status"
+msgstr "Lizenzstatus"
+
+#: includes/admin/class-settings.php:132
+msgid "License Key"
+msgstr "Lizenzschlüssel"
+
+#: includes/admin/class-settings.php:148
+#, php-format
+msgid ""
+"Please enter your license key. An active license key is needed for automatic "
+"plugin updates and <a href=\"%s\" target=\"_blank\">support</a>."
+msgstr ""
+"Bitte trage deinen Lizenzschlüssel ein. Eine aktive Lizenz wird benötigt, um "
+"automatische Updates und <a href=\"%s\" target=\"_blank\">Support</a> zu "
+"erhalten."
+
+#: includes/admin/class-settings.php:198
+msgid "Active"
+msgstr "Aktiv"
+
+#: includes/admin/class-settings.php:199
+msgid "You are receiving updates."
+msgstr "Du erhältst Updates."
+
+#: includes/admin/class-settings.php:205
+msgid "Expired"
+msgstr "Abgelaufen"
+
+#: includes/admin/class-settings.php:206
+msgid ""
+"Your license has expired, renew today to continue getting updates and "
+"support!"
+msgstr ""
+"Deine Lizenz ist abgelaufen. Bitte erneuere sie, um weiterhin Updates und "
+"Support zu erhalten!"
+
+#: includes/admin/class-settings.php:207
+msgid "Renew Your License"
+msgstr "Lizenz verlängern"
+
+#: includes/admin/class-settings.php:211
+msgid "Invalid"
+msgstr "Ungültig"
+
+#: includes/admin/class-settings.php:212
+msgid ""
+"Please make sure that you have not reached the site limit and expiration "
+"date."
+msgstr ""
+"Bitte stelle sicher, dass du nicht die max. Anzahl an Seiten oder "
+"Ablaufdatum erreicht hast."
+
+#: includes/admin/class-settings.php:216
+msgid "Inactive"
+msgstr "Inaktiv"
+
+#: includes/admin/class-settings.php:240
+msgid "Deactivate License"
+msgstr "Lizenz deaktivieren"
+
+#: includes/admin/class-settings.php:245
+msgid "Activate License"
+msgstr "Lizenz aktivieren"
+
+#: includes/customizer/class-customize-font-control.php:51
+msgid "Previous Font"
+msgstr "Vorherige Schriftart"
+
+#: includes/customizer/class-customize-font-control.php:52
+msgid "Next Font"
+msgstr "Nächste Schriftart"
+
+#: includes/customizer/class-customize-font-control.php:53
+msgctxt "default font button"
+msgid "Default"
+msgstr "Standard"
+
+#: includes/customizer/class-customize-font-list-control.php:44
+msgid "Update Fonts"
+msgstr "Schriftarten aktualisieren"
+
+#: includes/modules/class-author-bio.php:60
+#, php-format
+msgid "About %s"
+msgstr "Über %s"
+
+#: includes/modules/class-author-bio.php:62
+msgid "View all posts"
+msgstr "Alle Beiträge ansehen"
+
+#: includes/modules/class-author-bio.php:91
+msgid "Display Author Bio"
+msgstr "Autor Bio anzeigen"
+
+#: includes/modules/class-custom-colors.php:409
+msgid "Theme Colors"
+msgstr "Theme Farben"
+
+#: includes/modules/class-custom-colors.php:428
+msgctxt "color setting"
+msgid "Page Background"
+msgstr "Theme Hintergrund"
+
+#: includes/modules/class-custom-colors.php:445
+msgctxt "color setting"
+msgid "Top Navigation"
+msgstr "Obere Navigation"
+
+#: includes/modules/class-custom-colors.php:462
+msgctxt "color setting"
+msgid "Main Navigation"
+msgstr "Hauptnavigation"
+
+#: includes/modules/class-custom-colors.php:479
+msgctxt "color setting"
+msgid "Links and Buttons"
+msgstr "Links und Buttons"
+
+#: includes/modules/class-custom-colors.php:496
+msgctxt "color setting"
+msgid "Post Titles"
+msgstr "Beitrags-Titel"
+
+#: includes/modules/class-custom-fonts.php:202
+msgid "Theme Fonts"
+msgstr "Theme Schriftarten"
+
+#: includes/modules/class-custom-fonts.php:221
+msgid "Base Font"
+msgstr "Basis Schriftart"
+
+#: includes/modules/class-custom-fonts.php:237
+msgctxt "font setting"
+msgid "Headings"
+msgstr "Überschriften"
+
+#: includes/modules/class-custom-fonts.php:253
+msgctxt "font setting"
+msgid "Navigation"
+msgstr "Navigation"
+
+#: includes/modules/class-custom-fonts.php:269
+msgctxt "font setting"
+msgid "Widget Titles"
+msgstr "Widget Titel"
+
+#: includes/modules/class-custom-fonts.php:286
+msgid "Choose available Fonts"
+msgstr "Verfügbare Schriftarten wählen"
+
+#: includes/modules/class-custom-fonts.php:290
+msgid "Default Browser Fonts (12)"
+msgstr "Standard Browser Schriftarten (12)"
+
+#: includes/modules/class-custom-fonts.php:291
+msgid "ThemeZee Favorite Fonts (35)"
+msgstr "Favoriten von ThemeZee (35)"
+
+#: includes/modules/class-custom-fonts.php:292
+msgid "Most Popular Google Fonts (100)"
+msgstr "Beliebteste Google Schriftarten (100)"
+
+#: includes/modules/class-custom-fonts.php:293
+msgid "All Google Fonts (650)"
+msgstr "Alle Google Schriftarten (650)"
+
+#: includes/modules/class-footer-line.php:117
+msgid "Footer Settings"
+msgstr "Footer Einstellungen"
+
+#: includes/modules/class-footer-line.php:132
+msgid "Footer Text"
+msgstr "Footer Text"
+
+#: includes/modules/class-footer-line.php:155
+msgid "Display Credit Link to ThemeZee on footer line"
+msgstr "Zeige Link zu ThemeZee im Footer"
+
+#: includes/modules/class-footer-line.php:199
+msgid "Footer Navigation"
+msgstr "Footer Navigation"
+
+#: includes/modules/class-footer-widgets.php:110
+msgid "Footer Column 1"
+msgstr "Footer Spalte 1"
+
+#: includes/modules/class-footer-widgets.php:112
+msgid "Appears on the first footer column."
+msgstr "Erscheint in der ersten Footer Spalte."
+
+#: includes/modules/class-footer-widgets.php:121
+msgid "Footer Column 2"
+msgstr "Footer Spalte 2"
+
+#: includes/modules/class-footer-widgets.php:123
+msgid "Appears on the second footer column."
+msgstr "Erscheint in der zweiten Footer Spalte."
+
+#: includes/modules/class-footer-widgets.php:132
+msgid "Footer Column 3"
+msgstr "Footer Spalte 3"
+
+#: includes/modules/class-footer-widgets.php:134
+msgid "Appears on the third footer column."
+msgstr "Erscheint in der dritten Footer Spalte."
+
+#: includes/modules/class-footer-widgets.php:143
+msgid "Footer Column 4"
+msgstr "Footer Spalte 4"
+
+#: includes/modules/class-footer-widgets.php:145
+msgid "Appears on the fourth footer column."
+msgstr "Erscheint in der vierten Footer Spalte."
+
+#: includes/modules/class-header-bar.php:216
+msgid "Top Navigation"
+msgstr "Obere Navigation"
+
+#: includes/modules/class-header-bar.php:217
+msgid "Social Icons"
+msgstr "Social Icons"
+
+#: includes/modules/class-header-search.php:82
+msgctxt "chronus-pro"
+msgid "Search"
+msgstr "Suche"
+
+#: includes/modules/class-header-search.php:104
+msgid "Header Search"
+msgstr "Header Suche"
+
+#: includes/modules/class-header-search.php:120
+msgid "Enable search field in header"
+msgstr "Suchfeld im Header anzeigen"
+
+#: includes/modules/class-scroll-to-top.php:68
+msgid "Scroll to Top"
+msgstr "Nach oben scrollen"
+
+#: includes/modules/class-scroll-to-top.php:84
+msgid "Display Scroll to Top Button"
+msgstr "Button zum Nach oben Scrollen anzeigen"
+
+#: includes/widgets/widget-magazine-posts-horizontal-box.php:24
+#: includes/widgets/widget-magazine-posts-horizontal-box.php:39
+msgid "Magazine (Horizontal Box)"
+msgstr "Magazin (Horizontale Box)"
+
+#: includes/widgets/widget-magazine-posts-horizontal-box.php:27
+msgid "Displays your posts from a selected category in a horizontal box."
+msgstr ""
+"Zeigt die Beiträge einer gewählten Kategorie in einer horizontalen Box."
+
+#: includes/widgets/widget-magazine-posts-horizontal-box.php:201
+#: includes/widgets/widget-magazine-posts-list.php:186
+#: includes/widgets/widget-magazine-posts-single.php:178
+#: includes/widgets/widget-magazine-posts-vertical-box.php:202
+msgid "Title:"
+msgstr "Titel:"
+
+#: includes/widgets/widget-magazine-posts-horizontal-box.php:207
+#: includes/widgets/widget-magazine-posts-list.php:192
+#: includes/widgets/widget-magazine-posts-single.php:184
+#: includes/widgets/widget-magazine-posts-vertical-box.php:208
+msgid "Category:"
+msgstr "Kategorie:"
+
+#: includes/widgets/widget-magazine-posts-horizontal-box.php:210
+#: includes/widgets/widget-magazine-posts-list.php:195
+#: includes/widgets/widget-magazine-posts-single.php:187
+#: includes/widgets/widget-magazine-posts-vertical-box.php:211
+msgid "All Categories"
+msgstr "Alle Kategorien"
+
+#: includes/widgets/widget-magazine-posts-list.php:24
+#: includes/widgets/widget-magazine-posts-list.php:39
+msgid "Magazine (List)"
+msgstr "Magazin (Liste)"
+
+#: includes/widgets/widget-magazine-posts-list.php:27
+msgid "Displays your posts from a selected category in a list layout."
+msgstr "Zeigt die Beiträge einer gewählten Kategorie in einer Liste."
+
+#: includes/widgets/widget-magazine-posts-list.php:207
+msgid "Number of posts:"
+msgstr "Anzahl der Beiträge:"
+
+#: includes/widgets/widget-magazine-posts-single.php:24
+#: includes/widgets/widget-magazine-posts-single.php:39
+msgid "Magazine (Single Post)"
+msgstr "Magazin (Einzelner Beitrag)"
+
+#: includes/widgets/widget-magazine-posts-single.php:27
+msgid "Displays a single post from a selected category."
+msgstr "Zeigt einen einzelnen Beitrag einer gewählten Kategorie."
+
+#: includes/widgets/widget-magazine-posts-vertical-box.php:24
+#: includes/widgets/widget-magazine-posts-vertical-box.php:39
+msgid "Magazine (Vertical Box)"
+msgstr "Magazin (Vertikale Box)"
+
+#: includes/widgets/widget-magazine-posts-vertical-box.php:27
+msgid "Displays your posts from a selected category in a vertical box."
+msgstr "Zeigt die Beiträge einer gewählten Kategorie in einer vertikalen Box."
