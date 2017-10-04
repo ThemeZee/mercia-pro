@@ -4,13 +4,13 @@
  *
  * Builds the different available custom font sets and returns the current font array to choose from.
  *
- * @package Chronus Pro
+ * @package Mercia Pro
  */
 
 /**
  * Custom Font List class
  */
-class Chronus_Pro_Custom_Font_Lists {
+class Mercia_Pro_Custom_Font_Lists {
 
 	/**
 	 * Get Fonts
@@ -27,28 +27,28 @@ class Chronus_Pro_Custom_Font_Lists {
 		switch ( $type ) :
 
 			case 'all':
-				$fonts = Chronus_Pro_Custom_Font_Lists::all_google_fonts();
+				$fonts = Mercia_Pro_Custom_Font_Lists::all_google_fonts();
 			break;
 
 			case 'popular':
-				$fonts = Chronus_Pro_Custom_Font_Lists::popular_google_fonts();
+				$fonts = Mercia_Pro_Custom_Font_Lists::popular_google_fonts();
 			break;
 
 			case 'default':
-				$fonts = Chronus_Pro_Custom_Font_Lists::default_browser_fonts();
+				$fonts = Mercia_Pro_Custom_Font_Lists::default_browser_fonts();
 			break;
 
 			default:
-				$fonts = Chronus_Pro_Custom_Font_Lists::favorite_google_fonts();
+				$fonts = Mercia_Pro_Custom_Font_Lists::favorite_google_fonts();
 			break;
 
 		endswitch;
 
 		// Get Theme Options.
-		$theme_options = Chronus_Pro_Customizer::get_theme_options();
+		$theme_options = Mercia_Pro_Customizer::get_theme_options();
 
 		// Get Default Fonts from settings.
-		$default_options = Chronus_Pro_Customizer::get_default_options();
+		$default_options = Mercia_Pro_Customizer::get_default_options();
 
 		// Add current selected fonts to array in any case.
 		if ( isset( $theme_options['text_font'] ) and ! in_array( $theme_options['text_font'], $fonts, true ) ) :

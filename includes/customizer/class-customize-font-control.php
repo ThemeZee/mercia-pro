@@ -2,7 +2,7 @@
 /**
  * Custom Font Control for the Customizer
  *
- * @package Chronus Pro
+ * @package Mercia Pro
  */
 
 /**
@@ -13,14 +13,14 @@ if ( class_exists( 'WP_Customize_Control' ) ) :
 	/**
 	 * Displays a custom Font control. Allows to switch fonts for particular elements on the theme.
 	 */
-	class Chronus_Pro_Customize_Font_Control extends WP_Customize_Control {
+	class Mercia_Pro_Customize_Font_Control extends WP_Customize_Control {
 
 		/**
 		 * Declare the control type. Critical for JS constructor.
 		 *
 		 * @var string
 		 */
-		public $type = 'chronus_pro_custom_font';
+		public $type = 'mercia_pro_custom_font';
 
 		/**
 		 * Localization Strings.
@@ -48,16 +48,16 @@ if ( class_exists( 'WP_Customize_Control' ) ) :
 
 			// Make Buttons translateable.
 			$this->l10n = array(
-				'previous' => __( 'Previous Font', 'chronus-pro' ),
-				'next' => __( 'Next Font', 'chronus-pro' ),
-				'standard' => _x( 'Default', 'default font button', 'chronus-pro' ),
+				'previous' => __( 'Previous Font', 'mercia-pro' ),
+				'next' => __( 'Next Font', 'mercia-pro' ),
+				'standard' => _x( 'Default', 'default font button', 'mercia-pro' ),
 			);
 
 			// Get Theme Options.
-			$theme_options = Chronus_Pro_Customizer::get_theme_options();
+			$theme_options = Mercia_Pro_Customizer::get_theme_options();
 
 			// Set Fonts.
-			$this->fonts = Chronus_Pro_Custom_Font_Lists::get_fonts( $theme_options['available_fonts'] );
+			$this->fonts = Mercia_Pro_Custom_Font_Lists::get_fonts( $theme_options['available_fonts'] );
 
 			parent::__construct( $manager, $id, $args );
 
@@ -71,7 +71,7 @@ if ( class_exists( 'WP_Customize_Control' ) ) :
 		public function enqueue() {
 
 			// Register and Enqueue Custom Font JS Constructor.
-			wp_enqueue_script( 'chronus-pro-custom-font-control', CHRONUS_PRO_PLUGIN_URL . 'assets/js/custom-font-control.js', array( 'customize-controls' ), CHRONUS_PRO_VERSION, true );
+			wp_enqueue_script( 'mercia-pro-custom-font-control', MERCIA_PRO_PLUGIN_URL . 'assets/js/custom-font-control.js', array( 'customize-controls' ), MERCIA_PRO_VERSION, true );
 
 		}
 

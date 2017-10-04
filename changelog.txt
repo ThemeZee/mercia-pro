@@ -1,12 +1,6 @@
 ===================================
-Chronus Pro Changelog
+Mercia Pro Changelog
 ===================================
-
-Version 1.1
------------------------------------
-* added Header Search feature
-* added Author Bio feature
-* updated color settings for new features
 
 Version 1.0
 -----------------------------------

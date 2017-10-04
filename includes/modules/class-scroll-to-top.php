@@ -4,7 +4,7 @@
  *
  * Displays scroll to top button based on theme options
  *
- * @package Chronus Pro
+ * @package Mercia Pro
  */
 
 // Exit if accessed directly.
@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
 /**
  * Scroll to Top Class
  */
-class Chronus_Pro_Scroll_To_Top {
+class Mercia_Pro_Scroll_To_Top {
 
 	/**
 	 * Scroll to Top Setup
@@ -22,8 +22,8 @@ class Chronus_Pro_Scroll_To_Top {
 	 */
 	static function setup() {
 
-		// Return early if Chronus Theme is not active.
-		if ( ! current_theme_supports( 'chronus-pro' ) ) {
+		// Return early if Mercia Theme is not active.
+		if ( ! current_theme_supports( 'mercia-pro' ) ) {
 			return;
 		}
 
@@ -42,15 +42,15 @@ class Chronus_Pro_Scroll_To_Top {
 	static function enqueue_script() {
 
 		// Get Theme Options from Database.
-		$theme_options = Chronus_Pro_Customizer::get_theme_options();
+		$theme_options = Mercia_Pro_Customizer::get_theme_options();
 
 		// Call Credit Link function of theme if credit link is activated.
 		if ( true === $theme_options['scroll_to_top'] ) :
 
-			wp_enqueue_script( 'chronus-pro-scroll-to-top', CHRONUS_PRO_PLUGIN_URL . 'assets/js/scroll-to-top.js', array( 'jquery' ), CHRONUS_PRO_VERSION, true );
+			wp_enqueue_script( 'mercia-pro-scroll-to-top', MERCIA_PRO_PLUGIN_URL . 'assets/js/scroll-to-top.js', array( 'jquery' ), MERCIA_PRO_VERSION, true );
 
 			// Passing Parameters to navigation.js.
-			wp_localize_script( 'chronus-pro-scroll-to-top', 'chronus_pro_scroll_button', chronus_get_svg( 'collapse' ) );
+			wp_localize_script( 'mercia-pro-scroll-to-top', 'mercia_pro_scroll_button', mercia_get_svg( 'collapse' ) );
 
 		endif;
 	}
@@ -63,27 +63,27 @@ class Chronus_Pro_Scroll_To_Top {
 	static function scroll_to_top_settings( $wp_customize ) {
 
 		// Add Scroll to Top headline.
-		$wp_customize->add_control( new Chronus_Customize_Header_Control(
-			$wp_customize, 'chronus_theme_options[scroll_top_title]', array(
-				'label' => esc_html__( 'Scroll to Top', 'chronus-pro' ),
-				'section' => 'chronus_pro_section_footer',
+		$wp_customize->add_control( new Mercia_Customize_Header_Control(
+			$wp_customize, 'mercia_theme_options[scroll_top_title]', array(
+				'label' => esc_html__( 'Scroll to Top', 'mercia-pro' ),
+				'section' => 'mercia_pro_section_footer',
 				'settings' => array(),
 				'priority' => 10,
 			)
 		) );
 
 		// Add Scroll to Top setting.
-		$wp_customize->add_setting( 'chronus_theme_options[scroll_to_top]', array(
+		$wp_customize->add_setting( 'mercia_theme_options[scroll_to_top]', array(
 			'default'           => false,
 			'type'           	=> 'option',
 			'transport'         => 'refresh',
-			'sanitize_callback' => 'chronus_sanitize_checkbox',
+			'sanitize_callback' => 'mercia_sanitize_checkbox',
 		) );
 
-		$wp_customize->add_control( 'chronus_theme_options[scroll_to_top]', array(
-			'label'    => __( 'Display Scroll to Top Button', 'chronus-pro' ),
-			'section'  => 'chronus_pro_section_footer',
-			'settings' => 'chronus_theme_options[scroll_to_top]',
+		$wp_customize->add_control( 'mercia_theme_options[scroll_to_top]', array(
+			'label'    => __( 'Display Scroll to Top Button', 'mercia-pro' ),
+			'section'  => 'mercia_pro_section_footer',
+			'settings' => 'mercia_theme_options[scroll_to_top]',
 			'type'     => 'checkbox',
 			'priority' => 20,
 		) );
@@ -91,4 +91,4 @@ class Chronus_Pro_Scroll_To_Top {
 }
 
 // Run Class.
-add_action( 'init', array( 'Chronus_Pro_Scroll_To_Top', 'setup' ) );
+add_action( 'init', array( 'Mercia_Pro_Scroll_To_Top', 'setup' ) );

@@ -2,9 +2,9 @@
 /**
  * Footer Widgets
  *
- * Registers footer widget areas and hooks into the Chronus theme to display widgets
+ * Registers footer widget areas and hooks into the Mercia theme to display widgets
  *
- * @package Chronus Pro
+ * @package Mercia Pro
  */
 
 // Exit if accessed directly.
@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
 /**
  * Footer Widgets Class
  */
-class Chronus_Pro_Footer_Widgets {
+class Mercia_Pro_Footer_Widgets {
 
 	/**
 	 * Footer Widgets Setup
@@ -22,20 +22,20 @@ class Chronus_Pro_Footer_Widgets {
 	 */
 	static function setup() {
 
-		// Return early if Chronus Theme is not active.
-		if ( ! current_theme_supports( 'chronus-pro' ) ) {
+		// Return early if Mercia Theme is not active.
+		if ( ! current_theme_supports( 'mercia-pro' ) ) {
 			return;
 		}
 
 		// Display footer widgets.
-		add_action( 'chronus_before_footer', array( __CLASS__, 'display_widgets' ), 20 );
+		add_action( 'mercia_before_footer', array( __CLASS__, 'display_widgets' ), 20 );
 
 	}
 
 	/**
 	 * Displays Footer Widgets
 	 *
-	 * Hooks into the chronus_before_footer action hook in footer area.
+	 * Hooks into the mercia_before_footer action hook in footer area.
 	 */
 	static function display_widgets() {
 
@@ -100,16 +100,16 @@ class Chronus_Pro_Footer_Widgets {
 	 */
 	static function register_widgets() {
 
-		// Return early if Chronus Theme is not active.
-		if ( ! current_theme_supports( 'chronus-pro' ) ) {
+		// Return early if Mercia Theme is not active.
+		if ( ! current_theme_supports( 'mercia-pro' ) ) {
 			return;
 		}
 
 		// Register Footer Column 1 widget area.
 		register_sidebar( array(
-			'name' => __( 'Footer Column 1', 'chronus-pro' ),
+			'name' => __( 'Footer Column 1', 'mercia-pro' ),
 			'id' => 'footer-column-1',
-			'description' => __( 'Appears on the first footer column.', 'chronus-pro' ),
+			'description' => __( 'Appears on the first footer column.', 'mercia-pro' ),
 			'before_widget' => '<aside id="%1$s" class="widget %2$s clearfix">',
 			'after_widget' => '</aside>',
 			'before_title' => '<div class="widget-header"><h3 class="widget-title">',
@@ -118,9 +118,9 @@ class Chronus_Pro_Footer_Widgets {
 
 		// Register Footer Column 2 widget area.
 		register_sidebar( array(
-			'name' => __( 'Footer Column 2', 'chronus-pro' ),
+			'name' => __( 'Footer Column 2', 'mercia-pro' ),
 			'id' => 'footer-column-2',
-			'description' => __( 'Appears on the second footer column.', 'chronus-pro' ),
+			'description' => __( 'Appears on the second footer column.', 'mercia-pro' ),
 			'before_widget' => '<aside id="%1$s" class="widget %2$s clearfix">',
 			'after_widget' => '</aside>',
 			'before_title' => '<div class="widget-header"><h3 class="widget-title">',
@@ -129,9 +129,9 @@ class Chronus_Pro_Footer_Widgets {
 
 		// Register Footer Column 3 widget area.
 		register_sidebar( array(
-			'name' => __( 'Footer Column 3', 'chronus-pro' ),
+			'name' => __( 'Footer Column 3', 'mercia-pro' ),
 			'id' => 'footer-column-3',
-			'description' => __( 'Appears on the third footer column.', 'chronus-pro' ),
+			'description' => __( 'Appears on the third footer column.', 'mercia-pro' ),
 			'before_widget' => '<aside id="%1$s" class="widget %2$s clearfix">',
 			'after_widget' => '</aside>',
 			'before_title' => '<div class="widget-header"><h3 class="widget-title">',
@@ -140,9 +140,9 @@ class Chronus_Pro_Footer_Widgets {
 
 		// Register Footer Column 4 widget area.
 		register_sidebar( array(
-			'name' => __( 'Footer Column 4', 'chronus-pro' ),
+			'name' => __( 'Footer Column 4', 'mercia-pro' ),
 			'id' => 'footer-column-4',
-			'description' => __( 'Appears on the fourth footer column.', 'chronus-pro' ),
+			'description' => __( 'Appears on the fourth footer column.', 'mercia-pro' ),
 			'before_widget' => '<aside id="%1$s" class="widget %2$s clearfix">',
 			'after_widget' => '</aside>',
 			'before_title' => '<div class="widget-header"><h3 class="widget-title">',
@@ -153,7 +153,7 @@ class Chronus_Pro_Footer_Widgets {
 }
 
 // Run Class.
-add_action( 'init', array( 'Chronus_Pro_Footer_Widgets', 'setup' ) );
+add_action( 'init', array( 'Mercia_Pro_Footer_Widgets', 'setup' ) );
 
 // Register widgets in backend.
-add_action( 'widgets_init', array( 'Chronus_Pro_Footer_Widgets', 'register_widgets' ), 20 );
+add_action( 'widgets_init', array( 'Mercia_Pro_Footer_Widgets', 'register_widgets' ), 20 );

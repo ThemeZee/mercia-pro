@@ -1,7 +1,7 @@
 /**
  * Header Search JS
  *
- * @package Chronus Pro
+ * @package Mercia Pro
  */
 
 ( function( $ ) {

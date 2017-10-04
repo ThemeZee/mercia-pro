@@ -4,7 +4,7 @@
  *
  * Displays header search in main navigation menu
  *
- * @package Chronus Pro
+ * @package Mercia Pro
  */
 
 // Exit if accessed directly.
@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
 /**
  * Header Search Class
  */
-class Chronus_Pro_Header_Search {
+class Mercia_Pro_Header_Search {
 
 	/**
 	 * Header Search Setup
@@ -22,8 +22,8 @@ class Chronus_Pro_Header_Search {
 	 */
 	static function setup() {
 
-		// Return early if Chronus Theme is not active.
-		if ( ! current_theme_supports( 'chronus-pro' ) ) {
+		// Return early if Mercia Theme is not active.
+		if ( ! current_theme_supports( 'mercia-pro' ) ) {
 			return;
 		}
 
@@ -37,7 +37,7 @@ class Chronus_Pro_Header_Search {
 		add_action( 'customize_register', array( __CLASS__, 'header_search_settings' ) );
 
 		// Hide Header Search if disabled.
-		add_filter( 'chronus_hide_elements', array( __CLASS__, 'hide_header_search' ) );
+		add_filter( 'mercia_hide_elements', array( __CLASS__, 'hide_header_search' ) );
 	}
 
 	/**
@@ -48,12 +48,12 @@ class Chronus_Pro_Header_Search {
 	static function enqueue_script() {
 
 		// Get Theme Options from Database.
-		$theme_options = Chronus_Pro_Customizer::get_theme_options();
+		$theme_options = Mercia_Pro_Customizer::get_theme_options();
 
 		// Embed header search JS if enabled.
 		if ( true === $theme_options['header_search'] || is_customize_preview() ) :
 
-			wp_enqueue_script( 'chronus-pro-header-search', CHRONUS_PRO_PLUGIN_URL . 'assets/js/header-search.js', array( 'jquery' ), CHRONUS_PRO_VERSION, true );
+			wp_enqueue_script( 'mercia-pro-header-search', MERCIA_PRO_PLUGIN_URL . 'assets/js/header-search.js', array( 'jquery' ), MERCIA_PRO_VERSION, true );
 
 		endif;
 	}
@@ -71,15 +71,15 @@ class Chronus_Pro_Header_Search {
 		}
 
 		// Get Theme Options from Database.
-		$theme_options = Chronus_Pro_Customizer::get_theme_options();
+		$theme_options = Mercia_Pro_Customizer::get_theme_options();
 
 		// Show header search if activated.
 		if ( true === $theme_options['header_search'] || is_customize_preview() ) :
 
 			$items .= '<li class="header-search menu-item menu-item-search">';
 			$items .= '<a class="header-search-icon">';
-			$items .= chronus_get_svg( 'search' );
-			$items .= '<span class="screen-reader-text">' . esc_html_x( 'Search', 'chronus-pro' ) . '</span>';
+			$items .= mercia_get_svg( 'search' );
+			$items .= '<span class="screen-reader-text">' . esc_html_x( 'Search', 'mercia-pro' ) . '</span>';
 			$items .= '</a>';
 			$items .= '<div class="header-search-form">';
 			$items .= get_search_form( false );
@@ -99,27 +99,27 @@ class Chronus_Pro_Header_Search {
 	static function header_search_settings( $wp_customize ) {
 
 		// Add Header Search Headline.
-		$wp_customize->add_control( new Chronus_Customize_Header_Control(
-			$wp_customize, 'chronus_theme_options[header_search_title]', array(
-				'label'    => esc_html__( 'Header Search', 'chronus-pro' ),
-				'section'  => 'chronus_section_layout',
+		$wp_customize->add_control( new Mercia_Customize_Header_Control(
+			$wp_customize, 'mercia_theme_options[header_search_title]', array(
+				'label'    => esc_html__( 'Header Search', 'mercia-pro' ),
+				'section'  => 'mercia_section_layout',
 				'settings' => array(),
 				'priority' => 30,
 			)
 		) );
 
 		// Add Header Search setting and control.
-		$wp_customize->add_setting( 'chronus_theme_options[header_search]', array(
+		$wp_customize->add_setting( 'mercia_theme_options[header_search]', array(
 			'default'           => false,
 			'type'              => 'option',
 			'transport'         => 'postMessage',
-			'sanitize_callback' => 'chronus_sanitize_checkbox',
+			'sanitize_callback' => 'mercia_sanitize_checkbox',
 		) );
 
-		$wp_customize->add_control( 'chronus_theme_options[header_search]', array(
-			'label'    => esc_html__( 'Enable search field in header', 'chronus-pro' ),
-			'section'  => 'chronus_section_layout',
-			'settings' => 'chronus_theme_options[header_search]',
+		$wp_customize->add_control( 'mercia_theme_options[header_search]', array(
+			'label'    => esc_html__( 'Enable search field in header', 'mercia-pro' ),
+			'section'  => 'mercia_section_layout',
+			'settings' => 'mercia_theme_options[header_search]',
 			'type'     => 'checkbox',
 			'priority' => 40,
 		) );
@@ -134,7 +134,7 @@ class Chronus_Pro_Header_Search {
 	static function hide_header_search( $elements ) {
 
 		// Get Theme Options from Database.
-		$theme_options = Chronus_Pro_Customizer::get_theme_options();
+		$theme_options = Mercia_Pro_Customizer::get_theme_options();
 
 		// Hide Header Search?
 		if ( false === $theme_options['header_search'] ) {
@@ -146,4 +146,4 @@ class Chronus_Pro_Header_Search {
 }
 
 // Run Class.
-add_action( 'init', array( 'Chronus_Pro_Header_Search', 'setup' ) );
+add_action( 'init', array( 'Mercia_Pro_Header_Search', 'setup' ) );

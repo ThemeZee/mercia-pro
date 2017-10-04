@@ -4,7 +4,7 @@
  *
  * Adds color settings to Customizer and generates color CSS code
  *
- * @package Chronus Pro
+ * @package Mercia Pro
  */
 
 // Exit if accessed directly.
@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
 /**
  * Custom Colors Class
  */
-class Chronus_Pro_Custom_Colors {
+class Mercia_Pro_Custom_Colors {
 
 	/**
 	 * Custom Colors Setup
@@ -22,13 +22,13 @@ class Chronus_Pro_Custom_Colors {
 	 */
 	static function setup() {
 
-		// Return early if Chronus Theme is not active.
-		if ( ! current_theme_supports( 'chronus-pro' ) ) {
+		// Return early if Mercia Theme is not active.
+		if ( ! current_theme_supports( 'mercia-pro' ) ) {
 			return;
 		}
 
 		// Add Custom Color CSS code to custom stylesheet output.
-		add_filter( 'chronus_pro_custom_css_stylesheet', array( __CLASS__, 'custom_colors_css' ) );
+		add_filter( 'mercia_pro_custom_css_stylesheet', array( __CLASS__, 'custom_colors_css' ) );
 
 		// Add Custom Color Settings.
 		add_action( 'customize_register', array( __CLASS__, 'color_settings' ) );
@@ -43,10 +43,10 @@ class Chronus_Pro_Custom_Colors {
 	static function custom_colors_css( $custom_css ) {
 
 		// Get Theme Options from Database.
-		$theme_options = Chronus_Pro_Customizer::get_theme_options();
+		$theme_options = Mercia_Pro_Customizer::get_theme_options();
 
 		// Get Default Fonts from settings.
-		$default_options = Chronus_Pro_Customizer::get_default_options();
+		$default_options = Mercia_Pro_Customizer::get_default_options();
 
 		// Set Page Background Color.
 		if ( $theme_options['page_bg_color'] !== $default_options['page_bg_color'] ) {
@@ -405,18 +405,18 @@ class Chronus_Pro_Custom_Colors {
 	static function color_settings( $wp_customize ) {
 
 		// Add Section for Theme Colors.
-		$wp_customize->add_section( 'chronus_pro_section_colors', array(
-			'title'    => __( 'Theme Colors', 'chronus-pro' ),
+		$wp_customize->add_section( 'mercia_pro_section_colors', array(
+			'title'    => __( 'Theme Colors', 'mercia-pro' ),
 			'priority' => 60,
-			'panel' => 'chronus_options_panel',
+			'panel' => 'mercia_options_panel',
 			)
 		);
 
 		// Get Default Colors from settings.
-		$default_options = Chronus_Pro_Customizer::get_default_options();
+		$default_options = Mercia_Pro_Customizer::get_default_options();
 
 		// Add Page Background Color setting.
-		$wp_customize->add_setting( 'chronus_theme_options[page_bg_color]', array(
+		$wp_customize->add_setting( 'mercia_theme_options[page_bg_color]', array(
 			'default'           => $default_options['page_bg_color'],
 			'type'           	=> 'option',
 			'transport'         => 'postMessage',
@@ -424,16 +424,16 @@ class Chronus_Pro_Custom_Colors {
 			)
 		);
 		$wp_customize->add_control( new WP_Customize_Color_Control(
-			$wp_customize, 'chronus_theme_options[page_bg_color]', array(
-				'label'      => _x( 'Page Background', 'color setting', 'chronus-pro' ),
-				'section'    => 'chronus_pro_section_colors',
-				'settings'   => 'chronus_theme_options[page_bg_color]',
+			$wp_customize, 'mercia_theme_options[page_bg_color]', array(
+				'label'      => _x( 'Page Background', 'color setting', 'mercia-pro' ),
+				'section'    => 'mercia_pro_section_colors',
+				'settings'   => 'mercia_theme_options[page_bg_color]',
 				'priority' => 10,
 			)
 		) );
 
 		// Add Top Navigation Color setting.
-		$wp_customize->add_setting( 'chronus_theme_options[top_navi_color]', array(
+		$wp_customize->add_setting( 'mercia_theme_options[top_navi_color]', array(
 			'default'           => $default_options['top_navi_color'],
 			'type'           	=> 'option',
 			'transport'         => 'postMessage',
@@ -441,16 +441,16 @@ class Chronus_Pro_Custom_Colors {
 			)
 		);
 		$wp_customize->add_control( new WP_Customize_Color_Control(
-			$wp_customize, 'chronus_theme_options[top_navi_color]', array(
-				'label'      => _x( 'Top Navigation', 'color setting', 'chronus-pro' ),
-				'section'    => 'chronus_pro_section_colors',
-				'settings'   => 'chronus_theme_options[top_navi_color]',
+			$wp_customize, 'mercia_theme_options[top_navi_color]', array(
+				'label'      => _x( 'Top Navigation', 'color setting', 'mercia-pro' ),
+				'section'    => 'mercia_pro_section_colors',
+				'settings'   => 'mercia_theme_options[top_navi_color]',
 				'priority' => 20,
 			)
 		) );
 
 		// Add Navigation Color setting.
-		$wp_customize->add_setting( 'chronus_theme_options[navi_color]', array(
+		$wp_customize->add_setting( 'mercia_theme_options[navi_color]', array(
 			'default'           => $default_options['navi_color'],
 			'type'           	=> 'option',
 			'transport'         => 'postMessage',
@@ -458,16 +458,16 @@ class Chronus_Pro_Custom_Colors {
 			)
 		);
 		$wp_customize->add_control( new WP_Customize_Color_Control(
-			$wp_customize, 'chronus_theme_options[navi_color]', array(
-				'label'      => _x( 'Main Navigation', 'color setting', 'chronus-pro' ),
-				'section'    => 'chronus_pro_section_colors',
-				'settings'   => 'chronus_theme_options[navi_color]',
+			$wp_customize, 'mercia_theme_options[navi_color]', array(
+				'label'      => _x( 'Main Navigation', 'color setting', 'mercia-pro' ),
+				'section'    => 'mercia_pro_section_colors',
+				'settings'   => 'mercia_theme_options[navi_color]',
 				'priority' => 30,
 			)
 		) );
 
 		// Add Link and Button Color setting.
-		$wp_customize->add_setting( 'chronus_theme_options[link_color]', array(
+		$wp_customize->add_setting( 'mercia_theme_options[link_color]', array(
 			'default'           => $default_options['link_color'],
 			'type'           	=> 'option',
 			'transport'         => 'postMessage',
@@ -475,16 +475,16 @@ class Chronus_Pro_Custom_Colors {
 			)
 		);
 		$wp_customize->add_control( new WP_Customize_Color_Control(
-			$wp_customize, 'chronus_theme_options[link_color]', array(
-				'label'      => _x( 'Links and Buttons', 'color setting', 'chronus-pro' ),
-				'section'    => 'chronus_pro_section_colors',
-				'settings'   => 'chronus_theme_options[link_color]',
+			$wp_customize, 'mercia_theme_options[link_color]', array(
+				'label'      => _x( 'Links and Buttons', 'color setting', 'mercia-pro' ),
+				'section'    => 'mercia_pro_section_colors',
+				'settings'   => 'mercia_theme_options[link_color]',
 				'priority' => 40,
 			)
 		) );
 
 		// Add Title Color setting.
-		$wp_customize->add_setting( 'chronus_theme_options[title_color]', array(
+		$wp_customize->add_setting( 'mercia_theme_options[title_color]', array(
 			'default'           => $default_options['title_color'],
 			'type'           	=> 'option',
 			'transport'         => 'postMessage',
@@ -492,10 +492,10 @@ class Chronus_Pro_Custom_Colors {
 			)
 		);
 		$wp_customize->add_control( new WP_Customize_Color_Control(
-			$wp_customize, 'chronus_theme_options[title_color]', array(
-				'label'      => _x( 'Post Titles', 'color setting', 'chronus-pro' ),
-				'section'    => 'chronus_pro_section_colors',
-				'settings'   => 'chronus_theme_options[title_color]',
+			$wp_customize, 'mercia_theme_options[title_color]', array(
+				'label'      => _x( 'Post Titles', 'color setting', 'mercia-pro' ),
+				'section'    => 'mercia_pro_section_colors',
+				'settings'   => 'mercia_theme_options[title_color]',
 				'priority' => 50,
 			)
 		) );
@@ -539,4 +539,4 @@ class Chronus_Pro_Custom_Colors {
 }
 
 // Run Class.
-add_action( 'init', array( 'Chronus_Pro_Custom_Colors', 'setup' ) );
+add_action( 'init', array( 'Mercia_Pro_Custom_Colors', 'setup' ) );

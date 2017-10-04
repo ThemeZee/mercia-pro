@@ -5,13 +5,13 @@
  * Display the latest posts from a selected category in a list layout.
  * Intented to be used in the Magazine Homepage widget area to built a magazine layouted page.
  *
- * @package Chronus Pro
+ * @package Mercia Pro
  */
 
 /**
  * Magazine Widget Class
  */
-class Chronus_Pro_Magazine_Posts_List_Widget extends WP_Widget {
+class Mercia_Pro_Magazine_Posts_List_Widget extends WP_Widget {
 
 	/**
 	 * Widget Constructor
@@ -20,11 +20,11 @@ class Chronus_Pro_Magazine_Posts_List_Widget extends WP_Widget {
 
 		// Setup Widget.
 		parent::__construct(
-			'chronus-magazine-posts-list', // ID.
-			esc_html__( 'Magazine (List)', 'chronus-pro' ), // Name.
+			'mercia-magazine-posts-list', // ID.
+			esc_html__( 'Magazine (List)', 'mercia-pro' ), // Name.
 			array(
-				'classname' => 'chronus-magazine-list-widget',
-				'description' => esc_html__( 'Displays your posts from a selected category in a list layout.', 'chronus-pro' ),
+				'classname' => 'mercia-magazine-list-widget',
+				'description' => esc_html__( 'Displays your posts from a selected category in a list layout.', 'mercia-pro' ),
 				'customize_selective_refresh' => true,
 			) // Args.
 		);
@@ -36,7 +36,7 @@ class Chronus_Pro_Magazine_Posts_List_Widget extends WP_Widget {
 	private function default_settings() {
 
 		$defaults = array(
-			'title'    => esc_html__( 'Magazine (List)', 'chronus-pro' ),
+			'title'    => esc_html__( 'Magazine (List)', 'mercia-pro' ),
 			'category' => 0,
 			'number'   => 3,
 		);
@@ -97,7 +97,7 @@ class Chronus_Pro_Magazine_Posts_List_Widget extends WP_Widget {
 	function render( $settings ) {
 
 		// Get cached post ids.
-		$post_ids = chronus_get_magazine_post_ids( $this->id, $settings['category'], $settings['number'] );
+		$post_ids = mercia_get_magazine_post_ids( $this->id, $settings['category'], $settings['number'] );
 
 		// Fetch posts from database.
 		$query_arguments = array(
@@ -112,7 +112,7 @@ class Chronus_Pro_Magazine_Posts_List_Widget extends WP_Widget {
 		if ( $posts_query->have_posts() ) :
 
 			// Limit the number of words for the excerpt.
-			add_filter( 'excerpt_length', 'chronus_magazine_posts_excerpt_length' );
+			add_filter( 'excerpt_length', 'mercia_magazine_posts_excerpt_length' );
 
 			// Display Posts.
 			while ( $posts_query->have_posts() ) : $posts_query->the_post();
@@ -122,7 +122,7 @@ class Chronus_Pro_Magazine_Posts_List_Widget extends WP_Widget {
 			endwhile;
 
 			// Remove excerpt filter.
-			remove_filter( 'excerpt_length', 'chronus_magazine_posts_excerpt_length' );
+			remove_filter( 'excerpt_length', 'mercia_magazine_posts_excerpt_length' );
 
 		endif;
 
@@ -144,7 +144,7 @@ class Chronus_Pro_Magazine_Posts_List_Widget extends WP_Widget {
 		if ( ! empty( $widget_title ) ) :
 
 			// Link Widget Title to category archive when possible.
-			$widget_title = chronus_magazine_widget_title( $widget_title, $settings['category'] );
+			$widget_title = mercia_magazine_widget_title( $widget_title, $settings['category'] );
 
 			// Display Widget Title.
 			echo $args['before_title'] . $widget_title . $args['after_title'];
@@ -166,7 +166,7 @@ class Chronus_Pro_Magazine_Posts_List_Widget extends WP_Widget {
 		$instance['category'] = (int) $new_instance['category'];
 		$instance['number'] = (int) $new_instance['number'];
 
-		chronus_flush_magazine_post_ids();
+		mercia_flush_magazine_post_ids();
 
 		return $instance;
 	}
@@ -183,16 +183,16 @@ class Chronus_Pro_Magazine_Posts_List_Widget extends WP_Widget {
 		?>
 
 		<p>
-			<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php esc_html_e( 'Title:', 'chronus-pro' ); ?>
+			<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php esc_html_e( 'Title:', 'mercia-pro' ); ?>
 				<input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $settings['title'] ); ?>" />
 			</label>
 		</p>
 
 		<p>
-			<label for="<?php echo $this->get_field_id( 'category' ); ?>"><?php esc_html_e( 'Category:', 'chronus-pro' ); ?></label><br/>
+			<label for="<?php echo $this->get_field_id( 'category' ); ?>"><?php esc_html_e( 'Category:', 'mercia-pro' ); ?></label><br/>
 			<?php // Display Category Select.
 				$args = array(
-					'show_option_all'    => esc_html__( 'All Categories', 'chronus-pro' ),
+					'show_option_all'    => esc_html__( 'All Categories', 'mercia-pro' ),
 					'show_count' 		 => true,
 					'hide_empty'		 => false,
 					'selected'           => $settings['category'],
@@ -204,7 +204,7 @@ class Chronus_Pro_Magazine_Posts_List_Widget extends WP_Widget {
 		</p>
 
 		<p>
-			<label for="<?php echo $this->get_field_id( 'number' ); ?>"><?php esc_html_e( 'Number of posts:', 'chronus-pro' ); ?>
+			<label for="<?php echo $this->get_field_id( 'number' ); ?>"><?php esc_html_e( 'Number of posts:', 'mercia-pro' ); ?>
 				<input id="<?php echo $this->get_field_id( 'number' ); ?>" name="<?php echo $this->get_field_name( 'number' ); ?>" type="text" value="<?php echo absint( $settings['number'] ); ?>" size="3" />
 			</label>
 		</p>

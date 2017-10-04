@@ -1,12 +1,12 @@
 <?php
 /**
- * Chronus Pro Settings Class
+ * Mercia Pro Settings Class
  *
  * Registers all plugin settings with the WordPress Settings API.
  * Handles license key activation with the ThemeZee Store API.
  *
  * @link https://codex.wordpress.org/Settings_API
- * @package Chronus Pro
+ * @package Mercia Pro
  */
 
 // Exit if accessed directly.
@@ -16,13 +16,13 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
 /**
  * Settings Class
  */
-class Chronus_Pro_Settings {
+class Mercia_Pro_Settings {
 	/** Singleton *************************************************************/
 
 	/**
 	 * Class instance
 	 *
-	 * @var instance The one true Chronus_Pro_Settings instance
+	 * @var instance The one true Mercia_Pro_Settings instance
 	 */
 	private static $instance;
 
@@ -36,7 +36,7 @@ class Chronus_Pro_Settings {
 	/**
 	 * Creates or returns an instance of this class.
 	 *
-	 * @return Chronus_Pro_Settings A single instance of this class.
+	 * @return Mercia_Pro_Settings A single instance of this class.
 	 */
 	public static function instance() {
 
@@ -63,7 +63,7 @@ class Chronus_Pro_Settings {
 		add_action( 'admin_init', array( $this, 'check_license' ) );
 
 		// Merge Plugin Options Array from Database with Default Settings array.
-		$this->options = wp_parse_args( get_option( 'chronus_pro_settings' , array() ), $this->default_settings() );
+		$this->options = wp_parse_args( get_option( 'mercia_pro_settings' , array() ), $this->default_settings() );
 	}
 
 	/**
@@ -110,33 +110,33 @@ class Chronus_Pro_Settings {
 	function register_settings() {
 
 		// Make sure that options exist in database.
-		if ( false == get_option( 'chronus_pro_settings' ) ) {
-			add_option( 'chronus_pro_settings' );
+		if ( false == get_option( 'mercia_pro_settings' ) ) {
+			add_option( 'mercia_pro_settings' );
 		}
 
 		// Add License Section.
-		add_settings_section( 'chronus_pro_settings_license', esc_html__( 'Automatic Updates', 'chronus-pro' ), array( $this, 'license_section_intro' ), 'chronus_pro_settings' );
+		add_settings_section( 'mercia_pro_settings_license', esc_html__( 'Automatic Updates', 'mercia-pro' ), array( $this, 'license_section_intro' ), 'mercia_pro_settings' );
 
 		// Add License Status Setting.
 		add_settings_field(
-			'chronus_pro_settings[license_status]',
-			esc_html__( 'License Status', 'chronus-pro' ),
+			'mercia_pro_settings[license_status]',
+			esc_html__( 'License Status', 'mercia-pro' ),
 			array( $this, 'license_status' ),
-			'chronus_pro_settings',
-			'chronus_pro_settings_license'
+			'mercia_pro_settings',
+			'mercia_pro_settings_license'
 		);
 
 		// Add License Key Setting.
 		add_settings_field(
-			'chronus_pro_settings[license_key]',
-			esc_html__( 'License Key', 'chronus-pro' ),
+			'mercia_pro_settings[license_key]',
+			esc_html__( 'License Key', 'mercia-pro' ),
 			array( $this, 'license_key' ),
-			'chronus_pro_settings',
-			'chronus_pro_settings_license'
+			'mercia_pro_settings',
+			'mercia_pro_settings_license'
 		);
 
 		// Creates our settings in the options table.
-		register_setting( 'chronus_pro_settings', 'chronus_pro_settings', array( $this, 'sanitize_settings' ) );
+		register_setting( 'mercia_pro_settings', 'mercia_pro_settings', array( $this, 'sanitize_settings' ) );
 	}
 
 	/**
@@ -145,7 +145,7 @@ class Chronus_Pro_Settings {
 	 * @return void
 	 */
 	function license_section_intro() {
-		printf( __( 'Please enter your license key. An active license key is needed for automatic plugin updates and <a href="%s" target="_blank">support</a>.', 'chronus-pro' ), 'https://themezee.com/support/?utm_source=plugin-settings&utm_medium=textlink&utm_campaign=chronus-pro&utm_content=support' );
+		printf( __( 'Please enter your license key. An active license key is needed for automatic plugin updates and <a href="%s" target="_blank">support</a>.', 'mercia-pro' ), 'https://themezee.com/support/?utm_source=plugin-settings&utm_medium=textlink&utm_campaign=mercia-pro&utm_content=support' );
 
 	}
 
@@ -161,7 +161,7 @@ class Chronus_Pro_Settings {
 			return $input;
 		}
 
-		$saved    = get_option( 'chronus_pro_settings', array() );
+		$saved    = get_option( 'mercia_pro_settings', array() );
 		if ( ! is_array( $saved ) ) {
 			$saved = array();
 		}
@@ -184,7 +184,7 @@ class Chronus_Pro_Settings {
 	 *
 	 * Renders license status field.
 	 *
-	 * @global $this->options Array of all the Chronus Pro Options
+	 * @global $this->options Array of all the Mercia Pro Options
 	 * @return void
 	 */
 	function license_status() {
@@ -195,25 +195,25 @@ class Chronus_Pro_Settings {
 
 		if ( 'valid' === $license_status ) {
 
-			$html .= '<span class="license-status license-active">' . esc_html__( 'Active', 'chronus-pro' ) . '</span>';
-			$html .= '<span class="license-description">' . esc_html__( 'You are receiving updates.', 'chronus-pro' ) . '</span>';
+			$html .= '<span class="license-status license-active">' . esc_html__( 'Active', 'mercia-pro' ) . '</span>';
+			$html .= '<span class="license-description">' . esc_html__( 'You are receiving updates.', 'mercia-pro' ) . '</span>';
 
 		} elseif ( 'expired' === $license_status ) {
 
-			$renewal_url = esc_url( add_query_arg( array( 'edd_license_key' => $license_key, 'download_id' => CHRONUS_PRO_PRODUCT_ID ), 'https://themezee.com/checkout' ) );
+			$renewal_url = esc_url( add_query_arg( array( 'edd_license_key' => $license_key, 'download_id' => MERCIA_PRO_PRODUCT_ID ), 'https://themezee.com/checkout' ) );
 
-			$html .= '<span class="license-status license-expired">' . esc_html__( 'Expired', 'chronus-pro' ) . '</span>';
-			$html .= '<p class="license-description">' . esc_html__( 'Your license has expired, renew today to continue getting updates and support!', 'chronus-pro' ) . '</p>';
-			$html .= '<a href="' . esc_url( $renewal_url ) . '" class="license-renewal button-primary">' . esc_html__( 'Renew Your License', 'chronus-pro' ) . '</a>';
+			$html .= '<span class="license-status license-expired">' . esc_html__( 'Expired', 'mercia-pro' ) . '</span>';
+			$html .= '<p class="license-description">' . esc_html__( 'Your license has expired, renew today to continue getting updates and support!', 'mercia-pro' ) . '</p>';
+			$html .= '<a href="' . esc_url( $renewal_url ) . '" class="license-renewal button-primary">' . esc_html__( 'Renew Your License', 'mercia-pro' ) . '</a>';
 
 		} elseif ( 'invalid' === $license_status ) {
 
-			$html .= '<span class="license-status license-invalid">' . esc_html__( 'Invalid', 'chronus-pro' ) . '</span>';
-			$html .= '<p class="license-description">' . esc_html__( 'Please make sure that you have not reached the site limit and expiration date.', 'chronus-pro' ) . '</p>';
+			$html .= '<span class="license-status license-invalid">' . esc_html__( 'Invalid', 'mercia-pro' ) . '</span>';
+			$html .= '<p class="license-description">' . esc_html__( 'Please make sure that you have not reached the site limit and expiration date.', 'mercia-pro' ) . '</p>';
 
 		} else {
 
-			$html .= '<span class="license-status license-inactive">' . esc_html__( 'Inactive', 'chronus-pro' ) . '</span>';
+			$html .= '<span class="license-status license-inactive">' . esc_html__( 'Inactive', 'mercia-pro' ) . '</span>';
 
 		}
 
@@ -225,7 +225,7 @@ class Chronus_Pro_Settings {
 	 *
 	 * Renders license key field.
 	 *
-	 * @global $this->options Array of all the Chronus Pro Options
+	 * @global $this->options Array of all the Mercia Pro Options
 	 * @return void
 	 */
 	function license_key() {
@@ -236,13 +236,13 @@ class Chronus_Pro_Settings {
 
 		if ( 'valid' === $license_status && ! empty( $license_key ) ) {
 
-			$html .= '<input type="text" class="regular-text" readonly="readonly" id="chronus_pro_settings[license_key]" name="chronus_pro_settings[license_key]" value="' . esc_attr( stripslashes( $license_key ) ) . '"/><br/><br/>';
-			$html .= '<input type="submit" class="button" name="chronus_pro_deactivate_license" value="' . esc_attr__( 'Deactivate License', 'chronus-pro' ) . '"/>';
+			$html .= '<input type="text" class="regular-text" readonly="readonly" id="mercia_pro_settings[license_key]" name="mercia_pro_settings[license_key]" value="' . esc_attr( stripslashes( $license_key ) ) . '"/><br/><br/>';
+			$html .= '<input type="submit" class="button" name="mercia_pro_deactivate_license" value="' . esc_attr__( 'Deactivate License', 'mercia-pro' ) . '"/>';
 
 		} else {
 
-			$html .= '<input type="text" class="regular-text" id="chronus_pro_settings[license_key]" name="chronus_pro_settings[license_key]" value="' . esc_attr( stripslashes( $license_key ) ) . '"/><br/><br/>';
-			$html .= '<input type="submit" class="button" name="chronus_pro_activate_license" value="' . esc_attr__( 'Activate License', 'chronus-pro' ) . '"/>';
+			$html .= '<input type="text" class="regular-text" id="mercia_pro_settings[license_key]" name="mercia_pro_settings[license_key]" value="' . esc_attr( stripslashes( $license_key ) ) . '"/><br/><br/>';
+			$html .= '<input type="submit" class="button" name="mercia_pro_activate_license" value="' . esc_attr__( 'Activate License', 'mercia-pro' ) . '"/>';
 
 		}
 
@@ -256,33 +256,33 @@ class Chronus_Pro_Settings {
 	 */
 	public function activate_license() {
 
-		if ( ! isset( $_POST['chronus_pro_settings'] ) ) {
+		if ( ! isset( $_POST['mercia_pro_settings'] ) ) {
 			return;
 		}
 
-		if ( ! isset( $_POST['chronus_pro_activate_license'] ) ) {
+		if ( ! isset( $_POST['mercia_pro_activate_license'] ) ) {
 			return;
 		}
 
-		if ( ! isset( $_POST['chronus_pro_settings']['license_key'] ) ) {
+		if ( ! isset( $_POST['mercia_pro_settings']['license_key'] ) ) {
 			return;
 		}
 
 		// Retrieve the license from the database.
 		$status  = $this->get( 'license_status' );
-		$license = trim( $_POST['chronus_pro_settings']['license_key'] );
+		$license = trim( $_POST['mercia_pro_settings']['license_key'] );
 
 		// Data to send in our API request.
 		$api_params = array(
 			'edd_action' => 'activate_license',
 			'license' 	=> $license,
-			'item_name' => urlencode( CHRONUS_PRO_NAME ),
-			'item_id'   => CHRONUS_PRO_PRODUCT_ID,
+			'item_name' => urlencode( MERCIA_PRO_NAME ),
+			'item_id'   => MERCIA_PRO_PRODUCT_ID,
 			'url'       => home_url(),
 		);
 
 		// Call the custom API.
-		$response = wp_remote_post( CHRONUS_PRO_STORE_API_URL, array( 'timeout' => 35, 'sslverify' => true, 'body' => $api_params ) );
+		$response = wp_remote_post( MERCIA_PRO_STORE_API_URL, array( 'timeout' => 35, 'sslverify' => true, 'body' => $api_params ) );
 
 		// Make sure the response came back okay.
 		if ( is_wp_error( $response ) ) {
@@ -296,9 +296,9 @@ class Chronus_Pro_Settings {
 
 		$options['license_status'] = $license_data->license;
 
-		update_option( 'chronus_pro_settings', $options );
+		update_option( 'mercia_pro_settings', $options );
 
-		delete_transient( 'chronus_pro_license_check' );
+		delete_transient( 'mercia_pro_license_check' );
 	}
 
 	/**
@@ -308,32 +308,32 @@ class Chronus_Pro_Settings {
 	 */
 	public function deactivate_license() {
 
-		if ( ! isset( $_POST['chronus_pro_settings'] ) ) {
+		if ( ! isset( $_POST['mercia_pro_settings'] ) ) {
 			return;
 		}
 
-		if ( ! isset( $_POST['chronus_pro_deactivate_license'] ) ) {
+		if ( ! isset( $_POST['mercia_pro_deactivate_license'] ) ) {
 			return;
 		}
 
-		if ( ! isset( $_POST['chronus_pro_settings']['license_key'] ) ) {
+		if ( ! isset( $_POST['mercia_pro_settings']['license_key'] ) ) {
 			return;
 		}
 
 		// Retrieve the license from the database.
-		$license = trim( $_POST['chronus_pro_settings']['license_key'] );
+		$license = trim( $_POST['mercia_pro_settings']['license_key'] );
 
 		// Data to send in our API request.
 		$api_params = array(
 			'edd_action' => 'deactivate_license',
 			'license' 	=> $license,
-			'item_name' => urlencode( CHRONUS_PRO_NAME ),
-			'item_id'   => CHRONUS_PRO_PRODUCT_ID,
+			'item_name' => urlencode( MERCIA_PRO_NAME ),
+			'item_id'   => MERCIA_PRO_PRODUCT_ID,
 			'url'       => home_url(),
 		);
 
 		// Call the custom API.
-		$response = wp_remote_post( CHRONUS_PRO_STORE_API_URL, array( 'timeout' => 35, 'sslverify' => true, 'body' => $api_params ) );
+		$response = wp_remote_post( MERCIA_PRO_STORE_API_URL, array( 'timeout' => 35, 'sslverify' => true, 'body' => $api_params ) );
 
 		// Make sure the response came back okay.
 		if ( is_wp_error( $response ) ) {
@@ -344,9 +344,9 @@ class Chronus_Pro_Settings {
 
 		$options['license_status'] = 'inactive';
 
-		update_option( 'chronus_pro_settings', $options );
+		update_option( 'mercia_pro_settings', $options );
 
-		delete_transient( 'chronus_pro_license_check' );
+		delete_transient( 'mercia_pro_license_check' );
 	}
 
 	/**
@@ -356,11 +356,11 @@ class Chronus_Pro_Settings {
 	 */
 	public function check_license() {
 
-		if ( ! empty( $_POST['chronus_pro_settings'] ) ) {
+		if ( ! empty( $_POST['mercia_pro_settings'] ) ) {
 			return; // Don't fire when saving settings.
 		}
 
-		$status = get_transient( 'chronus_pro_license_check' );
+		$status = get_transient( 'mercia_pro_license_check' );
 
 		// Run the license check a maximum of once per day.
 		if ( false === $status ) {
@@ -374,13 +374,13 @@ class Chronus_Pro_Settings {
 				$api_params = array(
 					'edd_action' => 'check_license',
 					'license' 	=> $license_key,
-					'item_name' => urlencode( CHRONUS_PRO_NAME ),
-					'item_id'   => CHRONUS_PRO_PRODUCT_ID,
+					'item_name' => urlencode( MERCIA_PRO_NAME ),
+					'item_id'   => MERCIA_PRO_PRODUCT_ID,
 					'url'       => home_url(),
 				);
 
 				// Call the custom API.
-				$response = wp_remote_post( CHRONUS_PRO_STORE_API_URL, array( 'timeout' => 25, 'sslverify' => true, 'body' => $api_params ) );
+				$response = wp_remote_post( MERCIA_PRO_STORE_API_URL, array( 'timeout' => 25, 'sslverify' => true, 'body' => $api_params ) );
 
 				// Make sure the response came back okay.
 				if ( is_wp_error( $response ) ) {
@@ -399,9 +399,9 @@ class Chronus_Pro_Settings {
 
 			$options['license_status'] = $status;
 
-			update_option( 'chronus_pro_settings', $options );
+			update_option( 'mercia_pro_settings', $options );
 
-			set_transient( 'chronus_pro_license_check', $status, DAY_IN_SECONDS );
+			set_transient( 'mercia_pro_license_check', $status, DAY_IN_SECONDS );
 
 		}
 
@@ -419,4 +419,4 @@ class Chronus_Pro_Settings {
 }
 
 // Run Setting Class.
-Chronus_Pro_Settings::instance();
+Mercia_Pro_Settings::instance();

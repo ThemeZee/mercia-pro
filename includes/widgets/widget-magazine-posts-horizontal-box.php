@@ -5,13 +5,13 @@
  * Display the latest posts from a selected category in a horizontal box.
  * Intented to be used in the Magazine Homepage widget area to built a magazine layouted page.
  *
- * @package Chronus Pro
+ * @package Mercia Pro
  */
 
 /**
  * Magazine Widget Class
  */
-class Chronus_Pro_Magazine_Horizontal_Box_Widget extends WP_Widget {
+class Mercia_Pro_Magazine_Horizontal_Box_Widget extends WP_Widget {
 
 	/**
 	 * Widget Constructor
@@ -20,11 +20,11 @@ class Chronus_Pro_Magazine_Horizontal_Box_Widget extends WP_Widget {
 
 		// Setup Widget.
 		parent::__construct(
-			'chronus-magazine-posts-horizontal-box', // ID.
-			esc_html__( 'Magazine (Horizontal Box)', 'chronus-pro' ), // Name.
+			'mercia-magazine-posts-horizontal-box', // ID.
+			esc_html__( 'Magazine (Horizontal Box)', 'mercia-pro' ), // Name.
 			array(
-				'classname' => 'chronus-magazine-horizontal-box-widget',
-				'description' => esc_html__( 'Displays your posts from a selected category in a horizontal box.', 'chronus-pro' ),
+				'classname' => 'mercia-magazine-horizontal-box-widget',
+				'description' => esc_html__( 'Displays your posts from a selected category in a horizontal box.', 'mercia-pro' ),
 				'customize_selective_refresh' => true,
 			) // Args.
 		);
@@ -36,7 +36,7 @@ class Chronus_Pro_Magazine_Horizontal_Box_Widget extends WP_Widget {
 	private function default_settings() {
 
 		$defaults = array(
-			'title'    => esc_html__( 'Magazine (Horizontal Box)', 'chronus-pro' ),
+			'title'    => esc_html__( 'Magazine (Horizontal Box)', 'mercia-pro' ),
 			'category' => 0,
 		);
 
@@ -96,7 +96,7 @@ class Chronus_Pro_Magazine_Horizontal_Box_Widget extends WP_Widget {
 	function render( $settings ) {
 
 		// Get cached post ids.
-		$post_ids = chronus_get_magazine_post_ids( $this->id, $settings['category'], 4 );
+		$post_ids = mercia_get_magazine_post_ids( $this->id, $settings['category'], 4 );
 
 		// Fetch posts from database.
 		$query_arguments = array(
@@ -111,7 +111,7 @@ class Chronus_Pro_Magazine_Horizontal_Box_Widget extends WP_Widget {
 		if ( $posts_query->have_posts() ) :
 
 			// Limit the number of words for the excerpt.
-			add_filter( 'excerpt_length', 'chronus_magazine_posts_excerpt_length' );
+			add_filter( 'excerpt_length', 'mercia_magazine_posts_excerpt_length' );
 
 			// Display Posts.
 			while ( $posts_query->have_posts() ) :
@@ -138,7 +138,7 @@ class Chronus_Pro_Magazine_Horizontal_Box_Widget extends WP_Widget {
 			echo '</div><!-- end .medium-posts -->';
 
 			// Remove excerpt filter.
-			remove_filter( 'excerpt_length', 'chronus_magazine_posts_excerpt_length' );
+			remove_filter( 'excerpt_length', 'mercia_magazine_posts_excerpt_length' );
 
 		endif;
 
@@ -160,7 +160,7 @@ class Chronus_Pro_Magazine_Horizontal_Box_Widget extends WP_Widget {
 		if ( ! empty( $widget_title ) ) :
 
 			// Link Widget Title to category archive when possible.
-			$widget_title = chronus_magazine_widget_title( $widget_title, $settings['category'] );
+			$widget_title = mercia_magazine_widget_title( $widget_title, $settings['category'] );
 
 			// Display Widget Title.
 			echo $args['before_title'] . $widget_title . $args['after_title'];
@@ -181,7 +181,7 @@ class Chronus_Pro_Magazine_Horizontal_Box_Widget extends WP_Widget {
 		$instance['title'] = sanitize_text_field( $new_instance['title'] );
 		$instance['category'] = (int) $new_instance['category'];
 
-		chronus_flush_magazine_post_ids();
+		mercia_flush_magazine_post_ids();
 
 		return $instance;
 	}
@@ -198,16 +198,16 @@ class Chronus_Pro_Magazine_Horizontal_Box_Widget extends WP_Widget {
 		?>
 
 		<p>
-			<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php esc_html_e( 'Title:', 'chronus-pro' ); ?>
+			<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php esc_html_e( 'Title:', 'mercia-pro' ); ?>
 				<input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $settings['title'] ); ?>" />
 			</label>
 		</p>
 
 		<p>
-			<label for="<?php echo $this->get_field_id( 'category' ); ?>"><?php esc_html_e( 'Category:', 'chronus-pro' ); ?></label><br/>
+			<label for="<?php echo $this->get_field_id( 'category' ); ?>"><?php esc_html_e( 'Category:', 'mercia-pro' ); ?></label><br/>
 			<?php // Display Category Select.
 				$args = array(
-					'show_option_all'    => esc_html__( 'All Categories', 'chronus-pro' ),
+					'show_option_all'    => esc_html__( 'All Categories', 'mercia-pro' ),
 					'show_count' 		 => true,
 					'hide_empty'		 => false,
 					'selected'           => $settings['category'],

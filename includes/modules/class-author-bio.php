@@ -5,7 +5,7 @@
  * Displays author bio below single posts
  * Registers and displays footer navigation
  *
- * @package Chronus Pro
+ * @package Mercia Pro
  */
 
 // Exit if accessed directly.
@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
 /**
  * Author Bio Class
  */
-class Chronus_Pro_Author_Bio {
+class Mercia_Pro_Author_Bio {
 
 	/**
 	 * Author Bio Setup
@@ -23,19 +23,19 @@ class Chronus_Pro_Author_Bio {
 	 */
 	static function setup() {
 
-		// Return early if Chronus Theme is not active.
-		if ( ! current_theme_supports( 'chronus-pro' ) ) {
+		// Return early if Mercia Theme is not active.
+		if ( ! current_theme_supports( 'mercia-pro' ) ) {
 			return;
 		}
 
 		// Remove default footer text function and replace it with new one.
-		add_action( 'chronus_author_bio', array( __CLASS__, 'author_bio' ) );
+		add_action( 'mercia_author_bio', array( __CLASS__, 'author_bio' ) );
 
 		// Add Author Bio checkbox in Customizer.
 		add_action( 'customize_register', array( __CLASS__, 'author_bio_settings' ) );
 
 		// Hide Author Bio if disabled.
-		add_filter( 'chronus_hide_elements', array( __CLASS__, 'hide_author_bio' ) );
+		add_filter( 'mercia_hide_elements', array( __CLASS__, 'hide_author_bio' ) );
 	}
 
 	/**
@@ -46,7 +46,7 @@ class Chronus_Pro_Author_Bio {
 	static function author_bio() {
 
 		// Get Theme Options from Database.
-		$theme_options = Chronus_Pro_Customizer::get_theme_options();
+		$theme_options = Mercia_Pro_Customizer::get_theme_options();
 
 		// Show author bio if activated.
 		if ( true === $theme_options['author_bio'] || is_customize_preview() ) : ?>
@@ -57,9 +57,9 @@ class Chronus_Pro_Author_Bio {
 				</div>
 
 				<div class="author-heading">
-					<h4 class="author-title"><?php printf( esc_html__( 'About %s', 'chronus-pro' ), '<span class="author-name">' . get_the_author() . '</span>' ); ?></h4>
+					<h4 class="author-title"><?php printf( esc_html__( 'About %s', 'mercia-pro' ), '<span class="author-name">' . get_the_author() . '</span>' ); ?></h4>
 					<a class="author-link" href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>" rel="author">
-						<?php esc_html_e( 'View all posts', 'chronus-pro' ); ?>
+						<?php esc_html_e( 'View all posts', 'mercia-pro' ); ?>
 					</a>
 				</div>
 
@@ -80,17 +80,17 @@ class Chronus_Pro_Author_Bio {
 	static function author_bio_settings( $wp_customize ) {
 
 		// Add Author Bio setting and control.
-		$wp_customize->add_setting( 'chronus_theme_options[author_bio]', array(
+		$wp_customize->add_setting( 'mercia_theme_options[author_bio]', array(
 			'default'           => false,
 			'type'              => 'option',
 			'transport'         => 'postMessage',
-			'sanitize_callback' => 'chronus_sanitize_checkbox',
+			'sanitize_callback' => 'mercia_sanitize_checkbox',
 		) );
 
-		$wp_customize->add_control( 'chronus_theme_options[author_bio]', array(
-			'label'    => __( 'Display Author Bio', 'chronus-pro' ),
-			'section'  => 'chronus_section_post',
-			'settings' => 'chronus_theme_options[author_bio]',
+		$wp_customize->add_control( 'mercia_theme_options[author_bio]', array(
+			'label'    => __( 'Display Author Bio', 'mercia-pro' ),
+			'section'  => 'mercia_section_post',
+			'settings' => 'mercia_theme_options[author_bio]',
 			'type'     => 'checkbox',
 			'priority' => 65,
 		) );
@@ -105,7 +105,7 @@ class Chronus_Pro_Author_Bio {
 	static function hide_author_bio( $elements ) {
 
 		// Get Theme Options from Database.
-		$theme_options = Chronus_Pro_Customizer::get_theme_options();
+		$theme_options = Mercia_Pro_Customizer::get_theme_options();
 
 		// Hide Author Bio?
 		if ( false === $theme_options['author_bio'] ) {
@@ -117,4 +117,4 @@ class Chronus_Pro_Author_Bio {
 }
 
 // Run Class.
-add_action( 'init', array( 'Chronus_Pro_Author_Bio', 'setup' ) );
+add_action( 'init', array( 'Mercia_Pro_Author_Bio', 'setup' ) );

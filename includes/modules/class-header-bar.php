@@ -2,9 +2,9 @@
 /**
  * Footer Widgets
  *
- * Registers footer widget areas and hooks into the Chronus theme to display widgets
+ * Registers footer widget areas and hooks into the Mercia theme to display widgets
  *
- * @package Chronus Pro
+ * @package Mercia Pro
  */
 
 // Exit if accessed directly.
@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
 /**
  * Header Bar Class
  */
-class Chronus_Pro_Header_Bar {
+class Mercia_Pro_Header_Bar {
 
 	/**
 	 * Footer Widgets Setup
@@ -22,13 +22,13 @@ class Chronus_Pro_Header_Bar {
 	 */
 	static function setup() {
 
-		// Return early if Chronus Theme is not active.
-		if ( ! current_theme_supports( 'chronus-pro' ) ) {
+		// Return early if Mercia Theme is not active.
+		if ( ! current_theme_supports( 'mercia-pro' ) ) {
 			return;
 		}
 
 		// Display Header Bar.
-		add_action( 'chronus_header_bar', array( __CLASS__, 'display_header_bar' ) );
+		add_action( 'mercia_header_bar', array( __CLASS__, 'display_header_bar' ) );
 
 		// Filter Social Menu to add SVG icons.
 		add_filter( 'walker_nav_menu_start_el',  array( __CLASS__, 'nav_menu_social_icons' ), 10, 4 );
@@ -137,7 +137,7 @@ class Chronus_Pro_Header_Bar {
 
 		// Create SVG markup.
 		$svg = '<svg class="icon icon-' . esc_attr( $icon ) . '" aria-hidden="true" role="img">';
-		$svg .= ' <use xlink:href="' . CHRONUS_PRO_PLUGIN_URL . 'assets/icons/social-icons.svg#icon-' . esc_html( $icon ) . '"></use> ';
+		$svg .= ' <use xlink:href="' . MERCIA_PRO_PLUGIN_URL . 'assets/icons/social-icons.svg#icon-' . esc_html( $icon ) . '"></use> ';
 		$svg .= '</svg>';
 
 		return $svg;
@@ -207,21 +207,21 @@ class Chronus_Pro_Header_Bar {
 	 */
 	static function register_nav_menus() {
 
-		// Return early if Chronus Theme is not active.
-		if ( ! current_theme_supports( 'chronus-pro' ) ) {
+		// Return early if Mercia Theme is not active.
+		if ( ! current_theme_supports( 'mercia-pro' ) ) {
 			return;
 		}
 
 		register_nav_menus( array(
-			'secondary' => esc_html__( 'Top Navigation', 'chronus-pro' ),
-			'social' => esc_html__( 'Social Icons', 'chronus-pro' ),
+			'secondary' => esc_html__( 'Top Navigation', 'mercia-pro' ),
+			'social' => esc_html__( 'Social Icons', 'mercia-pro' ),
 		) );
 
 	}
 }
 
 // Run Class.
-add_action( 'init', array( 'Chronus_Pro_Header_Bar', 'setup' ) );
+add_action( 'init', array( 'Mercia_Pro_Header_Bar', 'setup' ) );
 
 // Register navigation menus in backend.
-add_action( 'after_setup_theme', array( 'Chronus_Pro_Header_Bar', 'register_nav_menus' ), 20 );
+add_action( 'after_setup_theme', array( 'Mercia_Pro_Header_Bar', 'register_nav_menus' ), 20 );

@@ -3,13 +3,13 @@
  *
  * Reloads changes on Theme Customizer Preview asynchronously for better usability
  *
- * @package Chronus Pro
+ * @package Mercia Pro
  */
 
 ( function( $ ) {
 
 	/* Header Search checkbox */
-	wp.customize( 'chronus_theme_options[header_search]', function( value ) {
+	wp.customize( 'mercia_theme_options[header_search]', function( value ) {
 		value.bind( function( newval ) {
 			if ( false === newval ) {
 				hideElement( '.primary-navigation .main-navigation-menu li.header-search' );
@@ -20,7 +20,7 @@
 	} );
 
 	/* Author Bio checkbox */
-	wp.customize( 'chronus_theme_options[author_bio]', function( value ) {
+	wp.customize( 'mercia_theme_options[author_bio]', function( value ) {
 		value.bind( function( newval ) {
 			if ( false === newval ) {
 				hideElement( '.type-post .entry-footer .entry-author' );
@@ -31,29 +31,29 @@
 	} );
 
 	/* Footer textfield. */
-	wp.customize( 'chronus_theme_options[footer_text]', function( value ) {
+	wp.customize( 'mercia_theme_options[footer_text]', function( value ) {
 		value.bind( function( to ) {
 			$( '.site-info .footer-text' ).text( to );
 		} );
 	} );
 
 	/* Page Background Color Option */
-	wp.customize( 'chronus_theme_options[page_bg_color]', function( value ) {
+	wp.customize( 'mercia_theme_options[page_bg_color]', function( value ) {
 		value.bind( function( newval ) {
 			var title_color = '#cc5555',
 				link_color  = '#cc5555';
 				navi_color  = '#cc5555';
 
-			if( typeof wp.customize.value( 'chronus_theme_options[title_color]' ) !== 'undefined' ) {
-				title_color = wp.customize.value( 'chronus_theme_options[title_color]' ).get();
+			if( typeof wp.customize.value( 'mercia_theme_options[title_color]' ) !== 'undefined' ) {
+				title_color = wp.customize.value( 'mercia_theme_options[title_color]' ).get();
 			}
 
-			if( typeof wp.customize.value( 'chronus_theme_options[link_color]' ) !== 'undefined' ) {
-				link_color = wp.customize.value( 'chronus_theme_options[link_color]' ).get();
+			if( typeof wp.customize.value( 'mercia_theme_options[link_color]' ) !== 'undefined' ) {
+				link_color = wp.customize.value( 'mercia_theme_options[link_color]' ).get();
 			}
 
-			if( typeof wp.customize.value( 'chronus_theme_options[navi_color]' ) !== 'undefined' ) {
-				navi_color = wp.customize.value( 'chronus_theme_options[navi_color]' ).get();
+			if( typeof wp.customize.value( 'mercia_theme_options[navi_color]' ) !== 'undefined' ) {
+				navi_color = wp.customize.value( 'mercia_theme_options[navi_color]' ).get();
 			}
 
 			var text_color, meta_color, border_color;
@@ -117,12 +117,12 @@
 	} );
 
 	/* Link & Button Color Option */
-	wp.customize( 'chronus_theme_options[link_color]', function( value ) {
+	wp.customize( 'mercia_theme_options[link_color]', function( value ) {
 		value.bind( function( newval ) {
 			var text_color, page_bg_color;
 
-			if( typeof wp.customize.value( 'chronus_theme_options[page_bg_color]' ) !== 'undefined' ) {
-				page_bg_color = wp.customize.value( 'chronus_theme_options[page_bg_color]' ).get();
+			if( typeof wp.customize.value( 'mercia_theme_options[page_bg_color]' ) !== 'undefined' ) {
+				page_bg_color = wp.customize.value( 'mercia_theme_options[page_bg_color]' ).get();
 			}
 
 			if( isColorDark( page_bg_color ) ) {
@@ -157,7 +157,7 @@
 	} );
 
 	/* Top Navigation Color Option */
-	wp.customize( 'chronus_theme_options[top_navi_color]', function( value ) {
+	wp.customize( 'mercia_theme_options[top_navi_color]', function( value ) {
 		value.bind( function( newval ) {
 			$( '.header-bar-wrap, .top-navigation-menu ul' )
 				.css( 'background', newval );
@@ -196,12 +196,12 @@
 	} );
 
 	/* Main Navigation Color Option */
-	wp.customize( 'chronus_theme_options[navi_color]', function( value ) {
+	wp.customize( 'mercia_theme_options[navi_color]', function( value ) {
 		value.bind( function( newval ) {
 			var text_color, page_bg_color, menu_color, hover_color, border_color;
 
-			if( typeof wp.customize.value( 'chronus_theme_options[page_bg_color]' ) !== 'undefined' ) {
-				page_bg_color = wp.customize.value( 'chronus_theme_options[page_bg_color]' ).get();
+			if( typeof wp.customize.value( 'mercia_theme_options[page_bg_color]' ) !== 'undefined' ) {
+				page_bg_color = wp.customize.value( 'mercia_theme_options[page_bg_color]' ).get();
 			}
 
 			if( isColorDark( page_bg_color ) ) {
@@ -258,12 +258,12 @@
 	} );
 
 	/* Title Color Option */
-	wp.customize( 'chronus_theme_options[title_color]', function( value ) {
+	wp.customize( 'mercia_theme_options[title_color]', function( value ) {
 		value.bind( function( newval ) {
 			var text_color, page_bg_color;
 
-			if( typeof wp.customize.value( 'chronus_theme_options[page_bg_color]' ) !== 'undefined' ) {
-				page_bg_color = wp.customize.value( 'chronus_theme_options[page_bg_color]' ).get();
+			if( typeof wp.customize.value( 'mercia_theme_options[page_bg_color]' ) !== 'undefined' ) {
+				page_bg_color = wp.customize.value( 'mercia_theme_options[page_bg_color]' ).get();
 			}
 
 			if( isColorDark( page_bg_color ) ) {
@@ -283,17 +283,17 @@
 	} );
 
 	/* Theme Fonts */
-	wp.customize( 'chronus_theme_options[text_font]', function( value ) {
+	wp.customize( 'mercia_theme_options[text_font]', function( value ) {
 		value.bind( function( newval ) {
 
 			// Embed Font.
 			var fontFamilyUrl = newval.split( " " ).join( "+" );
 			var googleFontPath = "https://fonts.googleapis.com/css?family=" + fontFamilyUrl + ":400,700";
-			var googleFontSource = "<link id='chronus-pro-custom-text-font' href='" + googleFontPath + "' rel='stylesheet' type='text/css'>";
-			var checkLink = $( "head" ).find( "#chronus-pro-custom-text-font" ).length;
+			var googleFontSource = "<link id='mercia-pro-custom-text-font' href='" + googleFontPath + "' rel='stylesheet' type='text/css'>";
+			var checkLink = $( "head" ).find( "#mercia-pro-custom-text-font" ).length;
 
 			if (checkLink > 0) {
-				$( "head" ).find( "#chronus-pro-custom-text-font" ).remove();
+				$( "head" ).find( "#mercia-pro-custom-text-font" ).remove();
 			}
 			$( "head" ).append( googleFontSource );
 
@@ -304,17 +304,17 @@
 		} );
 	} );
 
-	wp.customize( 'chronus_theme_options[title_font]', function( value ) {
+	wp.customize( 'mercia_theme_options[title_font]', function( value ) {
 		value.bind( function( newval ) {
 
 			// Embed Font.
 			var fontFamilyUrl = newval.split( " " ).join( "+" );
 			var googleFontPath = "https://fonts.googleapis.com/css?family=" + fontFamilyUrl + ":400,700";
-			var googleFontSource = "<link id='chronus-pro-custom-title-font' href='" + googleFontPath + "' rel='stylesheet' type='text/css'>";
-			var checkLink = $( "head" ).find( "#chronus-pro-custom-title-font" ).length;
+			var googleFontSource = "<link id='mercia-pro-custom-title-font' href='" + googleFontPath + "' rel='stylesheet' type='text/css'>";
+			var checkLink = $( "head" ).find( "#mercia-pro-custom-title-font" ).length;
 
 			if (checkLink > 0) {
-				$( "head" ).find( "#chronus-pro-custom-title-font" ).remove();
+				$( "head" ).find( "#mercia-pro-custom-title-font" ).remove();
 			}
 			$( "head" ).append( googleFontSource );
 
@@ -325,17 +325,17 @@
 		} );
 	} );
 
-	wp.customize( 'chronus_theme_options[navi_font]', function( value ) {
+	wp.customize( 'mercia_theme_options[navi_font]', function( value ) {
 		value.bind( function( newval ) {
 
 			// Embed Font.
 			var fontFamilyUrl = newval.split( " " ).join( "+" );
 			var googleFontPath = "https://fonts.googleapis.com/css?family=" + fontFamilyUrl + ":400,700";
-			var googleFontSource = "<link id='chronus-pro-custom-navi-font' href='" + googleFontPath + "' rel='stylesheet' type='text/css'>";
-			var checkLink = $( "head" ).find( "#chronus-pro-custom-navi-font" ).length;
+			var googleFontSource = "<link id='mercia-pro-custom-navi-font' href='" + googleFontPath + "' rel='stylesheet' type='text/css'>";
+			var checkLink = $( "head" ).find( "#mercia-pro-custom-navi-font" ).length;
 
 			if (checkLink > 0) {
-				$( "head" ).find( "#chronus-pro-custom-navi-font" ).remove();
+				$( "head" ).find( "#mercia-pro-custom-navi-font" ).remove();
 			}
 			$( "head" ).append( googleFontSource );
 
@@ -346,17 +346,17 @@
 		} );
 	} );
 
-	wp.customize( 'chronus_theme_options[widget_title_font]', function( value ) {
+	wp.customize( 'mercia_theme_options[widget_title_font]', function( value ) {
 		value.bind( function( newval ) {
 
 			// Embed Font.
 			var fontFamilyUrl = newval.split( " " ).join( "+" );
 			var googleFontPath = "https://fonts.googleapis.com/css?family=" + fontFamilyUrl + ":400,700";
-			var googleFontSource = "<link id='chronus-pro-custom-widget-title-font' href='" + googleFontPath + "' rel='stylesheet' type='text/css'>";
-			var checkLink = $( "head" ).find( "#chronus-pro-custom-widget-title-font" ).length;
+			var googleFontSource = "<link id='mercia-pro-custom-widget-title-font' href='" + googleFontPath + "' rel='stylesheet' type='text/css'>";
+			var checkLink = $( "head" ).find( "#mercia-pro-custom-widget-title-font" ).length;
 
 			if (checkLink > 0) {
-				$( "head" ).find( "#chronus-pro-custom-widget-title-font" ).remove();
+				$( "head" ).find( "#mercia-pro-custom-widget-title-font" ).remove();
 			}
 			$( "head" ).append( googleFontSource );
 

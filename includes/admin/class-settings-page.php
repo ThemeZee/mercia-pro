@@ -1,10 +1,10 @@
 <?php
 /**
- * Chronus Pro Settings Page Class
+ * Mercia Pro Settings Page Class
  *
  * Adds a new tab on the themezee plugins page and displays the settings page.
  *
- * @package Chronus Pro
+ * @package Mercia Pro
  */
 
 // Exit if accessed directly.
@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
 /**
  * Settings Page Class
  */
-class Chronus_Pro_Settings_Page {
+class Mercia_Pro_Settings_Page {
 
 	/**
 	 * Setup the Settings Page class
@@ -37,16 +37,16 @@ class Chronus_Pro_Settings_Page {
 	 */
 	static function add_settings_page() {
 
-		// Return early if Chronus Theme is not active.
-		if ( ! current_theme_supports( 'chronus-pro' ) ) {
+		// Return early if Mercia Theme is not active.
+		if ( ! current_theme_supports( 'mercia-pro' ) ) {
 			return;
 		}
 
 		add_theme_page(
-			esc_html__( 'Pro Version', 'chronus-pro' ),
-			esc_html__( 'Pro Version', 'chronus-pro' ),
+			esc_html__( 'Pro Version', 'mercia-pro' ),
+			esc_html__( 'Pro Version', 'mercia-pro' ),
 			'edit_theme_options',
-			'chronus-pro',
+			'mercia-pro',
 			array( __CLASS__, 'display_settings_page' )
 		);
 
@@ -67,18 +67,18 @@ class Chronus_Pro_Settings_Page {
 
 		<div class="wrap pro-version-wrap">
 
-			<h1><?php echo CHRONUS_PRO_NAME; ?> <?php echo CHRONUS_PRO_VERSION; ?></h1>
+			<h1><?php echo MERCIA_PRO_NAME; ?> <?php echo MERCIA_PRO_VERSION; ?></h1>
 
-			<div id="chronus-pro-settings" class="chronus-pro-settings-wrap">
+			<div id="mercia-pro-settings" class="mercia-pro-settings-wrap">
 
-				<form class="chronus-pro-settings-form" method="post" action="options.php">
+				<form class="mercia-pro-settings-form" method="post" action="options.php">
 					<?php
-						settings_fields( 'chronus_pro_settings' );
-						do_settings_sections( 'chronus_pro_settings' );
+						settings_fields( 'mercia_pro_settings' );
+						do_settings_sections( 'mercia_pro_settings' );
 					?>
 				</form>
 
-				<p><?php printf( __( 'You can find your license keys and manage your active sites on <a href="%s" target="_blank">themezee.com</a>.', 'chronus-pro' ), __( 'https://themezee.com/license-keys/', 'chronus-pro' ) . '?utm_source=plugin-settings&utm_medium=textlink&utm_campaign=chronus-pro&utm_content=license-keys' ); ?></p>
+				<p><?php printf( __( 'You can find your license keys and manage your active sites on <a href="%s" target="_blank">themezee.com</a>.', 'mercia-pro' ), __( 'https://themezee.com/license-keys/', 'mercia-pro' ) . '?utm_source=plugin-settings&utm_medium=textlink&utm_campaign=mercia-pro&utm_content=license-keys' ); ?></p>
 
 			</div>
 
@@ -97,15 +97,15 @@ class Chronus_Pro_Settings_Page {
 	static function settings_page_css( $hook ) {
 
 		// Load styles and scripts only on theme info page.
-		if ( 'appearance_page_chronus-pro' != $hook ) {
+		if ( 'appearance_page_mercia-pro' != $hook ) {
 			return;
 		}
 
 		// Embed theme info css style.
-		wp_enqueue_style( 'chronus-pro-settings-css', plugins_url( '/assets/css/settings.css', dirname( dirname( __FILE__ ) ) ), array(), CHRONUS_PRO_VERSION );
+		wp_enqueue_style( 'mercia-pro-settings-css', plugins_url( '/assets/css/settings.css', dirname( dirname( __FILE__ ) ) ), array(), MERCIA_PRO_VERSION );
 
 	}
 }
 
-// Run Chronus Pro Settings Page Class.
-Chronus_Pro_Settings_Page::setup();
+// Run Mercia Pro Settings Page Class.
+Mercia_Pro_Settings_Page::setup();
