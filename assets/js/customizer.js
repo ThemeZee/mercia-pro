@@ -8,6 +8,24 @@
 
 ( function( $ ) {
 
+	/* Header textfield. */
+	wp.customize( 'mercia_theme_options[header_text]', function( value ) {
+		value.bind( function( to ) {
+			$( '.header-bar .header-content .header-text' ).text( to );
+		} );
+	} );
+
+	/* Header Date checkbox */
+	wp.customize( 'mercia_theme_options[header_date]', function( value ) {
+		value.bind( function( newval ) {
+			if ( false === newval ) {
+				hideElement( '.header-bar .header-content .header-date' );
+			} else {
+				showElement( '.header-bar .header-content .header-date' );
+			}
+		} );
+	} );
+
 	/* Header Search checkbox */
 	wp.customize( 'mercia_theme_options[header_search]', function( value ) {
 		value.bind( function( newval ) {

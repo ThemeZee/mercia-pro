@@ -139,8 +139,9 @@ class Mercia_Pro_Footer_Line {
 
 		// Add selective refresh for footer text.
 		$wp_customize->selective_refresh->add_partial( 'mercia_theme_options[footer_text]', array(
-			'selector'        => '.site-info .footer-text',
-			'render_callback' => array( __CLASS__, 'customize_partial_footer_text' ),
+			'selector'         => '.site-info .footer-text',
+			'render_callback'  => array( __CLASS__, 'customize_partial_footer_text' ),
+			'fallback_refresh' => false,
 		) );
 
 		// Add Credit Link setting.

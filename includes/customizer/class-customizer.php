@@ -59,6 +59,8 @@ class Mercia_Pro_Customizer {
 	static function get_default_options() {
 
 		$default_options = array(
+			'header_text'       => '',
+			'header_date'       => false,
 			'header_search'     => false,
 			'author_bio'        => false,
 			'scroll_to_top'     => false,

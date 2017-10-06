@@ -1,8 +1,6 @@
 <?php
 /**
- * Footer Widgets
- *
- * Registers footer widget areas and hooks into the Mercia theme to display widgets
+ * Header Bar
  *
  * @package Mercia Pro
  */
@@ -16,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
 class Mercia_Pro_Header_Bar {
 
 	/**
-	 * Footer Widgets Setup
+	 * Class Setup
 	 *
 	 * @return void
 	 */
@@ -29,6 +27,12 @@ class Mercia_Pro_Header_Bar {
 
 		// Display Header Bar.
 		add_action( 'mercia_header_bar', array( __CLASS__, 'display_header_bar' ) );
+
+		// Add Header Settings.
+		add_action( 'customize_register', array( __CLASS__, 'header_settings' ) );
+
+		// Hide Header Date if disabled.
+		add_filter( 'mercia_hide_elements', array( __CLASS__, 'hide_header_date' ) );
 	}
 
 	/**
@@ -38,38 +42,171 @@ class Mercia_Pro_Header_Bar {
 	 */
 	static function display_header_bar() {
 
-		// Check if there are menus.
-		if ( has_nav_menu( 'secondary' ) ) {
+		// Get theme options.
+		$theme_options = Mercia_Pro_Customizer::get_theme_options();
 
-			echo '<div id="header-top" class="header-bar-wrap">';
+		// Check if there is content for the header bar.
+		if ( false !== $theme_options['header_date'] || '' !== $theme_options['header_text'] ||  has_nav_menu( 'secondary' ) || is_customize_preview() ) : ?>
 
-			echo '<div id="header-bar" class="header-bar container clearfix">';
+			<div id="header-top" class="header-bar-wrap">
 
-			echo '<div class="header-text">Header Text Header Text Header Text  Text Header Text  Text Header Text</div>';
+				<div id="header-bar" class="header-bar container clearfix">
 
-			// Check if there is a top navigation menu.
-			if ( has_nav_menu( 'secondary' ) ) {
+					<?php
+					if ( false !== $theme_options['header_date'] || '' !== $theme_options['header_text'] || is_customize_preview() ) : ?>
 
-				echo '<nav id="top-navigation" class="secondary-navigation navigation clearfix" role="navigation">';
+						<div class="header-content">
 
-				// Display Top Navigation.
-				wp_nav_menu( array(
-					'theme_location' => 'secondary',
-					'container' => false,
-					'menu_class' => 'top-navigation-menu',
-					'echo' => true,
-					'fallback_cb' => '',
-					)
-				);
+							<?php
+							if ( false !== $theme_options['header_date'] || is_customize_preview() ) : ?>
 
-				echo '</nav>';
+								<span class="header-date"><?php echo current_time( get_option( 'date_format' ) ); ?></span>
 
-			}
+							<?php endif;
 
-			echo '</div>';
+							if ( '' !== $theme_options['header_text'] || is_customize_preview() ) : ?>
 
-			echo '</div>';
-		} // End if().
+								<span class="header-text"><?php echo do_shortcode( wp_kses_post( $theme_options['header_text'] ) ); ?></span>
+
+							<?php endif; ?>
+
+						</div>
+
+					<?php
+					endif;
+
+					// Check if there is a top navigation menu.
+					if ( has_nav_menu( 'secondary' ) ) : ?>
+
+						<nav id="top-navigation" class="secondary-navigation navigation clearfix" role="navigation">
+
+							<?php
+							// Display Top Navigation.
+							wp_nav_menu( array(
+								'theme_location' => 'secondary',
+								'container'      => false,
+								'menu_class'     => 'top-navigation-menu',
+								'echo'           => true,
+								'fallback_cb'    => '',
+							) );
+							?>
+
+						</nav>
+
+					<?php endif; ?>
+
+				</div>
+
+			</div>
+
+		<?php
+		endif;
+	}
+
+	/**
+	 * Adds site logo settings
+	 *
+	 * @param object $wp_customize / Customizer Object.
+	 */
+	static function header_settings( $wp_customize ) {
+
+		// Add Section for Header Settings.
+		$wp_customize->add_section( 'mercia_pro_section_header', array(
+			'title'    => __( 'Header Settings', 'mercia-pro' ),
+			'priority' => 20,
+			'panel'    => 'mercia_options_panel',
+		) );
+
+		// Add Header Date Headline.
+		$wp_customize->add_control( new Mercia_Customize_Header_Control(
+			$wp_customize, 'mercia_theme_options[header_date_title]', array(
+				'label'    => esc_html__( 'Header Date', 'mercia-pro' ),
+				'section'  => 'mercia_pro_section_header',
+				'settings' => array(),
+				'priority' => 10,
+			)
+		) );
+
+		// Add Header Date setting.
+		$wp_customize->add_setting( 'mercia_theme_options[header_date]', array(
+			'default'           => false,
+			'type'              => 'option',
+			'transport'         => 'postMessage',
+			'sanitize_callback' => 'mercia_sanitize_checkbox',
+		) );
+
+		$wp_customize->add_control( 'mercia_theme_options[header_date]', array(
+			'label'    => esc_html__( 'Display current date in header bar', 'mercia-pro' ),
+			'section'  => 'mercia_pro_section_header',
+			'settings' => 'mercia_theme_options[header_date]',
+			'type'     => 'checkbox',
+			'priority' => 20,
+		) );
+
+		// Add Header Text setting.
+		$wp_customize->add_setting( 'mercia_theme_options[header_text]', array(
+			'default'           => '',
+			'type'              => 'option',
+			'transport'         => 'postMessage',
+			'sanitize_callback' => array( __CLASS__, 'sanitize_header_text' ),
+		) );
+
+		$wp_customize->add_control( 'mercia_theme_options[header_text]', array(
+			'label'    => __( 'Header Text', 'mercia-pro' ),
+			'section'  => 'mercia_pro_section_header',
+			'settings' => 'mercia_theme_options[header_text]',
+			'type'     => 'textarea',
+			'priority' => 30,
+		) );
+
+		// Add selective refresh for header text.
+		$wp_customize->selective_refresh->add_partial( 'mercia_theme_options[header_text]', array(
+			'selector'         => '.header-bar .header-content .header-text',
+			'render_callback'  => array( __CLASS__, 'customize_partial_header_text' ),
+			'fallback_refresh' => false,
+		) );
+	}
+
+	/**
+	 *  Sanitize header text
+	 *
+	 * @param String $value / Value of the setting.
+	 * @return string
+	 */
+	static function sanitize_header_text( $value ) {
+
+		if ( current_user_can( 'unfiltered_html' ) ) :
+			return $value;
+		else :
+			return stripslashes( wp_filter_post_kses( addslashes( $value ) ) );
+		endif;
+	}
+
+	/**
+	 * Render the header text for the selective refresh partial.
+	 */
+	static function customize_partial_header_text() {
+		$theme_options = Mercia_Pro_Customizer::get_theme_options();
+		echo do_shortcode( wp_kses_post( $theme_options['header_text'] ) );
+	}
+
+	/**
+	 * Hide Header Date if deactivated.
+	 *
+	 * @param array $elements / Elements to be hidden.
+	 * @return array $elements
+	 */
+	static function hide_header_date( $elements ) {
+
+		// Get Theme Options from Database.
+		$theme_options = Mercia_Pro_Customizer::get_theme_options();
+
+		// Hide Header Search?
+		if ( false === $theme_options['header_date'] ) {
+			$elements[] = '.header-bar .header-content .header-date';
+		}
+
+		return $elements;
 	}
 
 	/**

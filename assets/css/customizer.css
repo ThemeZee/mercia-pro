@@ -6,16 +6,19 @@
  * @package Mercia Pro
  */
 
-#customize-control-mercia_theme_options-logo_spacing,
+#customize-control-mercia_theme_options-header_text,
+#customize-control-mercia_theme_options-header_search_title,
 #customize-control-mercia_theme_options-footer_text {
 	margin-top: 16px;
 }
 
-#customize-control-mercia_theme_options-scroll_top_title,
-#customize-control-mercia_theme_options-header_search_title {
+#customize-control-mercia_theme_options-header_date_title,
+#customize-control-mercia_theme_options-header_search_title,
+#customize-control-mercia_theme_options-scroll_top_title {
 	margin-bottom: 0;
 }
 
+#customize-control-mercia_theme_options-header_text textarea,
 #customize-control-mercia_theme_options-footer_text textarea {
 	height: 4em;
 }

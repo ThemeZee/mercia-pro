@@ -65,8 +65,8 @@ class Mercia_Pro_Scroll_To_Top {
 		// Add Scroll to Top headline.
 		$wp_customize->add_control( new Mercia_Customize_Header_Control(
 			$wp_customize, 'mercia_theme_options[scroll_top_title]', array(
-				'label' => esc_html__( 'Scroll to Top', 'mercia-pro' ),
-				'section' => 'mercia_pro_section_footer',
+				'label'    => esc_html__( 'Scroll to Top', 'mercia-pro' ),
+				'section'  => 'mercia_pro_section_footer',
 				'settings' => array(),
 				'priority' => 10,
 			)
@@ -75,13 +75,13 @@ class Mercia_Pro_Scroll_To_Top {
 		// Add Scroll to Top setting.
 		$wp_customize->add_setting( 'mercia_theme_options[scroll_to_top]', array(
 			'default'           => false,
-			'type'           	=> 'option',
+			'type'              => 'option',
 			'transport'         => 'refresh',
 			'sanitize_callback' => 'mercia_sanitize_checkbox',
 		) );
 
 		$wp_customize->add_control( 'mercia_theme_options[scroll_to_top]', array(
-			'label'    => __( 'Display Scroll to Top Button', 'mercia-pro' ),
+			'label'    => esc_html__( 'Display Scroll to Top Button', 'mercia-pro' ),
 			'section'  => 'mercia_pro_section_footer',
 			'settings' => 'mercia_theme_options[scroll_to_top]',
 			'type'     => 'checkbox',

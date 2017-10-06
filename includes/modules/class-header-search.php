@@ -102,9 +102,9 @@ class Mercia_Pro_Header_Search {
 		$wp_customize->add_control( new Mercia_Customize_Header_Control(
 			$wp_customize, 'mercia_theme_options[header_search_title]', array(
 				'label'    => esc_html__( 'Header Search', 'mercia-pro' ),
-				'section'  => 'mercia_section_layout',
+				'section'  => 'mercia_pro_section_header',
 				'settings' => array(),
-				'priority' => 30,
+				'priority' => 40,
 			)
 		) );
 
@@ -118,10 +118,10 @@ class Mercia_Pro_Header_Search {
 
 		$wp_customize->add_control( 'mercia_theme_options[header_search]', array(
 			'label'    => esc_html__( 'Enable search field in header', 'mercia-pro' ),
-			'section'  => 'mercia_section_layout',
+			'section'  => 'mercia_pro_section_header',
 			'settings' => 'mercia_theme_options[header_search]',
 			'type'     => 'checkbox',
-			'priority' => 40,
+			'priority' => 50,
 		) );
 	}
 

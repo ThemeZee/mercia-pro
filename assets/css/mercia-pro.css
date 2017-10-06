@@ -16,13 +16,19 @@
 	border-bottom: 1px solid #353535;
 }
 
-/* Header Text */
-.header-bar .header-text {
+/* Header Content */
+.header-bar .header-content {
 	float: left;
-	padding: 0.5em;
+	padding: 0.5em 0;
 	font-size: 13px;
 	font-size: 0.8125rem;
 	max-width: 70%;
+}
+
+.header-bar .header-content .header-date,
+.header-bar .header-content .header-text {
+	display: inline-block;
+	margin-right: 1.5em;
 }
 
 /* Top Navigation Toggle */
@@ -92,11 +98,6 @@
 	margin: 0;
 	padding: 0.5em;
 	text-decoration: none;
-	border-bottom: 1px solid rgba(0,0,0,0.075);
-}
-
-.top-navigation-menu > li:last-child a {
-	border-bottom: none;
 }
 
 .top-navigation-menu a:link,
@@ -469,7 +470,7 @@
 	}
 
 	/* Header Text */
-	.header-bar .header-text {
+	.header-bar .header-content {
 		float: none;
 		flex-grow: 1;
 		max-width: 100%;
@@ -569,4 +570,18 @@
 	.top-navigation-menu li.current-menu-item > a:after {
 		text-decoration: none;
 	}
+}
+
+/*--------------------------------------------------------------
+18.0 Customizer Preview
+--------------------------------------------------------------*/
+
+/* Add some styling for visual edit shortcut buttons. */
+.customize-partial-edit-shortcuts-shown .header-bar .header-content .header-text {
+	margin-left: 2em;
+}
+
+.customize-partial-edit-shortcut-mercia_theme_options-header_text button {
+	top: -5px;
+	left: -35px;
 }
