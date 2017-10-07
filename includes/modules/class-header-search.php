@@ -31,7 +31,7 @@ class Mercia_Pro_Header_Search {
 		add_action( 'wp_enqueue_scripts', array( __CLASS__, 'enqueue_script' ) );
 
 		// Add search icon on main navigation menu.
-		add_filter( 'wp_nav_menu_items', array( __CLASS__, 'add_header_search' ), 10, 2 );
+		add_action( 'mercia_header_search', array( __CLASS__, 'add_header_search' ) );
 
 		// Add Header Search checkbox in Customizer.
 		add_action( 'customize_register', array( __CLASS__, 'header_search_settings' ) );
@@ -63,32 +63,36 @@ class Mercia_Pro_Header_Search {
 	 *
 	 * @return void
 	 */
-	static function add_header_search( $items, $args ) {
-
-		// Return early if not main navigation.
-		if ( 'primary' !== $args->theme_location ) {
-			return $items;
-		}
+	static function add_header_search() {
 
 		// Get Theme Options from Database.
 		$theme_options = Mercia_Pro_Customizer::get_theme_options();
 
 		// Show header search if activated.
-		if ( true === $theme_options['header_search'] || is_customize_preview() ) :
+		if ( true === $theme_options['header_search'] || is_customize_preview() ) : ?>
 
-			$items .= '<li class="header-search menu-item menu-item-search">';
-			$items .= '<a class="header-search-icon">';
-			$items .= mercia_get_svg( 'search' );
-			$items .= '<span class="screen-reader-text">' . esc_html_x( 'Search', 'mercia-pro' ) . '</span>';
-			$items .= '</a>';
-			$items .= '<div class="header-search-form">';
-			$items .= get_search_form( false );
-			$items .= '</div>';
-			$items .= '</li>';
+			<div class="header-search">
 
+				<a class="header-search-icon">
+					<?php echo mercia_get_svg( 'search' ); ?>
+					<span class="screen-reader-text"><?php esc_html_e( 'Search', 'mercia-pro' ); ?></span>
+				</a>
+
+				<div class="header-search-form-wrap">
+
+					<div class="header-search-form">
+						<?php get_search_form(); ?>
+						<a class="header-search-close">
+							<?php echo mercia_get_svg( 'close' ); ?>
+						</a>
+					</div>
+
+				</div>
+
+			</div>
+
+		<?php
 		endif;
-
-		return $items;
 	}
 
 	/**
@@ -138,7 +142,7 @@ class Mercia_Pro_Header_Search {
 
 		// Hide Header Search?
 		if ( false === $theme_options['header_search'] ) {
-			$elements[] = '.primary-navigation .main-navigation-menu li.header-search';
+			$elements[] = '.primary-navigation-wrap .header-search';
 		}
 
 		return $elements;

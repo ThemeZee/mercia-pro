@@ -30,9 +30,9 @@
 	wp.customize( 'mercia_theme_options[header_search]', function( value ) {
 		value.bind( function( newval ) {
 			if ( false === newval ) {
-				hideElement( '.primary-navigation .main-navigation-menu li.header-search' );
+				hideElement( '.primary-navigation-wrap .header-search' );
 			} else {
-				showElement( '.primary-navigation .main-navigation-menu li.header-search' );
+				showElement( '.primary-navigation-wrap .header-search' );
 			}
 		} );
 	} );
