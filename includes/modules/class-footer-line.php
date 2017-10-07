@@ -29,7 +29,7 @@ class Mercia_Pro_Footer_Line {
 		}
 
 		// Display footer navigation.
-		add_action( 'mercia_before_footer', array( __CLASS__, 'display_footer_menu' ) );
+		add_action( 'mercia_before_footer', array( __CLASS__, 'display_footer_content' ) );
 
 		// Display Footer Text in theme.
 		add_action( 'mercia_footer_text', array( __CLASS__, 'footer_text' ) );
@@ -39,6 +39,52 @@ class Mercia_Pro_Footer_Line {
 
 		// Add Footer Settings in Customizer.
 		add_action( 'customize_register', array( __CLASS__, 'footer_settings' ) );
+	}
+
+	/**
+	 * Display footer footer content
+	 *
+	 * @return void
+	 */
+	static function display_footer_content() {
+		?>
+		<div class="footer-content">
+
+			<div id="footer-logo" class="site-branding clearfix">
+
+				<?php mercia_site_logo(); ?>
+				<?php mercia_site_title(); ?>
+
+			</div><!-- .site-branding -->
+
+			<?php
+			// Check if there is a social menu.
+			if ( has_nav_menu( 'social' ) ) : ?>
+
+				<div id="footer-social-icons" class="footer-social-menu mercia-social-menu clearfix">
+
+					<?php
+					// Display Social Icons Menu.
+					wp_nav_menu( array(
+						'theme_location' => 'social',
+						'container' => false,
+						'menu_class' => 'social-icons-menu',
+						'echo' => true,
+						'fallback_cb' => '',
+						'link_before' => '<span class="screen-reader-text">',
+						'link_after' => '</span>',
+						'depth' => 1,
+						)
+					);
+					?>
+
+				</div>
+
+			<?php endif; ?>
+
+		</div><!-- .footer-content -->
+
+		<?php
 	}
 
 	/**
