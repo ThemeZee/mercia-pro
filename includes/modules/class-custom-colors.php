@@ -48,138 +48,6 @@ class Mercia_Pro_Custom_Colors {
 		// Get Default Fonts from settings.
 		$default_options = Mercia_Pro_Customizer::get_default_options();
 
-		// Set Page Background Color.
-		if ( $theme_options['page_bg_color'] !== $default_options['page_bg_color'] ) {
-
-			$custom_css .= '
-				/* Page Background Color Setting */
-				.site,
-				.header-search .header-search-form,
-				.scroll-to-top-button {
-					background: ' . $theme_options['page_bg_color'] . ';
-				}
-			';
-
-			// Check if a dark background color was chosen.
-			if ( self::is_color_dark( $theme_options['page_bg_color'] ) ) {
-				$custom_css .= '
-					body,
-					button,
-					input,
-					select,
-					textarea,
-					blockquote cite,
-					blockquote small,
-					input[type="text"]:focus,
-					input[type="email"]:focus,
-					input[type="url"]:focus,
-					input[type="password"]:focus,
-					input[type="search"]:focus,
-					textarea:focus,
-					.site-title,
-					.site-title a:link,
-					.site-title a:visited,
-					.main-navigation-menu,
-					.main-navigation-menu a:link,
-					.main-navigation-menu a:visited,
-					.widget-title,
-					.widget-title a:link,
-					.widget-title a:visited,
-					.entry-title,
-					.entry-title a:link,
-					.entry-title a:visited,
-					.archive-title,
-					.comments-header .comments-title,
-					.comment-reply-title,
-					.main-navigation-toggle,
-					.footer-navigation-menu a,
-					.footer-navigation-menu a:link,
-					.footer-navigation-menu a:visited {
-						color: #ffffff;
-					}
-
-					.site-title a:hover,
-					.site-title a:active,
-					.entry-title a:hover,
-					.entry-title a:active,
-					.widget-title a:hover,
-					.widget-title a:active,
-					.main-navigation-menu a:hover,
-					.main-navigation-menu a:active,
-					.footer-navigation-menu a:hover,
-					.footer-navigation-menu a:active {
-						color: #cc5555;
-					}
-
-					.entry-meta {
-						color: rgba(255,255,255,0.45);
-					}
-
-					.entry-meta .meta-date:after,
-					.entry-meta .meta-author:after {
-						color: rgba(255,255,255,0.15);
-					}
-
-					blockquote {
-						border-color: #ffffff;
-					}
-
-					pre,
-					th,
-					td,
-					button,
-					input[type="button"],
-					input[type="reset"],
-					input[type="submit"],
-					input[type="text"],
-					input[type="email"],
-					input[type="url"],
-					input[type="password"],
-					input[type="search"],
-					textarea,
-					.site-header,
-					.primary-navigation-wrap,
-					.widget ul li,
-					.widget ol li,
-					.sticky,
-					.infinite-scroll #infinite-handle span,
-					.featured-posts-wrap,
-					.comment,
-					.site-footer,
-					.main-navigation-menu,
-					.tzwb-tabbed-content .tzwb-tabnavi li a,
-					.tzwb-social-icons .social-icons-menu li a,
-					.footer-widgets-background,
-					.footer-navigation,
-					.header-search .header-search-form,
-					.entry-author,
-					.scroll-to-top-button {
-						border-color: rgba(255,255,255,0.075);
-					}
-
-					input[type="text"]:focus,
-					input[type="email"]:focus,
-					input[type="url"]:focus,
-					input[type="password"]:focus,
-					input[type="search"]:focus,
-					textarea:focus {
-						border: 1px solid  rgba(255,255,255,0.2);
-					}
-
-					.search-form .search-submit:hover .icon-search,
-					.search-form .search-submit:active .icon-search,
-					.main-navigation-menu > .menu-item-has-children > a .icon,
-					.main-navigation-toggle .icon,
-					.main-navigation-menu .submenu-dropdown-toggle .icon,
-					.tzwb-social-icons .social-icons-menu li a:hover .icon,
-					.header-search .header-search-icon .icon-search,
-					.scroll-to-top-button:hover .icon {
-						fill: #ffffff;
-					}
-				';
-			} // End if().
-		} // End if().
-
 		// Set Link Color.
 		if ( $theme_options['link_color'] !== $default_options['link_color'] ) {
 
@@ -187,191 +55,71 @@ class Mercia_Pro_Custom_Colors {
 				/* Link and Button Color Setting */
 				a:link,
 				a:visited,
-				button,
-				input[type="button"],
-				input[type="reset"],
-				input[type="submit"],
 				.infinite-scroll #infinite-handle span,
-				.tzwb-tabbed-content .tzwb-tabnavi li a:link,
-				.tzwb-tabbed-content .tzwb-tabnavi li a:visited,
-				.widget-title a:hover,
-				.widget-title a:active {
+				.top-navigation-toggle:hover,
+				.top-navigation-toggle:active,
+				.top-navigation-menu a:hover,
+				.top-navigation-menu a:active,
+				.footer-navigation-menu a:hover,
+				.footer-navigation-menu a:active {
 					color: ' . $theme_options['link_color'] . ';
 				}
 
 				a:hover,
 				a:focus,
 				a:active,
-				button:hover,
-				input[type="button"]:hover,
-				input[type="reset"]:hover,
-				input[type="submit"]:hover,
-				button:focus,
-				input[type="button"]:focus,
-				input[type="reset"]:focus,
-				input[type="submit"]:focus,
-				button:active,
-				input[type="button"]:active,
-				input[type="reset"]:active,
-				input[type="submit"]:active,
-				.infinite-scroll #infinite-handle span:hover,
-				.tzwb-tabbed-content .tzwb-tabnavi li a:hover,
-				.tzwb-tabbed-content .tzwb-tabnavi li a:active,
-				.tzwb-tabbed-content .tzwb-tabnavi li a.current-tab {
-					color: #303030;
+				.infinite-scroll #infinite-handle span:hover {
+					color: #353535;
 				}
 
-				.search-form .search-submit .icon-search,
-				.tzwb-social-icons .social-icons-menu li a .icon,
-				.scroll-to-top-button .icon {
+				.top-navigation-toggle:hover .icon,
+				.top-navigation-toggle:active .icon,
+				.top-navigation-menu > .menu-item-has-children a .sub-menu-icon:hover .icon,
+				.top-navigation-menu > .menu-item-has-children a .sub-menu-icon:active .icon {
 					fill: ' . $theme_options['link_color'] . ';
 				}
-			';
-		} // End if().
 
-		// Set Top Navigation Color.
-		if ( $theme_options['top_navi_color'] !== $default_options['top_navi_color'] ) {
-
-			$custom_css .= '
-				/* Top Navigation Color Setting */
-				.header-bar-wrap,
-				.top-navigation-menu ul {
-					background: ' . $theme_options['top_navi_color'] . ';
-				}
-			';
-
-			// Check if a dark background color was chosen.
-			if ( self::is_color_light( $theme_options['top_navi_color'] ) ) {
-				$custom_css .= '
-					.top-navigation-menu,
-					.top-navigation-menu ul,
-					.top-navigation-menu a,
-					.top-navigation-menu ul a {
-						border-color: rgba(0,0,0,0.05);
-					}
-
-					.top-navigation-menu ul,
-					.top-navigation-menu a:link,
-					.top-navigation-menu a:visited,
-					.top-navigation-toggle,
-					.top-navigation-toggle:focus,
-					.top-navigation-menu .submenu-dropdown-toggle {
-					    color: #303030;
-					}
-
-					.top-navigation-menu a:hover,
-					.top-navigation-menu a:active,
-					.top-navigation-toggle:hover,
-					.top-navigation-toggle:active {
-						color: rgba(0,0,0,0.5);
-					}
-
-					.top-navigation-menu > .menu-item-has-children > a .icon,
-					.top-navigation-menu ul .menu-item-has-children > a .icon,
-					.header-bar .social-icons-menu li a .icon,
-					.top-navigation-toggle .icon,
-					.top-navigation-menu .submenu-dropdown-toggle .icon {
-						fill: #303030;
-					}
-
-					.top-navigation-menu > .menu-item-has-children > a:hover .icon,
-					.top-navigation-menu > .menu-item-has-children > a:active .icon,
-					.top-navigation-menu ul .menu-item-has-children > a:hover .icon,
-					.top-navigation-menu ul .menu-item-has-children > a:active .icon,
-					.header-bar .social-icons-menu li a:hover .icon,
-					.top-navigation-toggle:hover .icon,
-					.top-navigation-toggle:active .icon,
-					.top-navigation-menu .submenu-dropdown-toggle:hover .icon,
-					.top-navigation-menu .submenu-dropdown-toggle:active .icon {
-						fill: rgba(0,0,0,0.5);
-					}
-				';
-			} // End if().
-		} // End if().
-
-		// Set Main Navigation Color.
-		if ( $theme_options['navi_color'] !== $default_options['navi_color'] ) {
-
-			$custom_css .= '
-				/* Main Navigation Color Setting */
-				.main-navigation-menu ul {
-					background: ' . $theme_options['navi_color'] . ';
+				button,
+				input[type="button"],
+				input[type="reset"],
+				input[type="submit"],
+				.search-form .search-submit,
+				.tzwb-tabbed-content .tzwb-tabnavi li a:hover,
+				.tzwb-tabbed-content .tzwb-tabnavi li a:active,
+				.tzwb-tabbed-content .tzwb-tabnavi li a.current-tab,
+				.tzwb-social-icons .social-icons-menu li a,
+				.scroll-to-top-button,
+				.scroll-to-top-button:focus,
+				.scroll-to-top-button:active {
+					background: ' . $theme_options['link_color'] . ';
 				}
 
-				.main-navigation-menu a:hover,
-				.main-navigation-menu a:active,
-				.main-navigation-toggle:hover,
-				.main-navigation-toggle:active,
-				.footer-navigation-menu a:hover,
-				.footer-navigation-menu a:active {
-					color: ' . $theme_options['navi_color'] . ';
-				}
-
-				.main-navigation-menu > .menu-item-has-children > a:hover .icon,
-				.main-navigation-menu > .menu-item-has-children > a:active .icon,
-				.main-navigation-toggle:hover .icon,
-				.main-navigation-toggle:active .icon,
-				.main-navigation-menu .submenu-dropdown-toggle:hover .icon,
-				.main-navigation-menu .submenu-dropdown-toggle:active .icon,
-				.header-search .header-search-icon:hover .icon-search,
-				.header-search .header-search-icon:active .icon-search {
-					fill: ' . $theme_options['navi_color'] . ';
+				@media only screen and (min-width: 55em) {
+					.top-navigation-menu > .menu-item-has-children a:hover .sub-menu-icon .icon {
+						fill: ' . $theme_options['link_color'] . ';
+					}
 				}
 			';
 
 			// Check if a light background color was chosen.
-			if ( self::is_color_light( $theme_options['navi_color'] ) ) {
+			if ( self::is_color_light( $theme_options['link_color'] ) ) {
 				$custom_css .= '
-					.main-navigation-menu ul a {
-						border-color: rgba(0,0,0,0.05);
+					button,
+					input[type="button"],
+					input[type="reset"],
+					input[type="submit"],
+					.tzwb-tabbed-content .tzwb-tabnavi li a:hover,
+					.tzwb-tabbed-content .tzwb-tabnavi li a:active,
+					.tzwb-tabbed-content .tzwb-tabnavi li a.current-tab {
+						color: #222;
 					}
 
-					.main-navigation-menu ul,
-					.main-navigation-menu ul a:link,
-					.main-navigation-menu ul a:visited {
-						color: rgba(0,0,0,0.75);
+					.search-form .search-submit .icon-search,
+					.scroll-to-top-button .icon,
+					.tzwb-social-icons .social-icons-menu li a .icon {
+						fill: #222;
 					}
 
-					.main-navigation-menu ul a:hover,
-					.main-navigation-menu ul a:active{
-						color: rgba(0,0,0,0.5);
-					}
-
-					.main-navigation-menu ul .menu-item-has-children > a .icon {
-						fill: rgba(0,0,0,0.75);
-					}
-
-					.main-navigation-menu ul .menu-item-has-children > a:hover .icon,
-					.main-navigation-menu ul .menu-item-has-children > a:active .icon  {
-						fill: rgba(0,0,0,0.5);
-					}
-				';
-			}
-		} // End if().
-
-		// Set Title Color.
-		if ( $theme_options['title_color'] != $default_options['title_color'] ) {
-
-			$custom_css .= '
-				/* Headings Color Setting */
-				.site-title a:hover,
-				.site-title a:active,
-				.entry-title a:hover,
-				.entry-title a:active {
-					color: ' . $theme_options['title_color'] . ';
-				}
-			';
-		}
-
-		// Set Page Background Hover Color.
-		if ( $theme_options['page_bg_color'] !== $default_options['page_bg_color'] ) {
-
-			// Check if a dark background color was chosen.
-			if ( self::is_color_dark( $theme_options['page_bg_color'] ) ) {
-				$custom_css .= '
-					a:hover,
-					a:focus,
-					a:active,
 					button:hover,
 					input[type="button"]:hover,
 					input[type="reset"]:hover,
@@ -383,16 +131,171 @@ class Mercia_Pro_Custom_Colors {
 					button:active,
 					input[type="button"]:active,
 					input[type="reset"]:active,
-					input[type="submit"]:active,
-					.infinite-scroll #infinite-handle span:hover,
-					.tzwb-tabbed-content .tzwb-tabnavi li a:hover,
-					.tzwb-tabbed-content .tzwb-tabnavi li a:active,
-					.tzwb-tabbed-content .tzwb-tabnavi li a.current-tab {
-						color: #ffffff;
+					input[type="submit"]:active {
+						color: #fff;
+					}
+
+					.search-form .search-submit:hover .icon-search,
+					.scroll-to-top-button:hover .icon,
+					.tzwb-social-icons .social-icons-menu li a:hover .icon {
+						fill: #fff;
 					}
 				';
-			}
+			} // End if().
+		} // End if().
+
+		// Set Navigation Color.
+		if ( $theme_options['navi_color'] !== $default_options['navi_color'] ) {
+
+			$custom_css .= '
+				/* Navigation Color Setting */
+				.main-navigation-toggle,
+				.main-navigation-toggle:focus,
+				.main-navigation-menu,
+				.main-navigation-menu a:link,
+				.main-navigation-menu a:visited {
+					color: ' . $theme_options['navi_color'] . ';
+				}
+
+				.primary-navigation-wrap,
+				.main-navigation-menu,
+				.main-navigation-menu ul,
+				.main-navigation-menu ul a,
+				.footer-content {
+					border-color: ' . $theme_options['navi_color'] . ';
+				}
+
+				.main-navigation-toggle .icon,
+				.main-navigation-menu > .menu-item-has-children a .sub-menu-icon .icon,
+				.header-search .header-search-icon .icon-search,
+				.header-search .header-search-form-wrap .header-search-form .header-search-close .icon-close {
+					fill: ' . $theme_options['navi_color'] . ';
+				}
+
+				.main-navigation-toggle:hover,
+				.main-navigation-toggle:active,
+				.main-navigation-menu a:hover,
+				.main-navigation-menu a:active {
+					color: #3377bb;
+				}
+
+				.main-navigation-toggle:hover .icon,
+				.main-navigation-toggle:active .icon,
+				.main-navigation-menu > .menu-item-has-children a .sub-menu-icon:hover .icon,
+				.main-navigation-menu > .menu-item-has-children a .sub-menu-icon:active .icon {
+					fill: #3377bb;
+				}
+			';
+		} // End if().
+
+		// Set Navigation Hover Color.
+		if ( $theme_options['navi_hover_color'] !== $default_options['navi_hover_color'] ) {
+
+			$custom_css .= '
+				/* Navigation Hover Color Setting */
+				.main-navigation-toggle:hover,
+				.main-navigation-toggle:active,
+				.main-navigation-menu a:hover,
+				.main-navigation-menu a:active {
+					color: ' . $theme_options['navi_hover_color'] . ';
+				}
+
+				.main-navigation-toggle:hover .icon,
+				.main-navigation-toggle:active .icon,
+				.main-navigation-menu > .menu-item-has-children a .sub-menu-icon:hover .icon,
+				.main-navigation-menu > .menu-item-has-children a .sub-menu-icon:active .icon,
+				.header-search .header-search-icon:hover .icon-search,
+				.header-search .header-search-icon:active .icon-search,
+				.header-search .header-search-form-wrap .header-search-form .header-search-close:hover .icon-close,
+				.header-search .header-search-form-wrap .header-search-form .header-search-close:active .icon-close {
+					fill: ' . $theme_options['navi_hover_color'] . ';
+				}
+
+				@media only screen and (min-width: 55em) {
+					.main-navigation-menu > .menu-item-has-children a:hover .sub-menu-icon .icon {
+						fill: ' . $theme_options['navi_hover_color'] . ';
+					}
+				}
+			';
 		}
+
+		// Set Title Color.
+		if ( $theme_options['title_color'] !== $default_options['title_color'] ) {
+
+			$custom_css .= '
+				/* Post Titles Color Setting */
+				.site-title,
+				.site-title a:link,
+				.site-title a:visited,
+				.entry-title,
+				.entry-title a:link,
+				.entry-title a:visited {
+					color: ' . $theme_options['title_color'] . ';
+				}
+
+				.site-title a:hover,
+				.site-title a:active,
+				.entry-title a:hover,
+				.entry-title a:active {
+					color: #3377bb;
+				}
+
+				.mercia-social-menu .social-icons-menu li a .icon {
+					fill: ' . $theme_options['title_color'] . ';
+				}
+			';
+		}
+
+		// Set Title Hover Color.
+		if ( $theme_options['title_hover_color'] !== $default_options['title_hover_color'] ) {
+
+			$custom_css .= '
+				/* Post Titles Hover Color Setting */
+				.site-title a:hover,
+				.site-title a:active,
+				.entry-title a:hover,
+				.entry-title a:active {
+					color: ' . $theme_options['title_hover_color'] . ';
+				}
+
+				.mercia-social-menu .social-icons-menu li a:hover .icon {
+					fill: ' . $theme_options['title_hover_color'] . ';
+				}
+			';
+		}
+
+		// Set Widget Title Color.
+		if ( $theme_options['widget_title_color'] !== $default_options['widget_title_color'] ) {
+
+			$custom_css .= '
+				/* Widget Titles Color Setting */
+				.widget-title,
+				.widget-title a:link,
+				.widget-title a:visited,
+				.archive-title,
+				.comments-title,
+				.comment-reply-title,
+				.entry-author .author-heading .author-title {
+					color: ' . $theme_options['widget_title_color'] . ';
+				}
+
+				.widget-title a:hover,
+				.widget-title a:active {
+					color: #3377bb;
+				}
+			';
+		}
+
+		/* Set Link Color 2. */
+		if ( $theme_options['link_color'] !== $default_options['link_color'] ) {
+
+			$custom_css .= '
+				.widget-title a:hover,
+				.widget-title a:active {
+					color: ' . $theme_options['link_color'] . ';
+				}
+			';
+		} // End if().
 
 		return $custom_css;
 	}
@@ -406,97 +309,107 @@ class Mercia_Pro_Custom_Colors {
 
 		// Add Section for Theme Colors.
 		$wp_customize->add_section( 'mercia_pro_section_colors', array(
-			'title'    => __( 'Theme Colors', 'mercia-pro' ),
+			'title'    => esc_html__( 'Color Settings', 'mercia-pro' ),
 			'priority' => 60,
-			'panel' => 'mercia_options_panel',
-			)
-		);
+			'panel'    => 'mercia_options_panel',
+		) );
 
 		// Get Default Colors from settings.
 		$default_options = Mercia_Pro_Customizer::get_default_options();
 
-		// Add Page Background Color setting.
-		$wp_customize->add_setting( 'mercia_theme_options[page_bg_color]', array(
-			'default'           => $default_options['page_bg_color'],
-			'type'           	=> 'option',
+		// Add Link and Button Color setting.
+		$wp_customize->add_setting( 'mercia_theme_options[link_color]', array(
+			'default'           => $default_options['link_color'],
+			'type'              => 'option',
 			'transport'         => 'postMessage',
 			'sanitize_callback' => 'sanitize_hex_color',
-			)
-		);
+		) );
 		$wp_customize->add_control( new WP_Customize_Color_Control(
-			$wp_customize, 'mercia_theme_options[page_bg_color]', array(
-				'label'      => _x( 'Page Background', 'color setting', 'mercia-pro' ),
-				'section'    => 'mercia_pro_section_colors',
-				'settings'   => 'mercia_theme_options[page_bg_color]',
+			$wp_customize, 'mercia_theme_options[link_color]', array(
+				'label'    => esc_html_x( 'Links and Buttons', 'color setting', 'mercia-pro' ),
+				'section'  => 'mercia_pro_section_colors',
+				'settings' => 'mercia_theme_options[link_color]',
 				'priority' => 10,
 			)
 		) );
 
-		// Add Top Navigation Color setting.
-		$wp_customize->add_setting( 'mercia_theme_options[top_navi_color]', array(
-			'default'           => $default_options['top_navi_color'],
-			'type'           	=> 'option',
+		// Add Navigation Primary Color setting.
+		$wp_customize->add_setting( 'mercia_theme_options[navi_color]', array(
+			'default'           => $default_options['navi_color'],
+			'type'              => 'option',
 			'transport'         => 'postMessage',
 			'sanitize_callback' => 'sanitize_hex_color',
-			)
-		);
+		) );
 		$wp_customize->add_control( new WP_Customize_Color_Control(
-			$wp_customize, 'mercia_theme_options[top_navi_color]', array(
-				'label'      => _x( 'Top Navigation', 'color setting', 'mercia-pro' ),
-				'section'    => 'mercia_pro_section_colors',
-				'settings'   => 'mercia_theme_options[top_navi_color]',
+			$wp_customize, 'mercia_theme_options[navi_color]', array(
+				'label'    => esc_html_x( 'Main Navigation (primary)', 'color setting', 'mercia-pro' ),
+				'section'  => 'mercia_pro_section_colors',
+				'settings' => 'mercia_theme_options[navi_color]',
 				'priority' => 20,
 			)
 		) );
 
-		// Add Navigation Color setting.
-		$wp_customize->add_setting( 'mercia_theme_options[navi_color]', array(
-			'default'           => $default_options['navi_color'],
-			'type'           	=> 'option',
+		// Add Navigation Secondary Color setting.
+		$wp_customize->add_setting( 'mercia_theme_options[navi_hover_color]', array(
+			'default'           => $default_options['navi_hover_color'],
+			'type'              => 'option',
 			'transport'         => 'postMessage',
 			'sanitize_callback' => 'sanitize_hex_color',
-			)
-		);
-		$wp_customize->add_control( new WP_Customize_Color_Control(
-			$wp_customize, 'mercia_theme_options[navi_color]', array(
-				'label'      => _x( 'Main Navigation', 'color setting', 'mercia-pro' ),
-				'section'    => 'mercia_pro_section_colors',
-				'settings'   => 'mercia_theme_options[navi_color]',
-				'priority' => 30,
-			)
 		) );
-
-		// Add Link and Button Color setting.
-		$wp_customize->add_setting( 'mercia_theme_options[link_color]', array(
-			'default'           => $default_options['link_color'],
-			'type'           	=> 'option',
-			'transport'         => 'postMessage',
-			'sanitize_callback' => 'sanitize_hex_color',
-			)
-		);
 		$wp_customize->add_control( new WP_Customize_Color_Control(
-			$wp_customize, 'mercia_theme_options[link_color]', array(
-				'label'      => _x( 'Links and Buttons', 'color setting', 'mercia-pro' ),
-				'section'    => 'mercia_pro_section_colors',
-				'settings'   => 'mercia_theme_options[link_color]',
-				'priority' => 40,
+			$wp_customize, 'mercia_theme_options[navi_hover_color]', array(
+				'label'    => esc_html_x( 'Main Navigation (secondary)', 'color setting', 'mercia-pro' ),
+				'section'  => 'mercia_pro_section_colors',
+				'settings' => 'mercia_theme_options[navi_hover_color]',
+				'priority' => 30,
 			)
 		) );
 
 		// Add Title Color setting.
 		$wp_customize->add_setting( 'mercia_theme_options[title_color]', array(
 			'default'           => $default_options['title_color'],
-			'type'           	=> 'option',
+			'type'              => 'option',
 			'transport'         => 'postMessage',
 			'sanitize_callback' => 'sanitize_hex_color',
-			)
-		);
+		) );
 		$wp_customize->add_control( new WP_Customize_Color_Control(
 			$wp_customize, 'mercia_theme_options[title_color]', array(
-				'label'      => _x( 'Post Titles', 'color setting', 'mercia-pro' ),
-				'section'    => 'mercia_pro_section_colors',
-				'settings'   => 'mercia_theme_options[title_color]',
+				'label'    => esc_html_x( 'Post Titles', 'color setting', 'mercia-pro' ),
+				'section'  => 'mercia_pro_section_colors',
+				'settings' => 'mercia_theme_options[title_color]',
+				'priority' => 40,
+			)
+		) );
+
+		// Add Title Hover Color setting.
+		$wp_customize->add_setting( 'mercia_theme_options[title_hover_color]', array(
+			'default'           => $default_options['title_hover_color'],
+			'type'              => 'option',
+			'transport'         => 'postMessage',
+			'sanitize_callback' => 'sanitize_hex_color',
+		) );
+		$wp_customize->add_control( new WP_Customize_Color_Control(
+			$wp_customize, 'mercia_theme_options[title_hover_color]', array(
+				'label'    => esc_html_x( 'Post Titles Hover', 'color setting', 'mercia-pro' ),
+				'section'  => 'mercia_pro_section_colors',
+				'settings' => 'mercia_theme_options[title_hover_color]',
 				'priority' => 50,
+			)
+		) );
+
+		// Add Widget Title Color setting.
+		$wp_customize->add_setting( 'mercia_theme_options[widget_title_color]', array(
+			'default'           => $default_options['widget_title_color'],
+			'type'              => 'option',
+			'transport'         => 'postMessage',
+			'sanitize_callback' => 'sanitize_hex_color',
+		) );
+		$wp_customize->add_control( new WP_Customize_Color_Control(
+			$wp_customize, 'mercia_theme_options[widget_title_color]', array(
+				'label'    => esc_html_x( 'Widget Titles', 'color setting', 'mercia-pro' ),
+				'section'  => 'mercia_pro_section_colors',
+				'settings' => 'mercia_theme_options[widget_title_color]',
+				'priority' => 60,
 			)
 		) );
 	}

@@ -66,248 +66,100 @@
 		} );
 	} );
 
-	/* Page Background Color Option */
-	wp.customize( 'mercia_theme_options[page_bg_color]', function( value ) {
-		value.bind( function( newval ) {
-			var title_color = '#cc5555',
-				link_color  = '#cc5555';
-				navi_color  = '#cc5555';
-
-			if( typeof wp.customize.value( 'mercia_theme_options[title_color]' ) !== 'undefined' ) {
-				title_color = wp.customize.value( 'mercia_theme_options[title_color]' ).get();
-			}
-
-			if( typeof wp.customize.value( 'mercia_theme_options[link_color]' ) !== 'undefined' ) {
-				link_color = wp.customize.value( 'mercia_theme_options[link_color]' ).get();
-			}
-
-			if( typeof wp.customize.value( 'mercia_theme_options[navi_color]' ) !== 'undefined' ) {
-				navi_color = wp.customize.value( 'mercia_theme_options[navi_color]' ).get();
-			}
-
-			var text_color, meta_color, border_color;
-
-			if( isColorDark( newval ) ) {
-				text_color = '#ffffff';
-				meta_color = 'rgba(255,255,255,0.45)';
-				border_color = 'rgba(255,255,255,0.075)';
-			} else {
-				text_color = '#303030';
-				meta_color = 'rgba(0,0,0,0.45)';
-				border_color = 'rgba(0,0,0,0.075)';
-			}
-
-			$( '.site, .header-search .header-search-form, .scroll-to-top-button' )
-				.css( 'background', newval );
-
-			$( 'body, button, input, select, textarea, blockquote cite, blockquote small, .site-title, .site-title a, .main-navigation-menu, .main-navigation-menu > li > a, .main-navigation-toggle, .widget-title, .widget-title a, .entry-title, .entry-title a, .archive-title, .comments-header .comments-title, .comment-reply-title, .footer-navigation-menu a' )
-				.css( 'color', text_color );
-
-			$( 'a, button, input[type="button"], input[type="reset"], input[type="submit"], .infinite-scroll #infinite-handle span, .tzwb-tabbed-content .tzwb-tabnavi li a, .tzwb-tabbed-content .tzwb-tabnavi li a.current-tab' )
-				.not( $( '.header-bar a, .main-navigation-menu ul a' ) )
-				.hover( function() { $( this ).css( 'color', text_color ); },
-					function() { $( this ).css( 'color', link_color ); }
-				);
-
-			$( '.site-title a, .entry-title a' )
-				.hover( function() { $( this ).css( 'color', title_color ); },
-					function() { $( this ).css( 'color', text_color ); }
-				);
-
-			$( '.main-navigation-menu > li > a, .main-navigation-toggle, .footer-navigation-menu a' )
-				.hover( function() { $( this ).css( 'color', navi_color ); },
-					function() { $( this ).css( 'color', text_color ); }
-				);
-
-			$( '.widget-title a' )
-				.hover( function() { $( this ).css( 'color', link_color ); },
-					function() { $( this ).css( 'color', text_color ); }
-				);
-
-			$( 'pre, th, td, button, input[type="button"], input[type="reset"], input[type="submit"], input[type="text"], input[type="email"], input[type="url"], input[type="password"], input[type="search"], textarea, .site-header, .primary-navigation-wrap, .widget ul li, .widget ol li, .sticky, .infinite-scroll #infinite-handle span, .featured-posts-wrap, .comment, .site-footer, .main-navigation-menu, .tzwb-tabbed-content .tzwb-tabnavi li a, .tzwb-social-icons .social-icons-menu li a, .footer-widgets-background, .footer-navigation, .header-search .header-search-form, .entry-author, .scroll-to-top-button' )
-				.css( 'border-color', border_color );
-
-			$( '.entry-meta' )
-				.css( 'color', meta_color );
-
-			$( '.main-navigation-menu > .menu-item-has-children > a .icon, .main-navigation-toggle .icon, .main-navigation-menu .submenu-dropdown-toggle .icon, .header-search .header-search-icon .icon-search' )
-				.css( 'fill', text_color );
-
-			$( '.main-navigation-menu > .menu-item-has-children > a, .main-navigation-toggle, .main-navigation-menu .submenu-dropdown-toggle' )
-				.hover( function() { $( this ).find( '.icon' ).css( 'fill', navi_color ); },
-					function() { $( this ).find( '.icon' ).css( 'fill', text_color ); }
-				);
-
-			$( '.search-form .search-submit, .tzwb-social-icons .social-icons-menu li a, .scroll-to-top-button' )
-				.hover( function() { $( this ).find( '.icon' ).css( 'fill', text_color ); },
-					function() { $( this ).find( '.icon' ).css( 'fill', link_color ); }
-				);
-		} );
-	} );
-
 	/* Link & Button Color Option */
 	wp.customize( 'mercia_theme_options[link_color]', function( value ) {
 		value.bind( function( newval ) {
-			var text_color, page_bg_color;
+			var custom_css, text_color;
 
-			if( typeof wp.customize.value( 'mercia_theme_options[page_bg_color]' ) !== 'undefined' ) {
-				page_bg_color = wp.customize.value( 'mercia_theme_options[page_bg_color]' ).get();
-			}
-
-			if( isColorDark( page_bg_color ) ) {
-				text_color = '#ffffff';
-			} else {
-				text_color = '#303030';
-			}
-
-			$( 'a, button, input[type="button"], input[type="reset"], input[type="submit"], .infinite-scroll #infinite-handle span, .tzwb-tabbed-content .tzwb-tabnavi li a, .widget-title a' )
-				.not( $( '.header-bar a, .site-title a, .entry-title a, .widget-title a, .main-navigation-menu a, .main-navigation-menu ul a' ) )
-				.css( 'color', newval );
-
-			$( 'a, button, input[type="button"], input[type="reset"], input[type="submit"], .infinite-scroll #infinite-handle span, .tzwb-tabbed-content .tzwb-tabnavi li a, .tzwb-tabbed-content .tzwb-tabnavi li a.current-tab' )
-				.not( $( '.header-bar a, .site-title a, .entry-title a, .widget-title a, .main-navigation-menu a, .main-navigation-menu ul a' ) )
-				.hover( function() { $( this ).css( 'color', text_color ); },
-					function() { $( this ).css( 'color', newval ); }
-				);
-
-			$( '.widget-title a' )
-				.hover( function() { $( this ).css( 'color', newval ); },
-					function() { $( this ).css( 'color', text_color ); }
-				);
-
-			$( '.search-form .search-submit .icon, .tzwb-social-icons .social-icons-menu li a .icon, .scroll-to-top-button .icon' )
-				.css( 'fill', newval );
-
-			$( '.search-form .search-submit, .tzwb-social-icons .social-icons-menu li a, .scroll-to-top-button' )
-				.hover( function() { $( this ).find( '.icon' ).css( 'fill', text_color ); },
-					function() { $( this ).find( '.icon' ).css( 'fill', newval ); }
-				);
-		} );
-	} );
-
-	/* Top Navigation Color Option */
-	wp.customize( 'mercia_theme_options[top_navi_color]', function( value ) {
-		value.bind( function( newval ) {
-			$( '.header-bar-wrap, .top-navigation-menu ul' )
-				.css( 'background', newval );
-
-			var text_color, hover_color, border_color;
+			custom_css = 'a:link, a:visited, .infinite-scroll #infinite-handle span, .top-navigation-toggle:hover, .top-navigation-toggle:active, .top-navigation-menu a:hover, .top-navigation-menu a:active, .footer-navigation-menu a:hover, .footer-navigation-menu a:active { color: ' + newval + '; }';
+			custom_css += 'a:hover, a:focus, a:active, .infinite-scroll #infinite-handle span:hover { color: #353535; }';
+			custom_css += '.top-navigation-toggle:hover .icon, .top-navigation-toggle:active .icon, .top-navigation-menu > .menu-item-has-children a .sub-menu-icon:hover .icon, .top-navigation-menu > .menu-item-has-children a .sub-menu-icon:active .icon { fill: ' + newval + '; }';
+			custom_css += 'button, input[type="button"], input[type="reset"], input[type="submit"], .search-form .search-submit, .tzwb-tabbed-content .tzwb-tabnavi li a:hover, .tzwb-tabbed-content .tzwb-tabnavi li a:active, .tzwb-tabbed-content .tzwb-tabnavi li a.current-tab, .tzwb-social-icons .social-icons-menu li a, .scroll-to-top-button, .scroll-to-top-button:focus, .scroll-to-top-button:active { background: ' + newval + '; }';
+			custom_css += '@media only screen and (min-width: 55em) { .top-navigation-menu > .menu-item-has-children a:hover .sub-menu-icon .icon { fill: ' + newval + '; } }';
 
 			if( isColorLight( newval ) ) {
-				text_color = '#303030';
-				hover_color = 'rgba(0,0,0,0.5)';
-				border_color = 'rgba(0,0,0,0.05)';
+				text_color = '#222222';
 			} else {
 				text_color = '#ffffff';
-				hover_color = 'rgba(255,255,255,0.5)';
-				border_color = 'rgba(255,255,255,0.1)';
 			}
 
-			$( '.top-navigation-menu, .top-navigation-menu ul, .top-navigation-menu a, .top-navigation-menu ul a' )
-				.css( 'border-color', border_color );
+			custom_css += 'button, input[type="button"], input[type="reset"], input[type="submit"], .tzwb-tabbed-content .tzwb-tabnavi li a:hover, .tzwb-tabbed-content .tzwb-tabnavi li a:active, .tzwb-tabbed-content .tzwb-tabnavi li a.current-tab { color: ' + text_color + '; }';
+			custom_css += '.search-form .search-submit .icon-search, .scroll-to-top-button .icon, .tzwb-social-icons .social-icons-menu li a .icon { fill: ' + text_color + '; }';
 
-			$( '.top-navigation-menu ul, .top-navigation-menu a, .top-navigation-toggle, .top-navigation-menu .submenu-dropdown-toggle' )
-				.css( 'color', text_color );
+			custom_css += 'button:hover, input[type="button"]:hover, input[type="reset"]:hover, input[type="submit"]:hover, button:focus, input[type="button"]:focus, input[type="reset"]:focus, input[type="submit"]:focus, button:active, input[type="button"]:active, input[type="reset"]:active, input[type="submit"]:active { color: #ffffff; }';
+			custom_css += '.search-form .search-submit:hover .icon-search, .scroll-to-top-button:hover .icon, .tzwb-social-icons .social-icons-menu li a:hover .icon { fill: #ffffff; }';
 
-			$( '.top-navigation-menu a, .top-navigation-toggle' )
-				.hover( function() { $( this ).css( 'color', hover_color ); },
-						function() { $( this ).css( 'color', text_color ); }
-				);
+			addColorStyles( custom_css, 1 );
 
-			$( '.top-navigation-menu > .menu-item-has-children > a .icon, .top-navigation-menu ul .menu-item-has-children > a .icon, .header-bar .social-icons-menu li a .icon, .top-navigation-toggle .icon, .top-navigation-menu .submenu-dropdown-toggle .icon' )
-				.css( 'fill', text_color );
+			custom_css = '.widget-title a:hover, .widget-title a:active { color: ' + newval + '; }';
 
-			$( '.top-navigation-menu > .menu-item-has-children > a, .top-navigation-menu ul .menu-item-has-children > a, .header-bar .social-icons-menu li a, .top-navigation-toggle, .top-navigation-menu .submenu-dropdown-toggle' )
-				.hover( function() { $( this ).find( '.icon' ).css( 'fill', hover_color ); },
-					function() { $( this ).find( '.icon' ).css( 'fill', text_color ); }
-				);
+			addColorStyles( custom_css, 7 );
 		} );
 	} );
 
-	/* Main Navigation Color Option */
+	/* Navigation Primary Color Option */
 	wp.customize( 'mercia_theme_options[navi_color]', function( value ) {
 		value.bind( function( newval ) {
-			var text_color, page_bg_color, menu_color, hover_color, border_color;
+			var custom_css;
 
-			if( typeof wp.customize.value( 'mercia_theme_options[page_bg_color]' ) !== 'undefined' ) {
-				page_bg_color = wp.customize.value( 'mercia_theme_options[page_bg_color]' ).get();
-			}
+			custom_css = '.main-navigation-toggle, .main-navigation-toggle:focus, .main-navigation-menu, .main-navigation-menu a:link, .main-navigation-menu a:visited { color: ' + newval + '; }';
+			custom_css += '.primary-navigation-wrap, .main-navigation-menu, .main-navigation-menu ul, .main-navigation-menu ul a, .footer-content { border-color: ' + newval + '; }';
+			custom_css += '.main-navigation-toggle .icon, .main-navigation-menu > .menu-item-has-children a .sub-menu-icon .icon, .header-search .header-search-icon .icon-search, .header-search .header-search-form-wrap .header-search-form .header-search-close .icon-close { fill: ' + newval + '; }';
 
-			if( isColorDark( page_bg_color ) ) {
-				text_color = '#ffffff';
-			} else {
-				text_color = '#303030';
-			}
+			custom_css += '.main-navigation-toggle:hover, .main-navigation-toggle:active, .main-navigation-menu a:hover, .main-navigation-menu a:active { color: #3377bb; }';
+			custom_css += '.main-navigation-toggle:hover .icon, .main-navigation-toggle:active .icon, .main-navigation-menu > .menu-item-has-children a .sub-menu-icon:hover .icon, .main-navigation-menu > .menu-item-has-children a .sub-menu-icon:active .icon { fill: #3377bb; }';
 
-			$( '.main-navigation-menu ul' )
-				.css( 'background', newval );
+			addColorStyles( custom_css, 2 );
+		} );
+	} );
 
-			$( '.main-navigation-menu > li > a, .main-navigation-menu > .menu-item-has-children > a, .main-navigation-toggle, .footer-navigation-menu a' )
-				.hover( function() { $( this ).css( 'color', newval ); },
-						function() { $( this ).css( 'color', text_color ); }
-				);
+	/* Navigation Secondary Color Option */
+	wp.customize( 'mercia_theme_options[navi_hover_color]', function( value ) {
+		value.bind( function( newval ) {
+			var custom_css;
 
-			$( '.main-navigation-menu > .menu-item-has-children > a .icon, .main-navigation-toggle .icon, .main-navigation-menu .submenu-dropdown-toggle .icon' )
-				.css( 'fill', text_color );
+			custom_css = '.main-navigation-toggle:hover, .main-navigation-toggle:active, .main-navigation-menu a:hover, .main-navigation-menu a:active { color: ' + newval + '; }';
+			custom_css += '.main-navigation-toggle:hover .icon, .main-navigation-toggle:active .icon, .main-navigation-menu > .menu-item-has-children a .sub-menu-icon:hover .icon, .main-navigation-menu > .menu-item-has-children a .sub-menu-icon:active .icon, .header-search .header-search-icon:hover .icon-search, .header-search .header-search-icon:active .icon-search, .header-search .header-search-form-wrap .header-search-form .header-search-close:hover .icon-close, .header-search .header-search-form-wrap .header-search-form .header-search-close:active .icon-close { fill: ' + newval + '; }';
+			custom_css += '@media only screen and (min-width: 55em) { .main-navigation-menu > .menu-item-has-children a:hover .sub-menu-icon .icon { fill: ' + newval + '; } }';
 
-			$( '.main-navigation-menu > .menu-item-has-children > a, .main-navigation-toggle, .main-navigation-menu .submenu-dropdown-toggle, .header-search .header-search-icon' )
-				.hover( function() { $( this ).find( '.icon' ).css( 'fill', newval ); },
-					function() { $( this ).find( '.icon' ).css( 'fill', text_color ); }
-				);
-
-			if( isColorLight( newval ) ) {
-				menu_color = 'rgba(0,0,0,0.75)';
-				hover_color = 'rgba(0,0,0,0.5)';
-				border_color = 'rgba(0,0,0,0.05)';
-			} else {
-				menu_color = '#ffffff';
-				hover_color = 'rgba(255,255,255,0.5)';
-				border_color = 'rgba(255,255,255,0.1)';
-			}
-
-			$( '.main-navigation-menu ul a' )
-				.css( 'border-color', border_color );
-
-			$( '.main-navigation-menu ul, .main-navigation-menu ul a' )
-				.css( 'color', menu_color );
-
-			$( '.main-navigation-menu ul a' )
-				.hover( function() { $( this ).css( 'color', hover_color ); },
-						function() { $( this ).css( 'color', menu_color ); }
-				);
-
-			$( '.main-navigation-menu ul .menu-item-has-children > a .icon' )
-				.css( 'fill', menu_color );
-
-			$( '.main-navigation-menu ul .menu-item-has-children > a' )
-				.hover( function() { $( this ).find( '.icon' ).css( 'fill', hover_color ); },
-						function() { $( this ).find( '.icon' ).css( 'fill', menu_color ); }
-				);
+			addColorStyles( custom_css, 3 );
 		} );
 	} );
 
 	/* Title Color Option */
 	wp.customize( 'mercia_theme_options[title_color]', function( value ) {
 		value.bind( function( newval ) {
-			var text_color, page_bg_color;
+			var custom_css;
 
-			if( typeof wp.customize.value( 'mercia_theme_options[page_bg_color]' ) !== 'undefined' ) {
-				page_bg_color = wp.customize.value( 'mercia_theme_options[page_bg_color]' ).get();
-			}
+			custom_css = '.site-title, .site-title a:link, .site-title a:visited, .entry-title, .entry-title a:link, .entry-title a:visited { color: ' + newval + '; }';
+			custom_css += '.site-title a:hover, .site-title a:active, .entry-title a:hover, .entry-title a:active { color: #3377bb; }';
+			custom_css += '.mercia-social-menu .social-icons-menu li a .icon { fill: ' + newval + '; }';
 
-			if( isColorDark( page_bg_color ) ) {
-				text_color = '#ffffff';
-			} else {
-				text_color = '#303030';
-			}
+			addColorStyles( custom_css, 4 );
+		} );
+	} );
 
-			$( '.site-title, .site-title a, .entry-title, .entry-title a' )
-				.css( 'color', text_color );
+	/* Title Hover Color Option */
+	wp.customize( 'mercia_theme_options[title_hover_color]', function( value ) {
+		value.bind( function( newval ) {
+			var custom_css;
 
-			$( '.site-title a, .entry-title a' )
-				.hover( function() { $( this ).css( 'color', newval ); },
-						function() { $( this ).css( 'color', text_color ); }
-				);
+			custom_css = '.site-title a:hover, .site-title a:active, .entry-title a:hover, .entry-title a:active { color: ' + newval + '; }';
+			custom_css += '.mercia-social-menu .social-icons-menu li a:hover .icon { fill: ' + newval + '; }';
+
+			addColorStyles( custom_css, 5 );
+		} );
+	} );
+
+	/* Widget Title Color Option */
+	wp.customize( 'mercia_theme_options[widget_title_color]', function( value ) {
+		value.bind( function( newval ) {
+			var custom_css;
+
+			custom_css = '.widget-title, .widget-title a:link, .widget-title a:visited, .archive-title, .comments-title, .comment-reply-title, .entry-author .author-heading .author-title { color: ' + newval + '; }';
+			custom_css += '.widget-title a:hover, .widget-title a:active { color: #3377bb; }';
+
+			addColorStyles( custom_css, 6 );
 		} );
 	} );
 
@@ -440,6 +292,22 @@
 
 	function isColorDark( hexColor ) {
 		return ( getColorBrightness( hexColor ) <= 130 );
+	}
+
+	function writeColorStyles() {
+		for( var i = 1; i < 8; i++) {
+			$( 'head' ).append( '<style id="mercia-pro-colors-' + i + '"></style>' );
+		}
+	}
+
+	function addColorStyles( colorRules, priority ) {
+
+		// Write Color Styles if they do not exist.
+		if ( ! $( '#mercia-pro-colors-1' ).length ) {
+			writeColorStyles();
+		}
+
+		$( '#mercia-pro-colors-' + priority ).html( colorRules );
 	}
 
 } )( jQuery );

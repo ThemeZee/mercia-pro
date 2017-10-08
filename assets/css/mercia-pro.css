@@ -53,7 +53,7 @@
 
 .top-navigation-toggle:hover,
 .top-navigation-toggle:active {
-	color: #33aacc;
+	color: #3377bb;
 	cursor: pointer;
 }
 
@@ -66,8 +66,8 @@
 }
 
 .top-navigation-toggle:hover .icon,
-.top-navigation-toggle:active .icon  {
-	fill: #33aacc;
+.top-navigation-toggle:active .icon {
+	fill: #3377bb;
 }
 
 /* Top Navigation Menu */
@@ -105,7 +105,7 @@
 
 .top-navigation-menu a:hover,
 .top-navigation-menu a:active {
-	color: #33aacc;
+	color: #3377bb;
 }
 
 .top-navigation-menu ul {
@@ -150,8 +150,8 @@
 }
 
 .top-navigation-menu > .menu-item-has-children a .sub-menu-icon:hover .icon,
-.top-navigation-menu > .menu-item-has-children a .sub-menu-icon:active .icon  {
-	fill: #33aacc;
+.top-navigation-menu > .menu-item-has-children a .sub-menu-icon:active .icon {
+	fill: #3377bb;
 }
 
 .top-navigation-menu > .menu-item-has-children a .sub-menu-icon.active .icon {
@@ -194,7 +194,7 @@
 
 .header-search .header-search-icon:hover .icon-search,
 .header-search .header-search-icon:active .icon-search {
-	fill: #33aacc;
+	fill: #3377bb;
 }
 
 /* Header Search Form */
@@ -253,7 +253,7 @@
 
 .header-search .header-search-form-wrap .header-search-form .header-search-close:hover .icon-close,
 .header-search .header-search-form-wrap .header-search-form .header-search-close:active .icon-close {
-	fill: #33aacc;
+	fill: #3377bb;
 }
 
 /*--------------------------------------------------------------
@@ -370,7 +370,7 @@
 
 .footer-navigation-menu a:hover,
 .footer-navigation-menu a:active {
-	color: #33aacc;
+	color: #3377bb;
 }
 
 .footer-navigation-menu li.current-menu-item > a {
@@ -396,7 +396,7 @@
 }
 
 .scroll-to-top-button:focus {
-	background: #33aacc;
+	background: #3377bb;
 }
 
 .scroll-to-top-button:focus:hover {
@@ -547,9 +547,8 @@
 		height: 12px;
 	}
 
-	.top-navigation-menu > .menu-item-has-children a:hover .sub-menu-icon .icon,
-	.top-navigation-menu > .menu-item-has-children a:hover .sub-menu-icon .icon  {
-		fill: #33aacc;
+	.top-navigation-menu > .menu-item-has-children a:hover .sub-menu-icon .icon {
+		fill: #3377bb;
 	}
 
 	.top-navigation-menu ul {
