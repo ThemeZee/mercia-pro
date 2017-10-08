@@ -72,10 +72,10 @@ class Mercia_Pro_Customizer {
 			'navi_color'        => '#cc5555',
 			'link_color'        => '#cc5555',
 			'title_color'       => '#cc5555',
-			'text_font'         => 'Raleway',
-			'title_font'        => 'Rambla',
-			'navi_font'         => 'Rambla',
-			'widget_title_font' => 'Rambla',
+			'text_font'         => 'Roboto',
+			'title_font'        => 'Open Sans',
+			'navi_font'         => 'Roboto',
+			'widget_title_font' => 'Open Sans',
 			'available_fonts'   => 'favorites',
 		);
 

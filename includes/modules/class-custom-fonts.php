@@ -40,7 +40,6 @@ class Mercia_Pro_Custom_Fonts {
 
 		// Add Font Settings in Customizer.
 		add_action( 'customize_register', array( __CLASS__, 'font_settings' ) );
-
 	}
 
 	/**
@@ -69,21 +68,19 @@ class Mercia_Pro_Custom_Fonts {
 				textarea {
 					font-family: "' . esc_attr( $theme_options['text_font'] ) . '";
 				}
-				';
-
+			';
 		}
 
 		// Set Title Font.
 		if ( $theme_options['title_font'] !== $default_options['title_font'] ) {
 
 			$custom_css .= '
-				/* Headings Font Setting */
+				/* Title Font Setting */
 				.site-title,
 				.entry-title {
 					font-family: "' . esc_attr( $theme_options['title_font'] ) . '";
 				}
-				';
-
+			';
 		}
 
 		// Set Navigation Font.
@@ -91,11 +88,8 @@ class Mercia_Pro_Custom_Fonts {
 
 			$custom_css .= '
 				/* Navigation Font Setting */
-				.top-navigation-menu,
-				.top-navigation-toggle,
-				.main-navigation-menu,
 				.main-navigation-toggle,
-				.footer-navigation-menu {
+				.main-navigation-menu {
 					font-family: "' . esc_attr( $theme_options['navi_font'] ) . '";
 				}
 				';
@@ -109,14 +103,12 @@ class Mercia_Pro_Custom_Fonts {
 				/* Widget Titles Font Setting */
 				.widget-title,
 				.archive-title,
-				.comments-header .comments-title,
+				.comments-title,
 				.comment-reply-title,
-				.pagination a,
-				.pagination .current {
+				.entry-author .author-heading .author-title {
 					font-family: "' . esc_attr( $theme_options['widget_title_font'] ) . '";
 				}
-				';
-
+			';
 		}
 
 		return $custom_css;
@@ -199,99 +191,101 @@ class Mercia_Pro_Custom_Fonts {
 
 		// Add Section for Theme Fonts.
 		$wp_customize->add_section( 'mercia_pro_section_fonts', array(
-			'title'    => __( 'Theme Fonts', 'mercia-pro' ),
+			'title'    => __( 'Typography', 'mercia-pro' ),
 			'priority' => 70,
-			'panel' => 'mercia_options_panel',
-			)
-		);
+			'panel'    => 'mercia_options_panel',
+		) );
 
 		// Get Default Fonts from settings.
 		$default_options = Mercia_Pro_Customizer::get_default_options();
 
-		// Add settings and controls for theme fonts.
+		// Add Text Font setting.
 		$wp_customize->add_setting( 'mercia_theme_options[text_font]', array(
 			'default'           => $default_options['text_font'],
-			'type'           	=> 'option',
+			'type'              => 'option',
 			'transport'         => 'postMessage',
 			'sanitize_callback' => 'esc_attr',
-			)
-		);
+		) );
+
 		$wp_customize->add_control( new Mercia_Pro_Customize_Font_Control(
 			$wp_customize, 'text_font', array(
-				'label'      => __( 'Base Font', 'mercia-pro' ),
-				'section'    => 'mercia_pro_section_fonts',
-				'settings'   => 'mercia_theme_options[text_font]',
+				'label'    => esc_html__( 'Base Font', 'mercia-pro' ),
+				'section'  => 'mercia_pro_section_fonts',
+				'settings' => 'mercia_theme_options[text_font]',
 				'priority' => 10,
 			)
 		) );
 
+		// Add Title Font setting.
 		$wp_customize->add_setting( 'mercia_theme_options[title_font]', array(
 			'default'           => $default_options['title_font'],
-			'type'           	=> 'option',
+			'type'              => 'option',
 			'transport'         => 'postMessage',
 			'sanitize_callback' => 'esc_attr',
-			)
-		);
+		) );
+
 		$wp_customize->add_control( new Mercia_Pro_Customize_Font_Control(
 			$wp_customize, 'title_font', array(
-				'label'      => _x( 'Headings', 'font setting', 'mercia-pro' ),
-				'section'    => 'mercia_pro_section_fonts',
-				'settings'   => 'mercia_theme_options[title_font]',
+				'label'    => esc_html_x( 'Headings', 'Font Setting', 'mercia-pro' ),
+				'section'  => 'mercia_pro_section_fonts',
+				'settings' => 'mercia_theme_options[title_font]',
 				'priority' => 20,
 			)
 		) );
 
+		// Add Navigation Font setting.
 		$wp_customize->add_setting( 'mercia_theme_options[navi_font]', array(
 			'default'           => $default_options['navi_font'],
-			'type'           	=> 'option',
+			'type'              => 'option',
 			'transport'         => 'postMessage',
 			'sanitize_callback' => 'esc_attr',
-			)
-		);
+		) );
+
 		$wp_customize->add_control( new Mercia_Pro_Customize_Font_Control(
 			$wp_customize, 'navi_font', array(
-				'label'      => _x( 'Navigation', 'font setting', 'mercia-pro' ),
-				'section'    => 'mercia_pro_section_fonts',
-				'settings'   => 'mercia_theme_options[navi_font]',
+				'label'    => esc_html_x( 'Navigation', 'Font Setting', 'mercia-pro' ),
+				'section'  => 'mercia_pro_section_fonts',
+				'settings' => 'mercia_theme_options[navi_font]',
 				'priority' => 30,
 			)
 		) );
 
+		// Add Widget Title Font setting.
 		$wp_customize->add_setting( 'mercia_theme_options[widget_title_font]', array(
 			'default'           => $default_options['widget_title_font'],
-			'type'           	=> 'option',
+			'type'              => 'option',
 			'transport'         => 'postMessage',
 			'sanitize_callback' => 'esc_attr',
-			)
-		);
+		) );
+
 		$wp_customize->add_control( new Mercia_Pro_Customize_Font_Control(
 			$wp_customize, 'widget_title_font', array(
-				'label'      => _x( 'Widget Titles', 'font setting', 'mercia-pro' ),
-				'section'    => 'mercia_pro_section_fonts',
-				'settings'   => 'mercia_theme_options[widget_title_font]',
+				'label'    => esc_html_x( 'Widget Titles', 'Font Setting', 'mercia-pro' ),
+				'section'  => 'mercia_pro_section_fonts',
+				'settings' => 'mercia_theme_options[widget_title_font]',
 				'priority' => 40,
 			)
 		) );
 
-		// Choose Available Fonts.
+		// Available Fonts Setting.
 		$wp_customize->add_setting( 'mercia_theme_options[available_fonts]', array(
 			'default'           => 'favorites',
-			'type'           	=> 'option',
+			'type'              => 'option',
 			'transport'         => 'postMessage',
 			'sanitize_callback' => array( 'Mercia_Pro_Custom_Fonts', 'sanitize_available_fonts' ),
-			)
-		);
+		) );
+
 		$wp_customize->add_control( new Mercia_Pro_Customize_Font_List_Control(
 			$wp_customize, 'mercia_control_available_fonts', array(
-				'label'      => __( 'Choose available Fonts', 'mercia-pro' ),
-				'section'    => 'mercia_pro_section_fonts',
-				'settings'   => 'mercia_theme_options[available_fonts]',
-				'choices' => array(
-					'default' => __( 'Default Browser Fonts (12)', 'mercia-pro' ),
-					'favorites' => __( 'ThemeZee Favorite Fonts (35)', 'mercia-pro' ),
-					'popular' => __( 'Most Popular Google Fonts (100)', 'mercia-pro' ),
-					'all' => __( 'All Google Fonts (650)', 'mercia-pro' ),
-					),
+				'label'    => esc_html__( 'Choose available Fonts', 'mercia-pro' ),
+				'section'  => 'mercia_pro_section_fonts',
+				'settings' => 'mercia_theme_options[available_fonts]',
+				'choices'  => array(
+					'default'   => esc_html__( 'Default Browser Fonts (12)', 'mercia-pro' ),
+					'favorites' => esc_html__( 'ThemeZee Favorite Fonts (35)', 'mercia-pro' ),
+					'popular'   => esc_html__( 'Most Popular Google Fonts (100)', 'mercia-pro' ),
+					'all'       => esc_html__( 'All Google Fonts (650)', 'mercia-pro' ),
+				),
 				'priority' => 50,
 			)
 		) );

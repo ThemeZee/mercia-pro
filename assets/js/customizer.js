@@ -369,7 +369,7 @@
 			$( "head" ).append( googleFontSource );
 
 			// Set CSS.
-			$( '.top-navigation-menu, .top-navigation-toggle, .main-navigation-menu, .main-navigation-toggle, .footer-navigation-menu' )
+			$( '.main-navigation-menu, .main-navigation-toggle' )
 				.css( 'font-family', newval );
 
 		} );
@@ -390,7 +390,7 @@
 			$( "head" ).append( googleFontSource );
 
 			// Set CSS.
-			$( '.widget-title, .archive-title, .comments-header .comments-title, .comment-reply-title, .pagination a, .pagination .current' )
+			$( '.widget-title, .archive-title, .comments-title, .comment-reply-title, .entry-author .author-heading .author-title' )
 				.css( 'font-family', newval );
 
 		} );
