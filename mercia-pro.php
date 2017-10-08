@@ -117,12 +117,6 @@ class Mercia_Pro {
 		require_once MERCIA_PRO_PLUGIN_DIR . 'includes/modules/class-header-bar.php';
 		require_once MERCIA_PRO_PLUGIN_DIR . 'includes/modules/class-header-search.php';
 		require_once MERCIA_PRO_PLUGIN_DIR . 'includes/modules/class-scroll-to-top.php';
-
-		// Include Magazine Widgets.
-		require_once MERCIA_PRO_PLUGIN_DIR . 'includes/widgets/widget-magazine-horizontal-box.php';
-		require_once MERCIA_PRO_PLUGIN_DIR . 'includes/widgets/widget-magazine-vertical-box.php';
-		require_once MERCIA_PRO_PLUGIN_DIR . 'includes/widgets/widget-magazine-list.php';
-		require_once MERCIA_PRO_PLUGIN_DIR . 'includes/widgets/widget-magazine-single.php';
 	}
 
 	/**
@@ -135,9 +129,6 @@ class Mercia_Pro {
 
 		// Enqueue Mercia Pro Stylesheet.
 		add_action( 'wp_enqueue_scripts', array( __CLASS__, 'enqueue_styles' ), 11 );
-
-		// Register additional Magazine Widgets.
-		add_action( 'widgets_init', array( __CLASS__, 'register_widgets' ) );
 
 		// Add Settings link to Plugin actions.
 		add_filter( 'plugin_action_links_' . plugin_basename( MERCIA_PRO_PLUGIN_FILE ), array( __CLASS__, 'plugin_action_links' ) );
@@ -176,24 +167,6 @@ class Mercia_Pro {
 
 		// Enqueue Custom CSS.
 		wp_add_inline_style( 'mercia-pro', $custom_css );
-	}
-
-	/**
-	 * Register Magazine Widgets
-	 *
-	 * @return void
-	 */
-	static function register_widgets() {
-
-		// Return early if Mercia Theme is not active.
-		if ( ! current_theme_supports( 'mercia-pro' ) ) {
-			return;
-		}
-
-		register_widget( 'Mercia_Pro_Magazine_Horizontal_Box_Widget' );
-		register_widget( 'Mercia_Pro_Magazine_Vertical_Box_Widget' );
-		register_widget( 'Mercia_Pro_Magazine_Posts_List_Widget' );
-		register_widget( 'Mercia_Pro_Magazine_Posts_Single_Widget' );
 	}
 
 	/**
