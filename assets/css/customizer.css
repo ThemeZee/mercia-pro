@@ -8,12 +8,15 @@
 
 #customize-control-mercia_theme_options-header_text,
 #customize-control-mercia_theme_options-header_search_title,
-#customize-control-mercia_theme_options-footer_text {
+#customize-control-mercia_theme_options-footer_text,
+#customize-control-mercia_theme_options-scroll_top_title {
 	margin-top: 16px;
 }
 
 #customize-control-mercia_theme_options-header_date_title,
 #customize-control-mercia_theme_options-header_search_title,
+#customize-control-mercia_theme_options-footer_content_title,
+#customize-control-mercia_theme_options-footer_text,
 #customize-control-mercia_theme_options-scroll_top_title {
 	margin-bottom: 0;
 }

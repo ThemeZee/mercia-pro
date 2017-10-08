@@ -48,6 +48,17 @@
 		} );
 	} );
 
+	/* Footer Content checkbox */
+	wp.customize( 'mercia_theme_options[footer_content]', function( value ) {
+		value.bind( function( newval ) {
+			if ( false === newval ) {
+				hideElement( '.site > .footer-content' );
+			} else {
+				showElement( '.site > .footer-content' );
+			}
+		} );
+	} );
+
 	/* Footer textfield. */
 	wp.customize( 'mercia_theme_options[footer_text]', function( value ) {
 		value.bind( function( to ) {

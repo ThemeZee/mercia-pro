@@ -8,7 +8,6 @@
  * @package Mercia Pro
  */
 
-
 /*--------------------------------------------------------------
 # Header Bar
 --------------------------------------------------------------*/
@@ -326,21 +325,23 @@
 }
 
 /*--------------------------------------------------------------
-# Footer Navigation
+# Footer Text / Footer Navigation
 --------------------------------------------------------------*/
+.site-footer .site-info .footer-text {
+	display: block;
+}
+
 .footer-navigation {
-	border-top: 6px solid #353535;
-	padding: 1em 0;
+	margin: 1em 0 0;
 }
 
 .footer-navigation-menu {
 	margin: 0;
 	padding: 0;
 	color: #353535;
-	border-top: 1px solid #353535;
 	list-style: none;
-	font-size: 17px;
-	font-size: 1.0625rem;
+	font-size: 15px;
+	font-size: 0.9375rem;
 	font-family: 'Roboto', Tahoma, Arial;
 	-webkit-box-orient: horizontal;
 	-webkit-box-direction: normal;
@@ -355,7 +356,7 @@
 	margin: 0;
 	padding: 0.5em;
 	text-decoration: none;
-	border-bottom: 1px solid rgba(0,0,0,0.075);
+	text-align: center;
 }
 
 .footer-navigation-menu li:last-child a {
@@ -465,18 +466,16 @@
 
 	/* Footer Navigation */
 	.footer-navigation-menu {
-		position: relative;
 		display: -webkit-box;
 		display: -ms-flexbox;
 		display: flex;
 		-ms-flex-flow: row wrap;
 		flex-flow: row wrap;
-		border-top: none;
+		justify-content: center;
 	}
 
 	.footer-navigation-menu a {
-		padding: 1em;
-		border: none;
+		text-align: left;
 	}
 }
 
@@ -496,7 +495,6 @@
 ## Desktop Small ( Larger than 880px )
 --------------------------------------------------------------*/
 @media only screen and (min-width: 55em) {
-
 	.header-bar {
 		display: -webkit-box;
 		display: -ms-flexbox;
@@ -627,6 +625,25 @@
 
 	.footer-social-menu .social-icons-menu {
 		justify-content: flex-start;
+	}
+
+	/* Footer Line */
+	.site-footer {
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+		-ms-flex-flow: row wrap;
+		flex-flow: row wrap;
+	}
+
+	.site-footer .footer-navigation {
+		order: 2;
+		margin: 0.5em 0 0;
+	}
+
+	.site-footer .site-info {
+		flex-grow: 1;
+		order: 1;
 	}
 }
 

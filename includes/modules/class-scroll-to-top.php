@@ -68,7 +68,7 @@ class Mercia_Pro_Scroll_To_Top {
 				'label'    => esc_html__( 'Scroll to Top', 'mercia-pro' ),
 				'section'  => 'mercia_pro_section_footer',
 				'settings' => array(),
-				'priority' => 10,
+				'priority' => 40,
 			)
 		) );
 
@@ -85,7 +85,7 @@ class Mercia_Pro_Scroll_To_Top {
 			'section'  => 'mercia_pro_section_footer',
 			'settings' => 'mercia_theme_options[scroll_to_top]',
 			'type'     => 'checkbox',
-			'priority' => 20,
+			'priority' => 50,
 		) );
 	}
 }

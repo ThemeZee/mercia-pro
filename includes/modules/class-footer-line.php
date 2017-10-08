@@ -17,7 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
 class Mercia_Pro_Footer_Line {
 
 	/**
-	 * Footer Line Setup
+	 * Class Setup
 	 *
 	 * @return void
 	 */
@@ -29,7 +29,7 @@ class Mercia_Pro_Footer_Line {
 		}
 
 		// Display footer navigation.
-		add_action( 'mercia_before_footer', array( __CLASS__, 'display_footer_content' ) );
+		add_action( 'mercia_footer_menu', array( __CLASS__, 'display_footer_menu' ) );
 
 		// Display Footer Text in theme.
 		add_action( 'mercia_footer_text', array( __CLASS__, 'footer_text' ) );
@@ -37,54 +37,8 @@ class Mercia_Pro_Footer_Line {
 		// Hide Credit Link.
 		add_filter( 'mercia_hide_elements', array( __CLASS__, 'hide_credit_link' ), 20 );
 
-		// Add Footer Settings in Customizer.
+		// Add Footer Line Settings in Customizer.
 		add_action( 'customize_register', array( __CLASS__, 'footer_settings' ) );
-	}
-
-	/**
-	 * Display footer footer content
-	 *
-	 * @return void
-	 */
-	static function display_footer_content() {
-		?>
-		<div class="footer-content">
-
-			<div id="footer-logo" class="site-branding clearfix">
-
-				<?php mercia_site_logo(); ?>
-				<?php mercia_site_title(); ?>
-
-			</div><!-- .site-branding -->
-
-			<?php
-			// Check if there is a social menu.
-			if ( has_nav_menu( 'social' ) ) : ?>
-
-				<div id="footer-social-icons" class="footer-social-menu mercia-social-menu clearfix">
-
-					<?php
-					// Display Social Icons Menu.
-					wp_nav_menu( array(
-						'theme_location' => 'social',
-						'container' => false,
-						'menu_class' => 'social-icons-menu',
-						'echo' => true,
-						'fallback_cb' => '',
-						'link_before' => '<span class="screen-reader-text">',
-						'link_after' => '</span>',
-						'depth' => 1,
-						)
-					);
-					?>
-
-				</div>
-
-			<?php endif; ?>
-
-		</div><!-- .footer-content -->
-
-		<?php
 	}
 
 	/**
@@ -101,13 +55,12 @@ class Mercia_Pro_Footer_Line {
 
 			wp_nav_menu( array(
 				'theme_location' => 'footer',
-				'container' => false,
-				'menu_class' => 'footer-navigation-menu',
-				'echo' => true,
-				'fallback_cb' => '',
-				'depth' => 1,
-				)
-			);
+				'container'      => false,
+				'menu_class'     => 'footer-navigation-menu',
+				'echo'           => true,
+				'fallback_cb'    => '',
+				'depth'          => 1,
+			) );
 
 			echo '</nav><!-- #footer-links -->';
 
@@ -115,7 +68,7 @@ class Mercia_Pro_Footer_Line {
 	}
 
 	/**
-	 * Displays Credit Link and user defined Footer Text based on theme settings.
+	 * Displays Footer Text.
 	 *
 	 * @return void
 	 */
@@ -130,7 +83,6 @@ class Mercia_Pro_Footer_Line {
 			echo '<span class="footer-text">' . do_shortcode( wp_kses_post( $theme_options['footer_text'] ) ) . '</span>';
 
 		endif;
-
 	}
 
 	/**
@@ -158,30 +110,21 @@ class Mercia_Pro_Footer_Line {
 	 */
 	static function footer_settings( $wp_customize ) {
 
-		// Add Sections for Footer Settings.
-		$wp_customize->add_section( 'mercia_pro_section_footer', array(
-			'title'    => __( 'Footer Settings', 'mercia-pro' ),
-			'priority' => 90,
-			'panel' => 'mercia_options_panel',
-			)
-		);
-
 		// Add Footer Text setting.
 		$wp_customize->add_setting( 'mercia_theme_options[footer_text]', array(
 			'default'           => '',
-			'type'           	=> 'option',
+			'type'              => 'option',
 			'transport'         => 'postMessage',
 			'sanitize_callback' => array( __CLASS__, 'sanitize_footer_text' ),
-			)
-		);
+		) );
+
 		$wp_customize->add_control( 'mercia_theme_options[footer_text]', array(
-			'label'    => __( 'Footer Text', 'mercia-pro' ),
+			'label'    => esc_html__( 'Footer Text', 'mercia-pro' ),
 			'section'  => 'mercia_pro_section_footer',
 			'settings' => 'mercia_theme_options[footer_text]',
 			'type'     => 'textarea',
 			'priority' => 30,
-			)
-		);
+		) );
 
 		// Add selective refresh for footer text.
 		$wp_customize->selective_refresh->add_partial( 'mercia_theme_options[footer_text]', array(
@@ -193,19 +136,18 @@ class Mercia_Pro_Footer_Line {
 		// Add Credit Link setting.
 		$wp_customize->add_setting( 'mercia_theme_options[credit_link]', array(
 			'default'           => true,
-			'type'           	=> 'option',
+			'type'              => 'option',
 			'transport'         => 'postMessage',
 			'sanitize_callback' => 'mercia_sanitize_checkbox',
-			)
-		);
+		) );
+
 		$wp_customize->add_control( 'mercia_theme_options[credit_link]', array(
-			'label'    => __( 'Display Credit Link to ThemeZee on footer line', 'mercia-pro' ),
+			'label'    => esc_html__( 'Display Credit Link to ThemeZee on footer line', 'mercia-pro' ),
 			'section'  => 'mercia_pro_section_footer',
 			'settings' => 'mercia_theme_options[credit_link]',
 			'type'     => 'checkbox',
 			'priority' => 40,
-			)
-		);
+		) );
 	}
 
 	/**
