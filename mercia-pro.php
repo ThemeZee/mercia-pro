@@ -64,7 +64,7 @@ class Mercia_Pro {
 		define( 'MERCIA_PRO_VERSION', '1.0' );
 
 		// Define Plugin Name.
-		define( 'MERCIA_PRO_PRODUCT_ID', 135412 );
+		define( 'MERCIA_PRO_PRODUCT_ID', 149520 );
 
 		// Define Update API URL.
 		define( 'MERCIA_PRO_STORE_API_URL', 'https://themezee.com' );
