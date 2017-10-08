@@ -17,7 +17,7 @@
 
 /* Header Content */
 .header-bar .header-content {
-	float: left;
+	float: right;
 	padding: 0.5em 0;
 	max-width: 70%;
 	font-size: 13px;
@@ -27,13 +27,13 @@
 .header-bar .header-content .header-date,
 .header-bar .header-content .header-text {
 	display: inline-block;
-	margin-right: 1.5em;
+	margin-left: 1.5em;
 }
 
 /* Top Navigation Toggle */
 .top-navigation-toggle {
 	display: inline-block;
-	float: right;
+	float: left;
 	margin: 0;
 	padding: 0.5em;
 	border: none;
@@ -58,7 +58,7 @@
 }
 
 .top-navigation-toggle .icon {
-	margin: 0.3em 0.6em 0 0;
+	margin: 0.3em 0 0 0.6em;
 	width: 16px;
 	height: 16px;
 	vertical-align: top;
@@ -73,7 +73,7 @@
 /* Top Navigation Menu */
 .top-navigation-menu {
 	display: none;
-	clear: left;
+	clear: right;
 	margin: 0;
 	padding: 0;
 	width: 100%;
@@ -119,24 +119,24 @@
 }
 
 .top-navigation-menu ul a {
-	padding-left: 1.5em;
+	padding-right: 1.5em;
 }
 
 .top-navigation-menu ul li ul a {
-	padding-left: 2.5em;
+	padding-right: 2.5em;
 }
 
 .top-navigation-menu ul li ul li ul a {
-	padding-left: 3.5em;
+	padding-right: 3.5em;
 }
 
 .top-navigation-menu ul li ul li ul li ul a {
-	padding-left: 4.5em;
+	padding-right: 4.5em;
 }
 
 /* Sub Menu Dropdown Icons */
 .top-navigation-menu > .menu-item-has-children a .sub-menu-icon {
-	float: right;
+	float: left;
 	margin: -0.5em -0.5em 0;
 	padding: 0.5em 1em;
 }
@@ -156,8 +156,8 @@
 
 .top-navigation-menu > .menu-item-has-children a .sub-menu-icon.active .icon {
 	margin: 0.25em 0 0;
-	-webkit-transform: rotate(180deg);
-	transform: rotate(180deg);
+	-webkit-transform: rotate(-180deg);
+	transform: rotate(-180deg);
 }
 
 /*--------------------------------------------------------------
@@ -167,7 +167,7 @@
 /* Header Search Icon */
 .header-search .header-search-icon {
 	position: absolute;
-	right: 0;
+	left: 0;
 	z-index: 99;
 	display: inline-block;
 	padding: 1em;
@@ -201,7 +201,7 @@
 .header-search .header-search-form-wrap {
 	position: absolute;
 	top: 0;
-	left: 0;
+	right: 0;
 	z-index: 99;
 	display: none;
 	box-sizing: border-box;
@@ -271,8 +271,8 @@
 }
 
 .entry-author .author-avatar {
-	float: left;
-	margin: 0 1.5em 0.25em 0;
+	float: right;
+	margin: 0 0 0.25em 1.5em;
 	max-width: 25%;
 }
 
@@ -282,7 +282,7 @@
 
 .entry-author .author-heading .author-title {
 	display: inline-block;
-	margin: 0 1em 0.25em 0;
+	margin: 0 0 0.25em 1em;
 	padding: 0;
 	text-transform: uppercase;
 	font-weight: bold;
@@ -388,7 +388,7 @@
 --------------------------------------------------------------*/
 .scroll-to-top-button {
 	position: fixed;
-	right: 0.75em;
+	left: 0.75em;
 	bottom: 0.75em;
 	z-index: 9999;
 	display: inline;
@@ -432,13 +432,13 @@
 		display: flex;
 		-ms-flex-wrap: wrap;
 		flex-wrap: wrap;
-		margin-right: -1.5em;
+		margin-left: -1.5em;
 	}
 
 	.footer-widget-column {
 		flex-grow: 1;
 		box-sizing: border-box;
-		padding-right: 1.5em;
+		padding-left: 1.5em;
 		width: 50%;
 		-webkit-box-flex: 1;
 		-ms-flex-positive: 1;
@@ -466,11 +466,11 @@
 	}
 
 	.footer-widgets {
-		margin-right: -2em;
+		margin-left: -2em;
 	}
 
 	.footer-widget-column {
-		padding-right: 2em;
+		padding-left: 2em;
 	}
 
 	/* Footer Navigation */
@@ -488,7 +488,7 @@
 	}
 
 	.footer-navigation-menu a {
-		text-align: left;
+		text-align: right;
 	}
 }
 
@@ -556,7 +556,7 @@
 	}
 
 	.top-navigation-menu > .menu-item-has-children a .sub-menu-icon .icon {
-		margin: 0.4em 0 0 0.3em;
+		margin: 0.4em 0.3em 0 0;
 		width: 12px;
 		height: 12px;
 	}
@@ -593,16 +593,16 @@
 	}
 
 	.top-navigation-menu ul .menu-item-has-children > a .sub-menu-icon .icon {
-		margin: 0.5em 0 0 0.2em;
+		margin: 0.5em 0.2em 0 0;
 		width: 10px;
 		height: 10px;
-		-webkit-transform: rotate(270deg);
-		transform: rotate(270deg);
+		-webkit-transform: rotate(-270deg);
+		transform: rotate(-270deg);
 	}
 
 	.top-navigation-menu li ul ul {
 		top: -1px;
-		left: 100%;
+		right: 100%;
 	}
 
 	.top-navigation-menu li.menu-item-has-children:hover > ul,
@@ -630,13 +630,13 @@
 		display: -webkit-box;
 		display: -ms-flexbox;
 		display: flex;
-		text-align: left;
+		text-align: right;
 	}
 
 	.footer-social-menu {
 		display: block;
 		margin-top: 0.25em;
-		margin-left: auto;
+		margin-right: auto;
 	}
 
 	.footer-social-menu .social-icons-menu {
@@ -700,11 +700,11 @@
 	}
 
 	.footer-widgets {
-		margin-right: -2.5em;
+		margin-left: -2.5em;
 	}
 
 	.footer-widget-column {
-		padding-right: 2.5em;
+		padding-left: 2.5em;
 	}
 }
 
@@ -714,10 +714,10 @@
 
 /* Add some styling for visual edit shortcut buttons. */
 .customize-partial-edit-shortcuts-shown .header-bar .header-content .header-text {
-	margin-left: 2em;
+	margin-right: 2em;
 }
 
 .customize-partial-edit-shortcut-mercia_theme_options-header_text button {
 	top: -5px;
-	left: -35px;
+	right: -35px;
 }
