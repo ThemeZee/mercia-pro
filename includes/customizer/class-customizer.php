@@ -77,7 +77,6 @@ class Mercia_Pro_Customizer {
 			'title_font'         => 'Open Sans',
 			'navi_font'          => 'Roboto',
 			'widget_title_font'  => 'Open Sans',
-			'available_fonts'    => 'favorites',
 		);
 
 		return $default_options;
