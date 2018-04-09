@@ -41,6 +41,21 @@ class Mercia_Pro_Custom_Fonts {
 	}
 
 	/**
+	 * Get the font family string.
+	 *
+	 * @param String $font Name of selected font.
+	 * @return string Fonts string.
+	 */
+	static function get_font_family( $font ) {
+
+		// Set System Font Stack.
+		$system_fonts = '-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif';
+
+		// Return Font Family string.
+		return $font === 'SystemFontStack' ? $system_fonts : '"' . esc_attr( $font ) . '", Arial, Helvetica, sans-serif';
+	}
+
+	/**
 	 * Adds Font Family CSS styles in the head area to override default typography
 	 *
 	 * @param String $custom_css Custom Styling CSS.
@@ -64,7 +79,7 @@ class Mercia_Pro_Custom_Fonts {
 				input,
 				select,
 				textarea {
-					font-family: "' . esc_attr( $theme_options['text_font'] ) . '";
+					font-family: ' . self::get_font_family( $theme_options['text_font'] ) . ';
 				}
 			';
 		}
@@ -76,7 +91,7 @@ class Mercia_Pro_Custom_Fonts {
 				/* Title Font Setting */
 				.site-title,
 				.entry-title {
-					font-family: "' . esc_attr( $theme_options['title_font'] ) . '";
+					font-family: ' . self::get_font_family( $theme_options['title_font'] ) . ';
 				}
 			';
 		}
@@ -88,7 +103,7 @@ class Mercia_Pro_Custom_Fonts {
 				/* Navigation Font Setting */
 				.main-navigation-toggle,
 				.main-navigation-menu {
-					font-family: "' . esc_attr( $theme_options['navi_font'] ) . '";
+					font-family: ' . self::get_font_family( $theme_options['navi_font'] ) . ';
 				}
 				';
 
@@ -104,7 +119,7 @@ class Mercia_Pro_Custom_Fonts {
 				.comments-title,
 				.comment-reply-title,
 				.entry-author .author-heading .author-title {
-					font-family: "' . esc_attr( $theme_options['widget_title_font'] ) . '";
+					font-family: ' . self::get_font_family( $theme_options['widget_title_font'] ) . ';
 				}
 			';
 		}
