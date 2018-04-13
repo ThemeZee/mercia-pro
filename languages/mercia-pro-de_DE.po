@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: New Themes and Addons\n"
 "Report-Msgid-Bugs-To: https://themezee.com/\n"
-"POT-Creation-Date: 2017-10-08 21:07+0200\n"
-"PO-Revision-Date: 2017-10-08 21:10+0200\n"
+"POT-Creation-Date: 2018-04-13 10:00+0200\n"
+"PO-Revision-Date: 2018-04-13 10:00+0200\n"
 "Last-Translator: \n"
 "Language-Team: ThemeZee <support@themezee.com>\n"
 "Language: de_DE\n"
@@ -158,22 +158,26 @@ msgstr "Lizenz deaktivieren"
 msgid "Activate License"
 msgstr "Lizenz aktivieren"
 
-#: includes/customizer/class-customize-font-control.php:51
+#: includes/customizer/class-customize-font-control.php:58
 msgid "Previous Font"
 msgstr "Vorherige Schriftart"
 
-#: includes/customizer/class-customize-font-control.php:52
+#: includes/customizer/class-customize-font-control.php:59
 msgid "Next Font"
 msgstr "Nächste Schriftart"
 
-#: includes/customizer/class-customize-font-control.php:53
+#: includes/customizer/class-customize-font-control.php:60
 msgctxt "default font button"
 msgid "Default"
 msgstr "Standard"
 
-#: includes/customizer/class-customize-font-list-control.php:44
-msgid "Update Fonts"
-msgstr "Schriftarten aktualisieren"
+#: includes/customizer/class-customize-font-control.php:100
+msgid "Local Fonts"
+msgstr "Lokale Schriftarten"
+
+#: includes/customizer/class-customize-font-control.php:108
+msgid "Google Web Fonts"
+msgstr "Google Schriftarten"
 
 #: includes/modules/class-author-bio.php:60
 #, php-format
@@ -222,48 +226,28 @@ msgctxt "color setting"
 msgid "Widget Titles"
 msgstr "Widget Titel"
 
-#: includes/modules/class-custom-fonts.php:194
+#: includes/modules/class-custom-fonts.php:206
 msgid "Typography"
 msgstr "Typografie"
 
-#: includes/modules/class-custom-fonts.php:212
+#: includes/modules/class-custom-fonts.php:224
 msgid "Base Font"
 msgstr "Basis Schriftart"
 
-#: includes/modules/class-custom-fonts.php:229
+#: includes/modules/class-custom-fonts.php:241
 msgctxt "Font Setting"
 msgid "Headings"
 msgstr "Überschriften"
 
-#: includes/modules/class-custom-fonts.php:246
+#: includes/modules/class-custom-fonts.php:258
 msgctxt "Font Setting"
 msgid "Navigation"
 msgstr "Navigation"
 
-#: includes/modules/class-custom-fonts.php:263
+#: includes/modules/class-custom-fonts.php:275
 msgctxt "Font Setting"
 msgid "Widget Titles"
 msgstr "Widget Titel"
-
-#: includes/modules/class-custom-fonts.php:280
-msgid "Choose available Fonts"
-msgstr "Verfügbare Schriftarten wählen"
-
-#: includes/modules/class-custom-fonts.php:284
-msgid "Default Browser Fonts (12)"
-msgstr "Standard Browser Schriftarten (12)"
-
-#: includes/modules/class-custom-fonts.php:285
-msgid "ThemeZee Favorite Fonts (35)"
-msgstr "Favoriten von ThemeZee (35)"
-
-#: includes/modules/class-custom-fonts.php:286
-msgid "Most Popular Google Fonts (100)"
-msgstr "Beliebteste Google Schriftarten (100)"
-
-#: includes/modules/class-custom-fonts.php:287
-msgid "All Google Fonts (650)"
-msgstr "Alle Google Schriftarten (650)"
 
 #: includes/modules/class-footer-content.php:119
 msgid "Footer Settings"
@@ -364,3 +348,15 @@ msgstr "Button zum Nach oben Scrollen anzeigen"
 #: mercia-pro.php:181
 msgid "Settings"
 msgstr "Einstellungen"
+
+#~ msgid "Choose available Fonts"
+#~ msgstr "Verfügbare Schriftarten wählen"
+
+#~ msgid "Default Browser Fonts (12)"
+#~ msgstr "Standard Browser Schriftarten (12)"
+
+#~ msgid "ThemeZee Favorite Fonts (35)"
+#~ msgstr "Favoriten von ThemeZee (35)"
+
+#~ msgid "Most Popular Google Fonts (100)"
+#~ msgstr "Beliebteste Google Schriftarten (100)"
