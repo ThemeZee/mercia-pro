@@ -5,18 +5,20 @@ Plugin URI: http://themezee.com/addons/mercia-pro/
 Description: Adds additional features like footer widgets, custom colors, custom fonts, custom menus, and Magazine Post widgets to the Mercia theme.
 Author: ThemeZee
 Author URI: https://themezee.com/
-Version: 1.1
+Version: 1.2
 Text Domain: mercia-pro
 Domain Path: /languages/
-License: GPL v3
-License URI: http://www.gnu.org/licenses/gpl-3.0.html
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 Mercia Pro
 Copyright(C) 2017, ThemeZee.com - support@themezee.com
 */
 
 // Exit if accessed directly.
-if ( ! defined( 'ABSPATH' ) ) { exit; }
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 
 
 /**
@@ -47,7 +49,6 @@ class Mercia_Pro {
 
 		// Setup Action Hooks.
 		self::setup_actions();
-
 	}
 
 	/**
@@ -61,7 +62,7 @@ class Mercia_Pro {
 		define( 'MERCIA_PRO_NAME', 'Mercia Pro' );
 
 		// Define Version Number.
-		define( 'MERCIA_PRO_VERSION', '1.1' );
+		define( 'MERCIA_PRO_VERSION', '1.2' );
 
 		// Define Plugin Name.
 		define( 'MERCIA_PRO_PRODUCT_ID', 149520 );
@@ -77,7 +78,6 @@ class Mercia_Pro {
 
 		// Plugin Root File.
 		define( 'MERCIA_PRO_PLUGIN_FILE', __FILE__ );
-
 	}
 
 	/**
@@ -199,13 +199,12 @@ class Mercia_Pro {
 
 			// Setup the updater.
 			$mercia_pro_updater = new Mercia_Pro_Plugin_Updater( MERCIA_PRO_STORE_API_URL, __FILE__, array(
-					'version' 	=> MERCIA_PRO_VERSION,
-					'license' 	=> $license_key,
-					'item_name' => MERCIA_PRO_NAME,
-					'item_id'   => MERCIA_PRO_PRODUCT_ID,
-					'author' 	=> 'ThemeZee',
-				)
-			);
+				'version'   => MERCIA_PRO_VERSION,
+				'license'   => $license_key,
+				'item_name' => MERCIA_PRO_NAME,
+				'item_id'   => MERCIA_PRO_PRODUCT_ID,
+				'author'    => 'ThemeZee',
+			) );
 
 		endif;
 	}

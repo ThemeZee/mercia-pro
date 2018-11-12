@@ -8,7 +8,9 @@
  */
 
 // Exit if accessed directly.
-if ( ! defined( 'ABSPATH' ) ) { exit; }
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 
 /**
  * Custom Colors Class
@@ -29,6 +31,9 @@ class Mercia_Pro_Custom_Colors {
 
 		// Add Custom Color CSS code to custom stylesheet output.
 		add_filter( 'mercia_pro_custom_css_stylesheet', array( __CLASS__, 'custom_colors_css' ) );
+
+		// Add Custom Color CSS code to the Gutenberg editor.
+		add_action( 'enqueue_block_editor_assets', array( __CLASS__, 'custom_editor_colors_css' ) );
 
 		// Add Custom Color Settings.
 		add_action( 'customize_register', array( __CLASS__, 'color_settings' ) );
@@ -61,7 +66,8 @@ class Mercia_Pro_Custom_Colors {
 				.top-navigation-menu a:hover,
 				.top-navigation-menu a:active,
 				.footer-navigation-menu a:hover,
-				.footer-navigation-menu a:active {
+				.footer-navigation-menu a:active,
+				.has-primary-color {
 					color: ' . $theme_options['link_color'] . ';
 				}
 
@@ -90,8 +96,9 @@ class Mercia_Pro_Custom_Colors {
 				.tzwb-social-icons .social-icons-menu li a,
 				.scroll-to-top-button,
 				.scroll-to-top-button:focus,
-				.scroll-to-top-button:active {
-					background: ' . $theme_options['link_color'] . ';
+				.scroll-to-top-button:active,
+				.has-primary-background-color {
+					background-color: ' . $theme_options['link_color'] . ';
 				}
 
 				@media only screen and (min-width: 55em) {
@@ -301,6 +308,56 @@ class Mercia_Pro_Custom_Colors {
 	}
 
 	/**
+	 * Adds Color CSS styles in the Gutenberg Editor to override default colors
+	 *
+	 * @return void
+	 */
+	static function custom_editor_colors_css() {
+
+		// Get Theme Options from Database.
+		$theme_options = Mercia_Pro_Customizer::get_theme_options();
+
+		// Get Default Fonts from settings.
+		$default_options = Mercia_Pro_Customizer::get_default_options();
+
+		// Set Primary Color.
+		if ( $theme_options['link_color'] !== $default_options['link_color'] ) {
+
+			$custom_css = '
+				.has-primary-color,
+				.edit-post-visual-editor .editor-block-list__block a {
+					color: ' . $theme_options['link_color'] . ';
+				}
+				.has-primary-background-color {
+					background-color: ' . $theme_options['link_color'] . ';
+				}
+			';
+
+			wp_add_inline_style( 'mercia-editor-styles', $custom_css );
+		}
+	}
+
+	/**
+	 * Change primary color in Gutenberg Editor.
+	 *
+	 * @return array $editor_settings
+	 */
+	static function change_primary_color( $color ) {
+		// Get Theme Options from Database.
+		$theme_options = Mercia_Pro_Customizer::get_theme_options();
+
+		// Get Default Fonts from settings.
+		$default_options = Mercia_Pro_Customizer::get_default_options();
+
+		// Set Primary Color.
+		if ( $theme_options['link_color'] !== $default_options['link_color'] ) {
+			$color = $theme_options['link_color'];
+		}
+
+		return $color;
+	}
+
+	/**
 	 * Adds all color settings in the Customizer
 	 *
 	 * @param object $wp_customize / Customizer Object.
@@ -453,3 +510,4 @@ class Mercia_Pro_Custom_Colors {
 
 // Run Class.
 add_action( 'init', array( 'Mercia_Pro_Custom_Colors', 'setup' ) );
+add_filter( 'mercia_primary_color', array( 'Mercia_Pro_Custom_Colors', 'change_primary_color' ) );

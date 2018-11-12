@@ -94,6 +94,9 @@
 			custom_css = '.widget-title a:hover, .widget-title a:active { color: ' + newval + '; }';
 
 			addColorStyles( custom_css, 7 );
+
+			$( '.has-primary-color' ).css( 'color', newval );
+			$( '.has-primary-background-color' ).css( 'background-color', newval );
 		} );
 	} );
 
