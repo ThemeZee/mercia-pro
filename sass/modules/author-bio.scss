@@ -1,0 +1,41 @@
+.entry-author {
+	margin: 0 0 1.5em;
+	padding: 1.5em 0 1.35em;
+	border-top: 1px solid rgba(0,0,0,0.15);
+	border-bottom: 1px solid rgba(0,0,0,0.15);
+}
+
+.entry-author .author-avatar {
+	float: left;
+	margin: 0 1.5em 0.25em 0;
+	max-width: 25%;
+}
+
+.entry-author .author-avatar img {
+	vertical-align: top;
+}
+
+.entry-author .author-heading .author-title {
+	display: inline-block;
+	margin: 0 1em 0.25em 0;
+	padding: 0;
+	text-transform: uppercase;
+	font-weight: bold;
+	font-size: 17px;
+	font-size: 1.0625rem;
+	font-family: 'Open Sans', Tahoma, Arial;
+	line-height: 1.4;
+}
+
+.entry-author .author-heading .author-link {
+	display: inline-block;
+	margin: 0 0 0.5em;
+	font-size: 15px;
+	font-size: 0.9375rem;
+}
+
+.entry-author .author-bio {
+	margin: 0;
+	font-size: 17px;
+	font-size: 1.0625rem;
+}

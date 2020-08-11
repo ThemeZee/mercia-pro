@@ -1,18 +1,22 @@
 /*
  * Mercia Pro CSS
  *
- * Copyright(C) 2017, ThemeZee.com - support@themezee.com
- * License: GPL v3
- * License URI: http://www.gnu.org/licenses/gpl-3.0.html
+ * Copyright(C) 2020, ThemeZee.com - support@themezee.com
+ * License: GNU General Public License v2 or later
+ * License URI: http://www.gnu.org/licenses/gpl-2.0.html
  *
  * @package Mercia Pro
  */
 
 /*--------------------------------------------------------------
+# - CSS Variables
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
 # Header Bar
 --------------------------------------------------------------*/
 .header-bar-wrap {
-	border-bottom: 1px solid rgba(0,0,0,0.15);
+	border-bottom: 1px solid rgba(0, 0, 0, 0.15);
 }
 
 /* Header Content */
@@ -77,7 +81,7 @@
 	margin: 0;
 	padding: 0;
 	width: 100%;
-	border-top: 1px solid rgba(0,0,0,0.15);
+	border-top: 1px solid rgba(0, 0, 0, 0.15);
 	color: #353535;
 	list-style: none;
 	font-size: 13px;
@@ -266,8 +270,8 @@
 .entry-author {
 	margin: 0 0 1.5em;
 	padding: 1.5em 0 1.35em;
-	border-top: 1px solid rgba(0,0,0,0.15);
-	border-bottom: 1px solid rgba(0,0,0,0.15);
+	border-top: 1px solid rgba(0, 0, 0, 0.15);
+	border-bottom: 1px solid rgba(0, 0, 0, 0.15);
 }
 
 .entry-author .author-avatar {
@@ -306,7 +310,7 @@
 }
 
 /*--------------------------------------------------------------
-# Footer Content / Footer Widgets
+# Footer Widgets
 --------------------------------------------------------------*/
 .footer-content {
 	padding: 1.5em 0;
@@ -327,11 +331,11 @@
 /* Footer Widgets */
 .footer-widgets-background {
 	padding: 1.5em 0 0;
-	border-top: 1px solid rgba(0,0,0,0.15);
+	border-top: 1px solid rgba(0, 0, 0, 0.15);
 }
 
 /*--------------------------------------------------------------
-# Footer Text / Footer Navigation
+# Footer Menu
 --------------------------------------------------------------*/
 .site-footer .site-info .footer-text {
 	display: block;
@@ -570,7 +574,7 @@
 		z-index: 99;
 		display: none;
 		width: auto;
-		border: 1px solid rgba(0,0,0,0.15);
+		border: 1px solid rgba(0, 0, 0, 0.15);
 		border-bottom: none;
 	}
 
@@ -582,7 +586,7 @@
 	.top-navigation-menu ul a {
 		min-width: 250px;
 		min-width: 16rem;
-		border-bottom: 1px solid rgba(0,0,0,0.15);
+		border-bottom: 1px solid rgba(0, 0, 0, 0.15);
 	}
 
 	.top-navigation-menu ul a,

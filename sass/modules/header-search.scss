@@ -1,0 +1,96 @@
+
+/* Header Search Icon */
+.header-search .header-search-icon {
+	position: absolute;
+	right: 0;
+	z-index: 99;
+	display: inline-block;
+	padding: 1em;
+	font-size: 17px;
+	font-size: 1.0625rem;
+}
+
+.header-search .header-search-icon:hover {
+	cursor: pointer;
+}
+
+.header-search .header-search-icon:focus {
+	outline: none;
+}
+
+.header-search .header-search-icon .icon-search {
+	margin: 0;
+	padding: 0;
+	width: 24px;
+	height: 24px;
+	vertical-align: middle;
+	fill: #353535;
+}
+
+.header-search .header-search-icon:hover .icon-search,
+.header-search .header-search-icon:active .icon-search {
+	fill: #3377bb;
+}
+
+/* Header Search Form */
+.header-search .header-search-form-wrap {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 99;
+	display: none;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	background: #fff;
+	font-size: 17px;
+	font-size: 1.0625rem;
+}
+
+.header-search .header-search-form-wrap .header-search-form {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+}
+
+.header-search .header-search-form-wrap .header-search-form .search-form {
+	flex-grow: 1;
+	-webkit-box-flex: 1;
+	-ms-flex-positive: 1;
+}
+
+.header-search .header-search-form-wrap .header-search-form .search-form .search-field {
+	padding: 1em;
+	border: none;
+	font-size: 17px;
+	font-size: 1.0625rem;
+}
+
+.header-search .header-search-form-wrap .header-search-form .search-form .search-submit {
+	display: none;
+}
+
+/* Header Search Close Icon */
+.header-search .header-search-form-wrap .header-search-form .header-search-close {
+	padding: 1em;
+}
+
+.header-search .header-search-form-wrap .header-search-form .header-search-close:hover,
+.header-search .header-search-form-wrap .header-search-form .header-search-close:active {
+	cursor: pointer;
+}
+
+.header-search .header-search-form-wrap .header-search-form .header-search-close .icon-close {
+	margin: 0;
+	padding: 0;
+	width: 24px;
+	height: 24px;
+	vertical-align: middle;
+	fill: #353535;
+}
+
+.header-search .header-search-form-wrap .header-search-form .header-search-close:hover .icon-close,
+.header-search .header-search-form-wrap .header-search-form .header-search-close:active .icon-close {
+	fill: #3377bb;
+}
