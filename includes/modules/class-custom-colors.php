@@ -61,10 +61,10 @@ class Mercia_Pro_Custom_Colors {
 				a:link,
 				a:visited,
 				.infinite-scroll #infinite-handle span,
-				.top-navigation-toggle:hover,
-				.top-navigation-toggle:active,
-				.top-navigation-menu a:hover,
-				.top-navigation-menu a:active,
+				.secondary-menu-toggle:hover,
+				.secondary-menu-toggle:active,
+				.top-navigation ul a:hover,
+				.top-navigation ul a:active,
 				.footer-navigation-menu a:hover,
 				.footer-navigation-menu a:active,
 				.has-primary-color {
@@ -78,10 +78,12 @@ class Mercia_Pro_Custom_Colors {
 					color: #353535;
 				}
 
-				.top-navigation-toggle:hover .icon,
-				.top-navigation-toggle:active .icon,
-				.top-navigation-menu > .menu-item-has-children a .sub-menu-icon:hover .icon,
-				.top-navigation-menu > .menu-item-has-children a .sub-menu-icon:active .icon {
+				.secondary-menu-toggle:hover .icon,
+				.secondary-menu-toggle:active .icon,
+				.top-navigation .dropdown-toggle:hover .icon,
+				.top-navigation .dropdown-toggle:active .icon,
+				.top-navigation ul .menu-item-has-children > a:hover > .icon,
+				.top-navigation ul .menu-item-has-children > a:active > .icon {
 					fill: ' . $theme_options['link_color'] . ';
 				}
 
@@ -99,12 +101,6 @@ class Mercia_Pro_Custom_Colors {
 				.scroll-to-top-button:active,
 				.has-primary-background-color {
 					background-color: ' . $theme_options['link_color'] . ';
-				}
-
-				@media only screen and (min-width: 55em) {
-					.top-navigation-menu > .menu-item-has-children a:hover .sub-menu-icon .icon {
-						fill: ' . $theme_options['link_color'] . ';
-					}
 				}
 			';
 
@@ -156,40 +152,45 @@ class Mercia_Pro_Custom_Colors {
 
 			$custom_css .= '
 				/* Navigation Color Setting */
-				.main-navigation-toggle,
-				.main-navigation-toggle:focus,
-				.main-navigation-menu,
-				.main-navigation-menu a:link,
-				.main-navigation-menu a:visited {
+				.primary-menu-toggle,
+				.primary-menu-toggle:focus,
+				.main-navigation ul,
+				.main-navigation ul a:link,
+				.main-navigation ul a:visited {
 					color: ' . $theme_options['navi_color'] . ';
 				}
 
 				.primary-navigation-wrap,
-				.main-navigation-menu,
-				.main-navigation-menu ul,
-				.main-navigation-menu ul a,
+				.main-navigation ul,
+				.main-navigation ul ul,
+				.main-navigation ul ul a,
+				.main-navigation ul ul li a,
 				.footer-content {
 					border-color: ' . $theme_options['navi_color'] . ';
 				}
 
-				.main-navigation-toggle .icon,
-				.main-navigation-menu > .menu-item-has-children a .sub-menu-icon .icon,
+				.primary-menu-toggle .icon,
+				.main-navigation .dropdown-toggle .icon,
+				.main-navigation .dropdown-toggle:focus .icon,
+				.main-navigation ul .menu-item-has-children > a > .icon,
 				.header-search .header-search-icon .icon-search,
 				.header-search .header-search-form-wrap .header-search-form .header-search-close .icon-close {
 					fill: ' . $theme_options['navi_color'] . ';
 				}
 
-				.main-navigation-toggle:hover,
-				.main-navigation-toggle:active,
-				.main-navigation-menu a:hover,
-				.main-navigation-menu a:active {
+				.primary-menu-toggle:hover,
+				.primary-menu-toggle:active,
+				.main-navigation ul a:hover,
+				.main-navigation ul a:active {
 					color: #3377bb;
 				}
 
-				.main-navigation-toggle:hover .icon,
-				.main-navigation-toggle:active .icon,
-				.main-navigation-menu > .menu-item-has-children a .sub-menu-icon:hover .icon,
-				.main-navigation-menu > .menu-item-has-children a .sub-menu-icon:active .icon {
+				.primary-menu-toggle:hover .icon,
+				.primary-menu-toggle:active .icon,
+				.main-navigation .dropdown-toggle:hover .icon,
+				.main-navigation .dropdown-toggle:active .icon,
+				.main-navigation ul .menu-item-has-children > a:hover > .icon,
+				.main-navigation ul .menu-item-has-children > a:active > .icon {
 					fill: #3377bb;
 				}
 			';
@@ -200,28 +201,24 @@ class Mercia_Pro_Custom_Colors {
 
 			$custom_css .= '
 				/* Navigation Hover Color Setting */
-				.main-navigation-toggle:hover,
-				.main-navigation-toggle:active,
-				.main-navigation-menu a:hover,
-				.main-navigation-menu a:active {
+				.primary-menu-toggle:hover,
+				.primary-menu-toggle:active,
+				.main-navigation ul a:hover,
+				.main-navigation ul a:active {
 					color: ' . $theme_options['navi_hover_color'] . ';
 				}
 
-				.main-navigation-toggle:hover .icon,
-				.main-navigation-toggle:active .icon,
-				.main-navigation-menu > .menu-item-has-children a .sub-menu-icon:hover .icon,
-				.main-navigation-menu > .menu-item-has-children a .sub-menu-icon:active .icon,
+				.primary-menu-toggle:hover .icon,
+				.primary-menu-toggle:active .icon,
+				.main-navigation .dropdown-toggle:hover .icon,
+				.main-navigation .dropdown-toggle:active .icon,
+				.main-navigation ul .menu-item-has-children > a:hover > .icon,
+				.main-navigation ul .menu-item-has-children > a:active > .icon,
 				.header-search .header-search-icon:hover .icon-search,
 				.header-search .header-search-icon:active .icon-search,
 				.header-search .header-search-form-wrap .header-search-form .header-search-close:hover .icon-close,
 				.header-search .header-search-form-wrap .header-search-form .header-search-close:active .icon-close {
 					fill: ' . $theme_options['navi_hover_color'] . ';
-				}
-
-				@media only screen and (min-width: 55em) {
-					.main-navigation-menu > .menu-item-has-children a:hover .sub-menu-icon .icon {
-						fill: ' . $theme_options['navi_hover_color'] . ';
-					}
 				}
 			';
 		}

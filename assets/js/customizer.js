@@ -71,11 +71,11 @@
 		value.bind( function( newval ) {
 			var custom_css, text_color;
 
-			custom_css = 'a:link, a:visited, .infinite-scroll #infinite-handle span, .top-navigation-toggle:hover, .top-navigation-toggle:active, .top-navigation-menu a:hover, .top-navigation-menu a:active, .footer-navigation-menu a:hover, .footer-navigation-menu a:active { color: ' + newval + '; }';
+			custom_css = 'a:link, a:visited, .infinite-scroll #infinite-handle span, .secondary-menu-toggle:hover, .secondary-menu-toggle:active, .top-navigation ul a:hover, .top-navigation ul a:active, .footer-navigation-menu a:hover, .footer-navigation-menu a:active { color: ' + newval + '; }';
 			custom_css += 'a:hover, a:focus, a:active, .infinite-scroll #infinite-handle span:hover { color: #353535; }';
-			custom_css += '.top-navigation-toggle:hover .icon, .top-navigation-toggle:active .icon, .top-navigation-menu > .menu-item-has-children a .sub-menu-icon:hover .icon, .top-navigation-menu > .menu-item-has-children a .sub-menu-icon:active .icon { fill: ' + newval + '; }';
+			custom_css += '.secondary-menu-toggle:hover .icon, .secondary-menu-toggle:active .icon, .top-navigation ul > .menu-item-has-children a .sub-menu-icon:hover .icon, .top-navigation ul > .menu-item-has-children a .sub-menu-icon:active .icon { fill: ' + newval + '; }';
 			custom_css += 'button, input[type="button"], input[type="reset"], input[type="submit"], .search-form .search-submit, .tzwb-tabbed-content .tzwb-tabnavi li a:hover, .tzwb-tabbed-content .tzwb-tabnavi li a:active, .tzwb-tabbed-content .tzwb-tabnavi li a.current-tab, .tzwb-social-icons .social-icons-menu li a, .scroll-to-top-button, .scroll-to-top-button:focus, .scroll-to-top-button:active { background: ' + newval + '; }';
-			custom_css += '@media only screen and (min-width: 55em) { .top-navigation-menu > .menu-item-has-children a:hover .sub-menu-icon .icon { fill: ' + newval + '; } }';
+			custom_css += '.secondary-menu-toggle:hover .icon, .secondary-menu-toggle:active .icon, .top-navigation .dropdown-toggle:hover .icon, .top-navigation .dropdown-toggle:active .icon, .top-navigation ul .menu-item-has-children > a:hover > .icon, .top-navigation ul .menu-item-has-children > a:active > .icon { fill: ' + newval + '; }';
 
 			if( isColorLight( newval ) ) {
 				text_color = '#222222';
@@ -105,12 +105,12 @@
 		value.bind( function( newval ) {
 			var custom_css;
 
-			custom_css = '.main-navigation-toggle, .main-navigation-toggle:focus, .main-navigation-menu, .main-navigation-menu a:link, .main-navigation-menu a:visited { color: ' + newval + '; }';
-			custom_css += '.primary-navigation-wrap, .main-navigation-menu, .main-navigation-menu ul, .main-navigation-menu ul a, .footer-content { border-color: ' + newval + '; }';
-			custom_css += '.main-navigation-toggle .icon, .main-navigation-menu > .menu-item-has-children a .sub-menu-icon .icon, .header-search .header-search-icon .icon-search, .header-search .header-search-form-wrap .header-search-form .header-search-close .icon-close { fill: ' + newval + '; }';
+			custom_css = '.primary-menu-toggle, .primary-menu-toggle:focus, .main-navigation ul, .main-navigation ul a:link, .main-navigation ul a:visited { color: ' + newval + '; }';
+			custom_css += '.primary-navigation-wrap, .main-navigation ul, .main-navigation ul ul, .main-navigation ul ul a, .main-navigation ul ul li a, .footer-content { border-color: ' + newval + '; }';
+			custom_css += '.primary-menu-toggle .icon, .main-navigation .dropdown-toggle .icon, .main-navigation .dropdown-toggle:focus .icon, .main-navigation ul .menu-item-has-children > a > .icon, .header-search .header-search-icon .icon-search, .header-search .header-search-form-wrap .header-search-form .header-search-close .icon-close { fill: ' + newval + '; }';
 
-			custom_css += '.main-navigation-toggle:hover, .main-navigation-toggle:active, .main-navigation-menu a:hover, .main-navigation-menu a:active { color: #3377bb; }';
-			custom_css += '.main-navigation-toggle:hover .icon, .main-navigation-toggle:active .icon, .main-navigation-menu > .menu-item-has-children a .sub-menu-icon:hover .icon, .main-navigation-menu > .menu-item-has-children a .sub-menu-icon:active .icon { fill: #3377bb; }';
+			custom_css += '.primary-menu-toggle:hover, .primary-menu-toggle:active, .main-navigation ul a:hover, .main-navigation ul a:active { color: #3377bb; }';
+			custom_css += '.primary-menu-toggle:hover .icon, .primary-menu-toggle:active .icon, .main-navigation .dropdown-toggle:hover .icon, .main-navigation .dropdown-toggle:active .icon, .main-navigation ul .menu-item-has-children > a:hover > .icon, .main-navigation ul .menu-item-has-children > a:active > .icon { fill: #3377bb; }';
 
 			addColorStyles( custom_css, 2 );
 		} );
@@ -121,9 +121,8 @@
 		value.bind( function( newval ) {
 			var custom_css;
 
-			custom_css = '.main-navigation-toggle:hover, .main-navigation-toggle:active, .main-navigation-menu a:hover, .main-navigation-menu a:active { color: ' + newval + '; }';
-			custom_css += '.main-navigation-toggle:hover .icon, .main-navigation-toggle:active .icon, .main-navigation-menu > .menu-item-has-children a .sub-menu-icon:hover .icon, .main-navigation-menu > .menu-item-has-children a .sub-menu-icon:active .icon, .header-search .header-search-icon:hover .icon-search, .header-search .header-search-icon:active .icon-search, .header-search .header-search-form-wrap .header-search-form .header-search-close:hover .icon-close, .header-search .header-search-form-wrap .header-search-form .header-search-close:active .icon-close { fill: ' + newval + '; }';
-			custom_css += '@media only screen and (min-width: 55em) { .main-navigation-menu > .menu-item-has-children a:hover .sub-menu-icon .icon { fill: ' + newval + '; } }';
+			custom_css = '.primary-menu-toggle:hover, .primary-menu-toggle:active, .main-navigation ul a:hover, .main-navigation ul a:active { color: ' + newval + '; }';
+			custom_css += '.primary-menu-toggle:hover .icon, .primary-menu-toggle:active .icon, .main-navigation .dropdown-toggle:hover .icon, .main-navigation .dropdown-toggle:active .icon, .main-navigation ul .menu-item-has-children > a:hover > .icon, .main-navigation ul .menu-item-has-children > a:active > .icon, .header-search .header-search-icon:hover .icon-search, .header-search .header-search-icon:active .icon-search, .header-search .header-search-form-wrap .header-search-form .header-search-close:hover .icon-close, .header-search .header-search-form-wrap .header-search-form .header-search-close:active .icon-close { fill: ' + newval + '; }';
 
 			addColorStyles( custom_css, 3 );
 		} );
@@ -236,7 +235,7 @@
 			var newFont = newval === 'SystemFontStack' ? systemFont : newval;
 
 			// Set CSS.
-			$( '.main-navigation-menu, .main-navigation-toggle' )
+			$( '.main-navigation ul, .primary-menu-toggle' )
 				.css( 'font-family', newFont );
 
 		} );
