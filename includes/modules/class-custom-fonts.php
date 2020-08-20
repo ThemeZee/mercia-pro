@@ -107,8 +107,8 @@ class Mercia_Pro_Custom_Fonts {
 
 			$custom_css .= '
 				/* Navigation Font Setting */
-				.main-navigation-toggle,
-				.main-navigation-menu {
+				.main-navigation ul,
+				.primary-menu-toggle {
 					font-family: ' . self::get_font_family( $theme_options['navi_font'] ) . ';
 				}
 			';
