@@ -155,6 +155,7 @@ class Mercia_Pro_Custom_Colors {
 				.primary-menu-toggle,
 				.primary-menu-toggle:focus,
 				.main-navigation ul,
+				.main-navigation ul a,
 				.main-navigation ul a:link,
 				.main-navigation ul a:visited {
 					color: ' . $theme_options['navi_color'] . ';
