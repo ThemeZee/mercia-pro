@@ -6,7 +6,9 @@
  */
 
 // Exit if accessed directly.
-if ( ! defined( 'ABSPATH' ) ) { exit; }
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 
 /**
  * Header Bar Class
@@ -46,25 +48,23 @@ class Mercia_Pro_Header_Bar {
 		$theme_options = Mercia_Pro_Customizer::get_theme_options();
 
 		// Check if there is content for the header bar.
-		if ( false !== $theme_options['header_date'] || '' !== $theme_options['header_text'] ||  has_nav_menu( 'secondary' ) || is_customize_preview() ) : ?>
+		if ( false !== $theme_options['header_date'] || '' !== $theme_options['header_text'] || has_nav_menu( 'secondary' ) || is_customize_preview() ) : ?>
 
 			<div id="header-top" class="header-bar-wrap">
 
 				<div id="header-bar" class="header-bar container clearfix">
 
-					<?php
-					if ( false !== $theme_options['header_date'] || '' !== $theme_options['header_text'] || is_customize_preview() ) : ?>
+					<?php if ( false !== $theme_options['header_date'] || '' !== $theme_options['header_text'] || is_customize_preview() ) : ?>
 
 						<div class="header-content">
 
-							<?php
-							if ( false !== $theme_options['header_date'] || is_customize_preview() ) : ?>
+							<?php if ( false !== $theme_options['header_date'] || is_customize_preview() ) : ?>
 
 								<span class="header-date"><?php echo date_i18n( get_option( 'date_format' ) ); ?></span>
 
-							<?php endif;
+							<?php endif; ?>
 
-							if ( '' !== $theme_options['header_text'] || is_customize_preview() ) : ?>
+							<?php if ( '' !== $theme_options['header_text'] || is_customize_preview() ) : ?>
 
 								<span class="header-text"><?php echo do_shortcode( wp_kses_post( $theme_options['header_text'] ) ); ?></span>
 
@@ -72,13 +72,11 @@ class Mercia_Pro_Header_Bar {
 
 						</div>
 
-						<?php
-					endif;
+					<?php endif; ?>
 
-					// Check if there is a top navigation menu.
-					if ( has_nav_menu( 'secondary' ) ) : ?>
+					<?php if ( has_nav_menu( 'secondary' ) ) : ?>
 
-						<button class="secondary-menu-toggle menu-toggle" aria-controls="secondary-menu" aria-expanded="false">
+						<button class="secondary-menu-toggle menu-toggle" aria-controls="secondary-menu" aria-expanded="false" <?php self::amp_menu_toggle(); ?>>
 							<?php
 							echo mercia_get_svg( 'menu' );
 							echo mercia_get_svg( 'close' );
@@ -88,7 +86,7 @@ class Mercia_Pro_Header_Bar {
 
 						<div class="secondary-navigation">
 
-							<nav class="top-navigation" role="navigation" aria-label="<?php esc_attr_e( 'Secondary Menu', 'mercia-pro' ); ?>">
+							<nav class="top-navigation" role="navigation" <?php self::amp_menu_is_toggled(); ?> aria-label="<?php esc_attr_e( 'Secondary Menu', 'mercia-pro' ); ?>">
 
 								<?php
 								wp_nav_menu(
@@ -104,9 +102,7 @@ class Mercia_Pro_Header_Bar {
 
 						</div><!-- .secondary-navigation -->
 
-						<?php
-					endif;
-					?>
+					<?php endif; ?>
 
 				</div>
 
@@ -237,7 +233,25 @@ class Mercia_Pro_Header_Bar {
 		register_nav_menus( array(
 			'secondary' => esc_html__( 'Top Navigation', 'mercia-pro' ),
 		) );
+	}
 
+	/**
+	 * Adds amp support for menu toggle.
+	 */
+	static function amp_menu_toggle() {
+		if ( function_exists( 'is_amp_endpoint' ) && is_amp_endpoint() ) {
+			echo "[aria-expanded]=\"secondaryMenuExpanded? 'true' : 'false'\" ";
+			echo 'on="tap:AMP.setState({secondaryMenuExpanded: !secondaryMenuExpanded})"';
+		}
+	}
+
+	/**
+	 * Adds amp support for mobile dropdown navigation menu.
+	 */
+	static function amp_menu_is_toggled() {
+		if ( function_exists( 'is_amp_endpoint' ) && is_amp_endpoint() ) {
+			echo "[class]=\"'top-navigation' + ( secondaryMenuExpanded ? ' toggled-on' : '' )\"";
+		}
 	}
 }
 
