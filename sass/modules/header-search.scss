@@ -48,6 +48,10 @@
 	font-size: 1.0625rem;
 }
 
+.header-search .header-search-form-wrap.toggled-on {
+	display: block;
+}
+
 .header-search .header-search-form-wrap .header-search-form {
 	display: -webkit-box;
 	display: -ms-flexbox;
