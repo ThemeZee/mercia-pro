@@ -5,7 +5,7 @@ Plugin URI: http://themezee.com/addons/mercia-pro/
 Description: Adds additional features like footer widgets, custom colors, custom fonts, custom menus, and Magazine Post widgets to the Mercia theme.
 Author: ThemeZee
 Author URI: https://themezee.com/
-Version: 1.3.1
+Version: 1.4
 Text Domain: mercia-pro
 Domain Path: /languages/
 License: GNU General Public License v2 or later
@@ -62,7 +62,7 @@ class Mercia_Pro {
 		define( 'MERCIA_PRO_NAME', 'Mercia Pro' );
 
 		// Define Version Number.
-		define( 'MERCIA_PRO_VERSION', '1.3.1' );
+		define( 'MERCIA_PRO_VERSION', '1.4' );
 
 		// Define Plugin Name.
 		define( 'MERCIA_PRO_PRODUCT_ID', 149520 );

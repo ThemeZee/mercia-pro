@@ -2,6 +2,10 @@
 Mercia Pro Changelog
 ===================================
 
+Version 1.4
+-----------------------------------
+* added support for the official AMP plugin
+
 Version 1.3.1
 -----------------------------------
 * fixed typography settings for navigation menus
