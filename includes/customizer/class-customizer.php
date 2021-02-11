@@ -8,7 +8,9 @@
  */
 
 // Exit if accessed directly.
-if ( ! defined( 'ABSPATH' ) ) { exit; }
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 
 /**
  * Customizer Class
@@ -43,11 +45,7 @@ class Mercia_Pro_Customizer {
 	static function get_theme_options() {
 
 		// Merge Theme Options Array from Database with Default Options Array.
-		$theme_options = wp_parse_args( get_option( 'mercia_theme_options', array() ), self::get_default_options() );
-
-		// Return theme options.
-		return $theme_options;
-
+		return wp_parse_args( get_option( 'mercia_theme_options', array() ), self::get_default_options() );
 	}
 
 
@@ -59,28 +57,33 @@ class Mercia_Pro_Customizer {
 	static function get_default_options() {
 
 		$default_options = array(
-			'header_text'        => '',
-			'header_date'        => false,
-			'header_search'      => false,
-			'author_bio'         => false,
-			'footer_content'     => false,
-			'footer_text'        => '',
-			'credit_link'        => true,
-			'scroll_to_top'      => false,
-			'link_color'         => '#3377bb',
-			'navi_color'         => '#353535',
-			'navi_hover_color'   => '#3377bb',
-			'title_color'        => '#353535',
-			'title_hover_color'  => '#3377bb',
-			'widget_title_color' => '#353535',
-			'text_font'          => 'Roboto',
-			'title_font'         => 'Open Sans',
-			'navi_font'          => 'Roboto',
-			'widget_title_font'  => 'Open Sans',
+			'header_text'               => '',
+			'header_date'               => false,
+			'header_search'             => false,
+			'author_bio'                => false,
+			'footer_content'            => false,
+			'footer_text'               => '',
+			'credit_link'               => true,
+			'scroll_to_top'             => false,
+			'link_color'                => '#3377bb',
+			'navi_color'                => '#353535',
+			'navi_hover_color'          => '#3377bb',
+			'title_color'               => '#353535',
+			'title_hover_color'         => '#3377bb',
+			'widget_title_color'        => '#353535',
+			'text_font'                 => 'Roboto',
+			'title_font'                => 'Open Sans',
+			'title_is_bold'             => true,
+			'title_is_uppercase'        => false,
+			'navi_font'                 => 'Roboto',
+			'navi_is_bold'              => false,
+			'navi_is_uppercase'         => false,
+			'widget_title_font'         => 'Open Sans',
+			'widget_title_is_bold'      => true,
+			'widget_title_is_uppercase' => true,
 		);
 
 		return $default_options;
-
 	}
 
 	/**
@@ -89,9 +92,7 @@ class Mercia_Pro_Customizer {
 	 * @return void
 	 */
 	static function customize_preview_js() {
-
-		wp_enqueue_script( 'mercia-pro-customizer-js', MERCIA_PRO_PLUGIN_URL . 'assets/js/customizer.js', array( 'customize-preview' ), MERCIA_PRO_VERSION, true );
-
+		wp_enqueue_script( 'mercia-pro-customizer-js', MERCIA_PRO_PLUGIN_URL . 'assets/js/customizer.js', array( 'customize-preview' ), '20201119', true );
 	}
 
 	/**
@@ -100,9 +101,7 @@ class Mercia_Pro_Customizer {
 	 * @return void
 	 */
 	static function customize_preview_css() {
-
-		wp_enqueue_style( 'mercia-pro-customizer-css', MERCIA_PRO_PLUGIN_URL . 'assets/css/customizer.css', array(), MERCIA_PRO_VERSION );
-
+		wp_enqueue_style( 'mercia-pro-customizer-css', MERCIA_PRO_PLUGIN_URL . 'assets/css/customizer.css', array(), '20201119' );
 	}
 }
 

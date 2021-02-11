@@ -28,12 +28,11 @@
 
 /* Custom Font Control */
 .customize-control-mercia_pro_custom_font {
-	margin-bottom: 24px;
+	margin-top: 24px;
 }
 
-.customize-control-mercia_pro_custom_font .actions,
-.customize-control-mercia_pro_custom_font_list .actions {
-	margin-top: 8px;
+#customize-control-text_font {
+	margin-top: 0;
 }
 
 .customize-control-mercia_pro_custom_font .actions .button.previous {
@@ -54,6 +53,11 @@
 
 .customize-control-mercia_pro_custom_font .actions .button:hover {
 	cursor: pointer;
+}
+
+/* Typography Checkbox Controls */
+#sub-accordion-section-mercia_pro_section_typography .customize-control-checkbox {
+	margin-bottom: 0;
 }
 
 /* Magazine Sections */
