@@ -457,12 +457,16 @@
 	display: inline-block;
 	margin: 0 1em 0.25em 0;
 	padding: 0;
-	text-transform: uppercase;
-	font-weight: bold;
 	font-size: 17px;
 	font-size: 1.0625rem;
-	font-family: 'Open Sans', Tahoma, Arial;
+	font-family: "Open Sans", arial, helvetica, sans-serif;
+	font-family: var(--widget-title-font);
+	font-weight: bold;
+	font-weight: var(--widget-title-font-weight);
+	text-transform: uppercase;
+	text-transform: var(--widget-title-text-transform);
 	line-height: 1.4;
+	line-height: var(--title-line-height);
 }
 
 .entry-author .author-heading .author-link {

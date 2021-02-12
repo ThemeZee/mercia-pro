@@ -19,25 +19,22 @@
 	display: inline-block;
 	margin: 0 1em 0.25em 0;
 	padding: 0;
-	text-transform: uppercase;
-	font-weight: bold;
-	font-size: 17px;
-	font-size: 1.0625rem;
-	font-family: 'Open Sans', Tahoma, Arial;
-	line-height: 1.4;
+	@include font-size(17);
+	@include font-family(--widget-title-font);
+	@include font-weight(--widget-title-font-weight);
+	@include text-transform(--widget-title-text-transform);
+	@include line-height(--title-line-height);
 }
 
 .entry-author .author-heading .author-link {
 	display: inline-block;
 	margin: 0 0 0.5em;
-	font-size: 15px;
-	font-size: 0.9375rem;
+	@include font-size(15);
 }
 
 .entry-author .author-bio {
 	margin: 0;
-	font-size: 17px;
-	font-size: 1.0625rem;
+	@include font-size(17);
 }
 
 @media only screen and (min-width: 40em) {
@@ -51,4 +48,3 @@
 		margin-bottom: 2.5em;
 	}
 }
-
