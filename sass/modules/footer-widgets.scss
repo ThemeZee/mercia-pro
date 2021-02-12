@@ -19,3 +19,98 @@
 	padding: 1.5em 0 0;
 	border-top: 1px solid rgba(0,0,0,0.15);
 }
+
+@media only screen and (min-width: 35em) {
+	.footer-widgets {
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+		-ms-flex-wrap: wrap;
+		flex-wrap: wrap;
+		margin-right: -1.5em;
+	}
+
+	.footer-widget-column {
+		flex-grow: 1;
+		box-sizing: border-box;
+		padding-right: 1.5em;
+		width: 50%;
+		-webkit-box-flex: 1;
+		-ms-flex-positive: 1;
+	}
+
+	/* Three Column Footer Widgets */
+	.footer-widget-column:nth-child(1):nth-last-child(3),
+	.footer-widget-column:nth-child(2):nth-last-child(2),
+	.footer-widget-column:nth-child(3):nth-last-child(1) {
+		width: 100%;
+	}
+}
+
+@media only screen and (min-width: 40em) {
+	.footer-widgets-background {
+		padding: 2em 0 0;
+	}
+
+	.footer-widgets {
+		margin-right: -2em;
+	}
+
+	.footer-widget-column {
+		padding-right: 2em;
+	}
+}
+
+@media only screen and (min-width: 50em) {
+	.footer-widget-column:nth-child(1):nth-last-child(3),
+	.footer-widget-column:nth-child(2):nth-last-child(2),
+	.footer-widget-column:nth-child(3):nth-last-child(1) {
+		width: 33.3333333333333%;
+	}
+}
+
+@media only screen and (min-width: 57.5em) {
+	.footer-content {
+		position: relative;
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+		text-align: left;
+	}
+
+	.footer-social-menu {
+		display: block;
+		margin-top: 0.25em;
+		margin-left: auto;
+	}
+
+	.footer-social-menu .social-icons-menu {
+		justify-content: flex-start;
+		-webkit-box-pack: start;
+		-ms-flex-pack: start;
+	}
+}
+
+@media only screen and (min-width: 65em) {
+	.footer-widget-column:nth-child(1):nth-last-child(4),
+	.footer-widget-column:nth-child(2):nth-last-child(3),
+	.footer-widget-column:nth-child(3):nth-last-child(2),
+	.footer-widget-column:nth-child(4):nth-last-child(1) {
+		width: 25%;
+	}
+}
+
+@media only screen and (min-width: 75em) {
+	.footer-widgets-background {
+		padding: 2.5em 0 0;
+	}
+
+	.footer-widgets {
+		margin-right: -2.5em;
+	}
+
+	.footer-widget-column {
+		padding-right: 2.5em;
+	}
+}
+

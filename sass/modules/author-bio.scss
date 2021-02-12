@@ -39,3 +39,16 @@
 	font-size: 17px;
 	font-size: 1.0625rem;
 }
+
+@media only screen and (min-width: 40em) {
+	.entry-author {
+		margin-bottom: 2em;
+	}
+}
+
+@media only screen and (min-width: 75em) {
+	.entry-author {
+		margin-bottom: 2.5em;
+	}
+}
+

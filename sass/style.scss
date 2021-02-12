@@ -45,6 +45,15 @@
 @import "modules/scroll-to-top";
 
 /*--------------------------------------------------------------
-# Media Queries
+# Customizer Preview
 --------------------------------------------------------------*/
-@import "modules/media-queries";
+
+/* Add some styling for visual edit shortcut buttons. */
+.customize-partial-edit-shortcuts-shown .header-bar .header-content .header-text {
+	margin-left: 2em;
+}
+
+.customize-partial-edit-shortcut-mercia_theme_options-header_text button {
+	top: -5px;
+	left: -35px;
+}
