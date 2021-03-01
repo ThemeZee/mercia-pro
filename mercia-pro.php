@@ -130,6 +130,9 @@ class Mercia_Pro {
 		// Enqueue Mercia Pro Stylesheet.
 		add_action( 'wp_enqueue_scripts', array( __CLASS__, 'enqueue_styles' ), 11 );
 
+		// Add Custom CSS code to the Gutenberg editor.
+		add_action( 'enqueue_block_editor_assets', array( __CLASS__, 'enqueue_editor_styles' ), 11 );
+
 		// Add Settings link to Plugin actions.
 		add_filter( 'plugin_action_links_' . plugin_basename( MERCIA_PRO_PLUGIN_FILE ), array( __CLASS__, 'plugin_action_links' ) );
 
@@ -156,6 +159,33 @@ class Mercia_Pro {
 			wp_enqueue_style( 'mercia-pro', MERCIA_PRO_PLUGIN_URL . 'assets/css/mercia-pro.css', array(), MERCIA_PRO_VERSION );
 		}
 
+		// Enqueue Custom CSS.
+		wp_add_inline_style( 'mercia-pro', self::get_custom_css() );
+	}
+
+	/**
+	 * Enqueue Editor Styles
+	 *
+	 * @return void
+	 */
+	static function enqueue_editor_styles() {
+
+		// Return early if Mercia Theme is not active.
+		if ( ! current_theme_supports( 'mercia-pro' ) ) {
+			return;
+		}
+
+		// Enqueue Custom CSS.
+		wp_add_inline_style( 'mercia-editor-styles', self::get_custom_css() );
+	}
+
+	/**
+	 * Return custom CSS for color and font variables.
+	 *
+	 * @return void
+	 */
+	static function get_custom_css() {
+
 		// Get Custom CSS.
 		$custom_css = apply_filters( 'mercia_pro_custom_css_stylesheet', '' );
 
@@ -165,8 +195,7 @@ class Mercia_Pro {
 		$custom_css = preg_replace( '/\n/', '', $custom_css );
 		$custom_css = preg_replace( '/\t/', '', $custom_css );
 
-		// Enqueue Custom CSS.
-		wp_add_inline_style( 'mercia-pro', $custom_css );
+		return $custom_css;
 	}
 
 	/**
