@@ -1,6 +1,7 @@
 .footer-content {
 	padding: 1.5em 0;
-	border-top: 6px solid #353535;
+	border-top: 6px solid;
+	@include border-color(--footer-text-color);
 	text-align: center;
 }
 
@@ -17,7 +18,8 @@
 /* Footer Widgets */
 .footer-widgets-background {
 	padding: 1.5em 0 0;
-	border-top: 1px solid rgba(0,0,0,0.15);
+	border-top: 1px solid;
+	@include border-color(--footer-border-color);
 }
 
 @media only screen and (min-width: 35em) {

@@ -1,8 +1,9 @@
 .entry-author {
 	margin: 0 0 1.5em;
 	padding: 1.5em 0 1.35em;
-	border-top: 1px solid rgba(0,0,0,0.15);
-	border-bottom: 1px solid rgba(0,0,0,0.15);
+	border-top: 1px solid;
+	border-bottom: 1px solid;
+	@include border-color(--light-border-color);
 }
 
 .entry-author .author-avatar {

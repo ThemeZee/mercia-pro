@@ -1,0 +1,5 @@
+:root {
+	@include variable(--header-bar-text-color, $themeColors);
+	@include variable(--header-bar-text-hover-color, $themeColors);
+	@include variable(--header-bar-border-color, $themeColors);
+}
