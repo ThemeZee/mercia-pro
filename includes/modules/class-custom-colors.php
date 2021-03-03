@@ -55,253 +55,44 @@ class Mercia_Pro_Custom_Colors {
 
 		// Set Link Color.
 		if ( $theme_options['link_color'] !== $default_options['link_color'] ) {
-			$color_variables .= '--page-background-color: ' . $theme_options['page_bg_color'] . ';';
-
-			$custom_css .= '
-				/* Link and Button Color Setting */
-				a:link,
-				a:visited,
-				.infinite-scroll #infinite-handle span,
-				.secondary-menu-toggle:hover,
-				.secondary-menu-toggle:active,
-				.top-navigation ul a:hover,
-				.top-navigation ul a:active,
-				.footer-navigation-menu a:hover,
-				.footer-navigation-menu a:active,
-				.has-primary-color {
-					color: ' . $theme_options['link_color'] . ';
-				}
-
-				a:hover,
-				a:focus,
-				a:active,
-				.infinite-scroll #infinite-handle span:hover {
-					color: #353535;
-				}
-
-				.secondary-menu-toggle:hover .icon,
-				.secondary-menu-toggle:active .icon,
-				.top-navigation .dropdown-toggle:hover .icon,
-				.top-navigation .dropdown-toggle:active .icon,
-				.top-navigation ul .menu-item-has-children > a:hover > .icon,
-				.top-navigation ul .menu-item-has-children > a:active > .icon {
-					fill: ' . $theme_options['link_color'] . ';
-				}
-
-				button,
-				input[type="button"],
-				input[type="reset"],
-				input[type="submit"],
-				.search-form .search-submit,
-				.tzwb-tabbed-content .tzwb-tabnavi li a:hover,
-				.tzwb-tabbed-content .tzwb-tabnavi li a:active,
-				.tzwb-tabbed-content .tzwb-tabnavi li a.current-tab,
-				.tzwb-social-icons .social-icons-menu li a,
-				.scroll-to-top-button,
-				.scroll-to-top-button:focus,
-				.scroll-to-top-button:active,
-				.has-primary-background-color {
-					background-color: ' . $theme_options['link_color'] . ';
-				}
-			';
+			$color_variables .= '--link-color: ' . $theme_options['link_color'] . ';';
+			$color_variables .= '--button-color: ' . $theme_options['link_color'] . ';';
+			$color_variables .= '--header-bar-text-hover-color: ' . $theme_options['link_color'] . ';';
+			$color_variables .= '--footer-text-hover-color: ' . $theme_options['link_color'] . ';';
 
 			// Check if a light background color was chosen.
 			if ( self::is_color_light( $theme_options['link_color'] ) ) {
-				$custom_css .= '
-					button,
-					input[type="button"],
-					input[type="reset"],
-					input[type="submit"],
-					.tzwb-tabbed-content .tzwb-tabnavi li a:hover,
-					.tzwb-tabbed-content .tzwb-tabnavi li a:active,
-					.tzwb-tabbed-content .tzwb-tabnavi li a.current-tab {
-						color: #222;
-					}
-
-					.search-form .search-submit .icon-search,
-					.scroll-to-top-button .icon,
-					.tzwb-social-icons .social-icons-menu li a .icon {
-						fill: #222;
-					}
-
-					button:hover,
-					input[type="button"]:hover,
-					input[type="reset"]:hover,
-					input[type="submit"]:hover,
-					button:focus,
-					input[type="button"]:focus,
-					input[type="reset"]:focus,
-					input[type="submit"]:focus,
-					button:active,
-					input[type="button"]:active,
-					input[type="reset"]:active,
-					input[type="submit"]:active {
-						color: #fff;
-					}
-
-					.search-form .search-submit:hover .icon-search,
-					.scroll-to-top-button:hover .icon,
-					.tzwb-social-icons .social-icons-menu li a:hover .icon {
-						fill: #fff;
-					}
-				';
-			} // End if().
-		} // End if().
+				$color_variables .= '--button-text-color: #111;';
+			}
+		}
 
 		// Set Navigation Color.
 		if ( $theme_options['navi_color'] !== $default_options['navi_color'] ) {
-
-			$custom_css .= '
-				/* Navigation Color Setting */
-				.primary-menu-toggle,
-				.primary-menu-toggle:focus,
-				.main-navigation ul,
-				.main-navigation ul a,
-				.main-navigation ul a:link,
-				.main-navigation ul a:visited {
-					color: ' . $theme_options['navi_color'] . ';
-				}
-
-				.primary-navigation-wrap,
-				.main-navigation ul,
-				.main-navigation ul ul,
-				.main-navigation ul ul a,
-				.main-navigation ul ul li a,
-				.footer-content {
-					border-color: ' . $theme_options['navi_color'] . ';
-				}
-
-				.primary-menu-toggle .icon,
-				.main-navigation .dropdown-toggle .icon,
-				.main-navigation .dropdown-toggle:focus .icon,
-				.main-navigation ul .menu-item-has-children > a > .icon,
-				.header-search .header-search-icon .icon-search,
-				.header-search .header-search-form-wrap .header-search-form .header-search-close .icon-close {
-					fill: ' . $theme_options['navi_color'] . ';
-				}
-
-				.primary-menu-toggle:hover,
-				.primary-menu-toggle:active,
-				.main-navigation ul a:hover,
-				.main-navigation ul a:active {
-					color: #3377bb;
-				}
-
-				.primary-menu-toggle:hover .icon,
-				.primary-menu-toggle:active .icon,
-				.main-navigation .dropdown-toggle:hover .icon,
-				.main-navigation .dropdown-toggle:active .icon,
-				.main-navigation ul .menu-item-has-children > a:hover > .icon,
-				.main-navigation ul .menu-item-has-children > a:active > .icon {
-					fill: #3377bb;
-				}
-			';
-		} // End if().
+			$color_variables .= '--navi-color: ' . $theme_options['navi_color'] . ';';
+			$color_variables .= '--navi-border-color: ' . $theme_options['navi_color'] . ';';
+		}
 
 		// Set Navigation Hover Color.
 		if ( $theme_options['navi_hover_color'] !== $default_options['navi_hover_color'] ) {
-
-			$custom_css .= '
-				/* Navigation Hover Color Setting */
-				.primary-menu-toggle:hover,
-				.primary-menu-toggle:active,
-				.main-navigation ul a:hover,
-				.main-navigation ul a:active {
-					color: ' . $theme_options['navi_hover_color'] . ';
-				}
-
-				.primary-menu-toggle:hover .icon,
-				.primary-menu-toggle:active .icon,
-				.main-navigation .dropdown-toggle:hover .icon,
-				.main-navigation .dropdown-toggle:active .icon,
-				.main-navigation ul .menu-item-has-children > a:hover > .icon,
-				.main-navigation ul .menu-item-has-children > a:active > .icon,
-				.header-search .header-search-icon:hover .icon-search,
-				.header-search .header-search-icon:active .icon-search,
-				.header-search .header-search-form-wrap .header-search-form .header-search-close:hover .icon-close,
-				.header-search .header-search-form-wrap .header-search-form .header-search-close:active .icon-close {
-					fill: ' . $theme_options['navi_hover_color'] . ';
-				}
-			';
+			$color_variables .= '--navi-hover-color: ' . $theme_options['navi_hover_color'] . ';';
 		}
 
 		// Set Title Color.
 		if ( $theme_options['title_color'] !== $default_options['title_color'] ) {
-
-			$custom_css .= '
-				/* Post Titles Color Setting */
-				.site-title,
-				.site-title a:link,
-				.site-title a:visited,
-				.entry-title,
-				.entry-title a:link,
-				.entry-title a:visited {
-					color: ' . $theme_options['title_color'] . ';
-				}
-
-				.site-title a:hover,
-				.site-title a:active,
-				.entry-title a:hover,
-				.entry-title a:active {
-					color: #3377bb;
-				}
-
-				.mercia-social-menu .social-icons-menu li a .icon {
-					fill: ' . $theme_options['title_color'] . ';
-				}
-			';
+			$color_variables .= '--title-color: ' . $theme_options['title_color'] . ';';
+			$color_variables .= '--site-title-color: ' . $theme_options['title_color'] . ';';
 		}
 
 		// Set Title Hover Color.
 		if ( $theme_options['title_hover_color'] !== $default_options['title_hover_color'] ) {
-
-			$custom_css .= '
-				/* Post Titles Hover Color Setting */
-				.site-title a:hover,
-				.site-title a:active,
-				.entry-title a:hover,
-				.entry-title a:active {
-					color: ' . $theme_options['title_hover_color'] . ';
-				}
-
-				.mercia-social-menu .social-icons-menu li a:hover .icon {
-					fill: ' . $theme_options['title_hover_color'] . ';
-				}
-			';
+			$color_variables .= '--title-hover-color: ' . $theme_options['title_hover_color'] . ';';
+			$color_variables .= '--site-title-hover-color: ' . $theme_options['title_hover_color'] . ';';
 		}
 
 		// Set Widget Title Color.
 		if ( $theme_options['widget_title_color'] !== $default_options['widget_title_color'] ) {
-
-			$custom_css .= '
-				/* Widget Titles Color Setting */
-				.widget-title,
-				.widget-title a:link,
-				.widget-title a:visited,
-				.archive-title,
-				.comments-title,
-				.comment-reply-title,
-				.entry-author .author-heading .author-title {
-					color: ' . $theme_options['widget_title_color'] . ';
-				}
-
-				.widget-title a:hover,
-				.widget-title a:active {
-					color: #3377bb;
-				}
-			';
+			$color_variables .= '--widget-title-color: ' . $theme_options['widget_title_color'] . ';';
 		}
-
-		/* Set Link Color 2. */
-		if ( $theme_options['link_color'] !== $default_options['link_color'] ) {
-
-			$custom_css .= '
-				.widget-title a:hover,
-				.widget-title a:active {
-					color: ' . $theme_options['link_color'] . ';
-				}
-			';
-		} // End if().
 
 		// Set Color Variables.
 		if ( '' !== $color_variables ) {
