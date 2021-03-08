@@ -212,7 +212,7 @@ class Mercia_Pro_Custom_Fonts {
 		// Add Section for Theme Fonts.
 		$wp_customize->add_section( 'mercia_pro_section_typography', array(
 			'title'    => __( 'Typography', 'mercia-pro' ),
-			'priority' => 70,
+			'priority' => 80,
 			'panel'    => 'mercia_options_panel',
 		) );
 

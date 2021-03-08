@@ -134,7 +134,7 @@ class Mercia_Pro_Block_Colors {
 		// Add Section for Block Colors.
 		$wp_customize->add_section( 'mercia_pro_section_block_colors', array(
 			'title'    => esc_html__( 'Block Colors', 'mercia-pro' ),
-			'priority' => 55,
+			'priority' => 60,
 			'panel'    => 'mercia_options_panel',
 		) );
 

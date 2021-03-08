@@ -112,7 +112,7 @@ class Mercia_Pro_Custom_Colors {
 		// Add Section for Theme Colors.
 		$wp_customize->add_section( 'mercia_pro_section_colors', array(
 			'title'    => esc_html__( 'Color Settings', 'mercia-pro' ),
-			'priority' => 60,
+			'priority' => 70,
 			'panel'    => 'mercia_options_panel',
 		) );
 
