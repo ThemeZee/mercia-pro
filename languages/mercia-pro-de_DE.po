@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: New Themes and Addons\n"
 "Report-Msgid-Bugs-To: https://themezee.com/\n"
-"POT-Creation-Date: 2021-02-11 16:22+0100\n"
-"PO-Revision-Date: 2021-02-11 16:22+0100\n"
+"POT-Creation-Date: 2021-03-09 14:46+0100\n"
+"PO-Revision-Date: 2021-03-09 14:47+0100\n"
 "Last-Translator: \n"
 "Language-Team: ThemeZee <support@themezee.com>\n"
 "Language: de_DE\n"
@@ -184,37 +184,101 @@ msgstr "Alle Beiträge ansehen"
 msgid "Display Author Bio"
 msgstr "Autor Bio anzeigen"
 
-#: includes/modules/class-custom-colors.php:367
+#: includes/modules/class-block-colors.php:136
+msgid "Block Colors"
+msgstr "Block Farben"
+
+#: includes/modules/class-block-colors.php:153
+msgctxt "Color Option"
+msgid "Primary"
+msgstr "Primär"
+
+#: includes/modules/class-block-colors.php:169
+msgctxt "Color Option"
+msgid "Secondary"
+msgstr "Sekundär"
+
+#: includes/modules/class-block-colors.php:185
+msgctxt "Color Option"
+msgid "Tertiary"
+msgstr "Tertiär"
+
+#: includes/modules/class-block-colors.php:201
+msgctxt "Color Option"
+msgid "Accent"
+msgstr "Akzent"
+
+#: includes/modules/class-block-colors.php:217
+msgctxt "Color Option"
+msgid "Highlight"
+msgstr "Highlight"
+
+#: includes/modules/class-block-colors.php:233
+msgctxt "Color Option"
+msgid "Light Gray"
+msgstr "Hellgrau"
+
+#: includes/modules/class-block-colors.php:249
+msgctxt "Color Option"
+msgid "Gray"
+msgstr "Grau"
+
+#: includes/modules/class-block-colors.php:265
+msgctxt "Color Option"
+msgid "Dark Gray"
+msgstr "Dunkelgrau"
+
+#: includes/modules/class-custom-colors.php:153
 msgid "Color Settings"
 msgstr "Farboptionen"
 
-#: includes/modules/class-custom-colors.php:384
-msgctxt "color setting"
-msgid "Links and Buttons"
-msgstr "Links und Buttons"
+#: includes/modules/class-custom-colors.php:170
+msgctxt "Color Option"
+msgid "Page Background"
+msgstr "Theme Hintergrund"
 
-#: includes/modules/class-custom-colors.php:400
-msgctxt "color setting"
-msgid "Main Navigation (primary)"
-msgstr "Navigation (primär)"
+#: includes/modules/class-custom-colors.php:186
+msgctxt "Color Option"
+msgid "Navigation"
+msgstr "Navigation"
 
-#: includes/modules/class-custom-colors.php:416
-msgctxt "color setting"
-msgid "Main Navigation (secondary)"
-msgstr "Navigation (sekundär)"
+#: includes/modules/class-custom-colors.php:202
+msgctxt "Color Option"
+msgid "Navigation Hover"
+msgstr "Navigation-Hover"
 
-#: includes/modules/class-custom-colors.php:432
-msgctxt "color setting"
-msgid "Post Titles"
-msgstr "Beitrags-Titel"
+#: includes/modules/class-custom-colors.php:218
+msgctxt "Color Option"
+msgid "Links"
+msgstr "Links"
 
-#: includes/modules/class-custom-colors.php:448
-msgctxt "color setting"
-msgid "Post Titles Hover"
-msgstr "Beitrags-Titel (Hover)"
+#: includes/modules/class-custom-colors.php:234
+msgctxt "Color Option"
+msgid "Link Hover"
+msgstr "Link-Hover"
 
-#: includes/modules/class-custom-colors.php:464
-msgctxt "color setting"
+#: includes/modules/class-custom-colors.php:250
+msgctxt "Color Option"
+msgid "Buttons"
+msgstr "Buttons"
+
+#: includes/modules/class-custom-colors.php:266
+msgctxt "Color Option"
+msgid "Button Hover"
+msgstr "Button-Hover"
+
+#: includes/modules/class-custom-colors.php:282
+msgctxt "Color Option"
+msgid "Titles"
+msgstr "Titel"
+
+#: includes/modules/class-custom-colors.php:298
+msgctxt "Color Option"
+msgid "Title Hover"
+msgstr "Titel-Hover"
+
+#: includes/modules/class-custom-colors.php:314
+msgctxt "Color Option"
 msgid "Widget Titles"
 msgstr "Widget-Titel"
 
@@ -359,9 +423,21 @@ msgstr "Nach oben scrollen"
 msgid "Display Scroll to Top Button"
 msgstr "Button zum Nach oben Scrollen anzeigen"
 
-#: mercia-pro.php:181
+#: mercia-pro.php:211
 msgid "Settings"
 msgstr "Einstellungen"
+
+#~ msgctxt "color setting"
+#~ msgid "Links and Buttons"
+#~ msgstr "Links und Buttons"
+
+#~ msgctxt "color setting"
+#~ msgid "Main Navigation (primary)"
+#~ msgstr "Navigation (primär)"
+
+#~ msgctxt "color setting"
+#~ msgid "Main Navigation (secondary)"
+#~ msgstr "Navigation (sekundär)"
 
 #~ msgid "Local Fonts"
 #~ msgstr "Lokale Schriftarten"

@@ -104,7 +104,7 @@ class Mercia_Pro_Customizer {
 	 * @return void
 	 */
 	static function customize_preview_js() {
-		wp_enqueue_script( 'mercia-pro-customizer-js', MERCIA_PRO_PLUGIN_URL . 'assets/js/customize-preview.js', array( 'customize-preview' ), '20210307', true );
+		wp_enqueue_script( 'mercia-pro-customizer-js', MERCIA_PRO_PLUGIN_URL . 'assets/js/customize-preview.min.js', array( 'customize-preview' ), '20210309', true );
 	}
 
 	/**
