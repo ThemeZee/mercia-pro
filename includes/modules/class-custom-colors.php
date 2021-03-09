@@ -53,16 +53,23 @@ class Mercia_Pro_Custom_Colors {
 		// Color Variables.
 		$color_variables = '';
 
-		// Set Link Color.
-		if ( $theme_options['link_color'] !== $default_options['link_color'] ) {
-			$color_variables .= '--link-color: ' . $theme_options['link_color'] . ';';
-			$color_variables .= '--button-color: ' . $theme_options['link_color'] . ';';
-			$color_variables .= '--header-bar-text-hover-color: ' . $theme_options['link_color'] . ';';
-			$color_variables .= '--footer-text-hover-color: ' . $theme_options['link_color'] . ';';
+		// Set Page Background Color.
+		if ( $theme_options['page_bg_color'] !== $default_options['page_bg_color'] ) {
+			$color_variables .= '--page-background-color: ' . $theme_options['page_bg_color'] . ';';
 
-			// Check if a light background color was chosen.
-			if ( self::is_color_light( $theme_options['link_color'] ) ) {
-				$color_variables .= '--button-text-color: #111;';
+			// Check if a dark background color was chosen.
+			if ( self::is_color_dark( $theme_options['page_bg_color'] ) ) {
+				$color_variables .= '--text-color: #fff;';
+				$color_variables .= '--medium-text-color: rgba(255,255,255,0.45);';
+				$color_variables .= '--light-text-color: rgba(255,255,255,0.25);';
+				$color_variables .= '--dark-border-color: #fff;';
+				$color_variables .= '--medium-border-color: rgba(255,255,255,0.2);';
+				$color_variables .= '--light-border-color: rgba(255,255,255,0.1);';
+				$color_variables .= '--light-background-color: rgba(255,255,255,0.05);';
+				$color_variables .= '--header-bar-text-color: #fff;';
+				$color_variables .= '--header-bar-border-color: rgba(255,255,255,0.1);';
+				$color_variables .= '--footer-text-color: #fff;';
+				$color_variables .= '--footer-border-color: rgba(255,255,255,0.1);';
 			}
 		}
 
@@ -75,6 +82,38 @@ class Mercia_Pro_Custom_Colors {
 		// Set Navigation Hover Color.
 		if ( $theme_options['navi_hover_color'] !== $default_options['navi_hover_color'] ) {
 			$color_variables .= '--navi-hover-color: ' . $theme_options['navi_hover_color'] . ';';
+		}
+
+		// Set Link Color.
+		if ( $theme_options['link_color'] !== $default_options['link_color'] ) {
+			$color_variables .= '--link-color: ' . $theme_options['link_color'] . ';';
+			$color_variables .= '--header-bar-text-hover-color: ' . $theme_options['link_color'] . ';';
+			$color_variables .= '--footer-text-hover-color: ' . $theme_options['link_color'] . ';';
+		}
+
+		// Set Link Hover Color.
+		if ( $theme_options['link_hover_color'] !== $default_options['link_hover_color'] ) {
+			$color_variables .= '--link-hover-color: ' . $theme_options['link_hover_color'] . ';';
+		}
+
+		// Set Button Color.
+		if ( $theme_options['button_color'] !== $default_options['button_color'] ) {
+			$color_variables .= '--button-color: ' . $theme_options['button_color'] . ';';
+
+			// Check if a light background color was chosen.
+			if ( self::is_color_light( $theme_options['button_color'] ) ) {
+				$color_variables .= '--button-text-color: #111;';
+			}
+		}
+
+		// Set Button Hover Color.
+		if ( $theme_options['button_hover_color'] !== $default_options['button_hover_color'] ) {
+			$color_variables .= '--button-hover-color: ' . $theme_options['button_hover_color'] . ';';
+
+			// Check if a light background color was chosen.
+			if ( self::is_color_light( $theme_options['button_hover_color'] ) ) {
+				$color_variables .= '--button-hover-text-color: #111;';
+			}
 		}
 
 		// Set Title Color.
@@ -119,18 +158,18 @@ class Mercia_Pro_Custom_Colors {
 		// Get Default Colors from settings.
 		$default_options = Mercia_Pro_Customizer::get_default_options();
 
-		// Add Link and Button Color setting.
-		$wp_customize->add_setting( 'mercia_theme_options[link_color]', array(
-			'default'           => $default_options['link_color'],
+		// Add Page Background Color setting.
+		$wp_customize->add_setting( 'mercia_theme_options[page_bg_color]', array(
+			'default'           => $default_options['page_bg_color'],
 			'type'              => 'option',
 			'transport'         => 'postMessage',
 			'sanitize_callback' => 'sanitize_hex_color',
 		) );
 		$wp_customize->add_control( new WP_Customize_Color_Control(
-			$wp_customize, 'mercia_theme_options[link_color]', array(
-				'label'    => esc_html_x( 'Links and Buttons', 'color setting', 'mercia-pro' ),
+			$wp_customize, 'mercia_theme_options[page_bg_color]', array(
+				'label'    => esc_html_x( 'Page Background', 'Color Option', 'mercia-pro' ),
 				'section'  => 'mercia_pro_section_colors',
-				'settings' => 'mercia_theme_options[link_color]',
+				'settings' => 'mercia_theme_options[page_bg_color]',
 				'priority' => 10,
 			)
 		) );
@@ -144,7 +183,7 @@ class Mercia_Pro_Custom_Colors {
 		) );
 		$wp_customize->add_control( new WP_Customize_Color_Control(
 			$wp_customize, 'mercia_theme_options[navi_color]', array(
-				'label'    => esc_html_x( 'Main Navigation (primary)', 'color setting', 'mercia-pro' ),
+				'label'    => esc_html_x( 'Navigation', 'Color Option', 'mercia-pro' ),
 				'section'  => 'mercia_pro_section_colors',
 				'settings' => 'mercia_theme_options[navi_color]',
 				'priority' => 20,
@@ -160,10 +199,74 @@ class Mercia_Pro_Custom_Colors {
 		) );
 		$wp_customize->add_control( new WP_Customize_Color_Control(
 			$wp_customize, 'mercia_theme_options[navi_hover_color]', array(
-				'label'    => esc_html_x( 'Main Navigation (secondary)', 'color setting', 'mercia-pro' ),
+				'label'    => esc_html_x( 'Navigation Hover', 'Color Option', 'mercia-pro' ),
 				'section'  => 'mercia_pro_section_colors',
 				'settings' => 'mercia_theme_options[navi_hover_color]',
 				'priority' => 30,
+			)
+		) );
+
+		// Add Link and Button Color setting.
+		$wp_customize->add_setting( 'mercia_theme_options[link_color]', array(
+			'default'           => $default_options['link_color'],
+			'type'              => 'option',
+			'transport'         => 'postMessage',
+			'sanitize_callback' => 'sanitize_hex_color',
+		) );
+		$wp_customize->add_control( new WP_Customize_Color_Control(
+			$wp_customize, 'mercia_theme_options[link_color]', array(
+				'label'    => esc_html_x( 'Links', 'Color Option', 'mercia-pro' ),
+				'section'  => 'mercia_pro_section_colors',
+				'settings' => 'mercia_theme_options[link_color]',
+				'priority' => 40,
+			)
+		) );
+
+		// Add Link Hover Color setting.
+		$wp_customize->add_setting( 'mercia_theme_options[link_hover_color]', array(
+			'default'           => $default_options['link_hover_color'],
+			'type'              => 'option',
+			'transport'         => 'postMessage',
+			'sanitize_callback' => 'sanitize_hex_color',
+		) );
+		$wp_customize->add_control( new WP_Customize_Color_Control(
+			$wp_customize, 'mercia_theme_options[link_hover_color]', array(
+				'label'    => esc_html_x( 'Link Hover', 'Color Option', 'mercia-pro' ),
+				'section'  => 'mercia_pro_section_colors',
+				'settings' => 'mercia_theme_options[link_hover_color]',
+				'priority' => 50,
+			)
+		) );
+
+		// Add Button Color setting.
+		$wp_customize->add_setting( 'mercia_theme_options[button_color]', array(
+			'default'           => $default_options['button_color'],
+			'type'              => 'option',
+			'transport'         => 'postMessage',
+			'sanitize_callback' => 'sanitize_hex_color',
+		) );
+		$wp_customize->add_control( new WP_Customize_Color_Control(
+			$wp_customize, 'mercia_theme_options[button_color]', array(
+				'label'    => esc_html_x( 'Buttons', 'Color Option', 'mercia-pro' ),
+				'section'  => 'mercia_pro_section_colors',
+				'settings' => 'mercia_theme_options[button_color]',
+				'priority' => 60,
+			)
+		) );
+
+		// Add Button Hover Color setting.
+		$wp_customize->add_setting( 'mercia_theme_options[button_hover_color]', array(
+			'default'           => $default_options['button_hover_color'],
+			'type'              => 'option',
+			'transport'         => 'postMessage',
+			'sanitize_callback' => 'sanitize_hex_color',
+		) );
+		$wp_customize->add_control( new WP_Customize_Color_Control(
+			$wp_customize, 'mercia_theme_options[button_hover_color]', array(
+				'label'    => esc_html_x( 'Button Hover', 'Color Option', 'mercia-pro' ),
+				'section'  => 'mercia_pro_section_colors',
+				'settings' => 'mercia_theme_options[button_hover_color]',
+				'priority' => 70,
 			)
 		) );
 
@@ -176,10 +279,10 @@ class Mercia_Pro_Custom_Colors {
 		) );
 		$wp_customize->add_control( new WP_Customize_Color_Control(
 			$wp_customize, 'mercia_theme_options[title_color]', array(
-				'label'    => esc_html_x( 'Post Titles', 'color setting', 'mercia-pro' ),
+				'label'    => esc_html_x( 'Titles', 'Color Option', 'mercia-pro' ),
 				'section'  => 'mercia_pro_section_colors',
 				'settings' => 'mercia_theme_options[title_color]',
-				'priority' => 40,
+				'priority' => 80,
 			)
 		) );
 
@@ -192,10 +295,10 @@ class Mercia_Pro_Custom_Colors {
 		) );
 		$wp_customize->add_control( new WP_Customize_Color_Control(
 			$wp_customize, 'mercia_theme_options[title_hover_color]', array(
-				'label'    => esc_html_x( 'Post Titles Hover', 'color setting', 'mercia-pro' ),
+				'label'    => esc_html_x( 'Title Hover', 'Color Option', 'mercia-pro' ),
 				'section'  => 'mercia_pro_section_colors',
 				'settings' => 'mercia_theme_options[title_hover_color]',
-				'priority' => 50,
+				'priority' => 90,
 			)
 		) );
 
@@ -208,10 +311,10 @@ class Mercia_Pro_Custom_Colors {
 		) );
 		$wp_customize->add_control( new WP_Customize_Color_Control(
 			$wp_customize, 'mercia_theme_options[widget_title_color]', array(
-				'label'    => esc_html_x( 'Widget Titles', 'color setting', 'mercia-pro' ),
+				'label'    => esc_html_x( 'Widget Titles', 'Color Option', 'mercia-pro' ),
 				'section'  => 'mercia_pro_section_colors',
 				'settings' => 'mercia_theme_options[widget_title_color]',
-				'priority' => 60,
+				'priority' => 100,
 			)
 		) );
 	}

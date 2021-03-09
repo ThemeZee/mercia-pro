@@ -73,9 +73,13 @@ class Mercia_Pro_Customizer {
 			'light_gray_color'          => '#e5e5e5',
 			'gray_color'                => '#858585',
 			'dark_gray_color'           => '#353535',
-			'link_color'                => '#3377bb',
+			'page_bg_color'             => '#ffffff',
 			'navi_color'                => '#353535',
 			'navi_hover_color'          => '#3377bb',
+			'link_color'                => '#3377bb',
+			'link_hover_color'          => '#353535',
+			'button_color'              => '#3377bb',
+			'button_hover_color'        => '#353535',
 			'title_color'               => '#353535',
 			'title_hover_color'         => '#3377bb',
 			'widget_title_color'        => '#353535',
@@ -100,7 +104,7 @@ class Mercia_Pro_Customizer {
 	 * @return void
 	 */
 	static function customize_preview_js() {
-		wp_enqueue_script( 'mercia-pro-customizer-js', MERCIA_PRO_PLUGIN_URL . 'assets/js/customize-preview.js', array( 'customize-preview' ), '20210215', true );
+		wp_enqueue_script( 'mercia-pro-customizer-js', MERCIA_PRO_PLUGIN_URL . 'assets/js/customize-preview.js', array( 'customize-preview' ), '20210307', true );
 	}
 
 	/**

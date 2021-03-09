@@ -122,22 +122,42 @@
 		} );
 	} );
 
-	/* Link & Button Color Option */
-	wp.customize( 'mercia_theme_options[link_color]', function( value ) {
+	/* Page Background Color Option */
+	wp.customize( 'mercia_theme_options[page_bg_color]', function( value ) {
 		value.bind( function( newval ) {
-			var text_color;
+			var text_color, medium_text_color, light_text_color, dark_border_color, medium_border_color, light_border_color, light_bg_color;
 
-			if( isColorLight( newval ) ) {
-				text_color = '#111';
-			} else {
+			if( isColorDark( newval ) ) {
 				text_color = '#fff';
+				medium_text_color = 'rgba(255,255,255,0.45)';
+				light_text_color = 'rgba(255,255,255,0.25)';
+				dark_border_color = '#fff';
+				medium_border_color = 'rgba(255,255,255,0.2)';
+				light_border_color = 'rgba(255,255,255,0.1)';
+				light_bg_color = 'rgba(255,255,255,0.05)';
+
+			} else {
+				text_color = '#353535';
+				medium_text_color = 'rgba(0, 0, 0, 0.45)';
+				light_text_color = 'rgba(0, 0, 0, 0.25)';
+				dark_border_color = '#353535';
+				medium_border_color = 'rgba(0, 0, 0, 0.2)';
+				light_border_color = 'rgba(0, 0, 0, 0.1)';
+				light_bg_color = 'rgba(0, 0, 0, 0.05)';
 			}
 
-			document.documentElement.style.setProperty( '--link-color', newval );
-			document.documentElement.style.setProperty( '--button-color', newval );
-			document.documentElement.style.setProperty( '--header-bar-text-hover-color', newval );
-			document.documentElement.style.setProperty( '--footer-text-hover-color', newval );
-			document.documentElement.style.setProperty( '--button-text-color', text_color );
+			document.documentElement.style.setProperty( '--page-background-color', newval );
+			document.documentElement.style.setProperty( '--text-color', text_color );
+			document.documentElement.style.setProperty( '--medium-text-color', medium_text_color );
+			document.documentElement.style.setProperty( '--light-text-color', light_text_color );
+			document.documentElement.style.setProperty( '--dark-border-color', dark_border_color );
+			document.documentElement.style.setProperty( '--medium-border-color', medium_border_color );
+			document.documentElement.style.setProperty( '--light-border-color', light_border_color );
+			document.documentElement.style.setProperty( '--light-background-color', light_bg_color );
+			document.documentElement.style.setProperty( '--header-bar-text-color', text_color );
+			document.documentElement.style.setProperty( '--header-bar-border-color', light_border_color );
+			document.documentElement.style.setProperty( '--footer-text-color', text_color );
+			document.documentElement.style.setProperty( '--footer-border-color', light_border_color );
 		} );
 	} );
 
@@ -153,6 +173,54 @@
 	wp.customize( 'mercia_theme_options[navi_hover_color]', function( value ) {
 		value.bind( function( newval ) {
 			document.documentElement.style.setProperty( '--navi-hover-color', newval );
+		} );
+	} );
+
+	/* Link Color Option */
+	wp.customize( 'mercia_theme_options[link_color]', function( value ) {
+		value.bind( function( newval ) {
+			document.documentElement.style.setProperty( '--link-color', newval );
+			document.documentElement.style.setProperty( '--header-bar-text-hover-color', newval );
+			document.documentElement.style.setProperty( '--footer-text-hover-color', newval );
+		} );
+	} );
+
+	/* Link Color Hover Option */
+	wp.customize( 'mercia_theme_options[link_hover_color]', function( value ) {
+		value.bind( function( newval ) {
+			document.documentElement.style.setProperty( '--link-hover-color', newval );
+		} );
+	} );
+
+	/* Button Color Option */
+	wp.customize( 'mercia_theme_options[button_color]', function( value ) {
+		value.bind( function( newval ) {
+			var text_color;
+
+			if( isColorLight( newval ) ) {
+				text_color = '#111';
+			} else {
+				text_color = '#fff';
+			}
+
+			document.documentElement.style.setProperty( '--button-color', newval );
+			document.documentElement.style.setProperty( '--button-text-color', text_color );
+		} );
+	} );
+
+	/* Button Color Hover Option */
+	wp.customize( 'mercia_theme_options[button_hover_color]', function( value ) {
+		value.bind( function( newval ) {
+			var text_color;
+
+			if( isColorLight( newval ) ) {
+				text_color = '#111';
+			} else {
+				text_color = '#fff';
+			}
+
+			document.documentElement.style.setProperty( '--button-hover-color', newval );
+			document.documentElement.style.setProperty( '--button-hover-text-color', text_color );
 		} );
 	} );
 
