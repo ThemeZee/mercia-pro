@@ -49,10 +49,10 @@ class Mercia_Pro_Scroll_To_Top {
 		// Call Credit Link function of theme if credit link is activated.
 		if ( true === $theme_options['scroll_to_top'] && ! self::is_amp() ) :
 
-			wp_enqueue_script( 'mercia-pro-scroll-to-top', MERCIA_PRO_PLUGIN_URL . 'assets/js/scroll-to-top.min.js', array( 'jquery' ), '20210212', true );
+			wp_enqueue_script( 'mercia-pro-scroll-to-top', MERCIA_PRO_PLUGIN_URL . 'assets/js/scroll-to-top.min.js', array( 'jquery' ), '20210309', true );
 
 			// Passing Parameters to navigation.js.
-			wp_localize_script( 'mercia-pro-scroll-to-top', 'mercia_pro_scroll_button', mercia_get_svg( 'collapse' ) );
+			wp_localize_script( 'mercia-pro-scroll-to-top', 'merciaProScrollToTop', array( 'icon' => mercia_get_svg( 'collapse' ) ) );
 
 		endif;
 	}
