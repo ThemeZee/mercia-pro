@@ -118,6 +118,7 @@ class Mercia_Pro {
 		require_once MERCIA_PRO_PLUGIN_DIR . 'includes/modules/class-header-bar.php';
 		require_once MERCIA_PRO_PLUGIN_DIR . 'includes/modules/class-header-search.php';
 		require_once MERCIA_PRO_PLUGIN_DIR . 'includes/modules/class-scroll-to-top.php';
+		require_once MERCIA_PRO_PLUGIN_DIR . 'includes/modules/class-widget-areas.php';
 	}
 
 	/**
