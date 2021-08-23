@@ -2,6 +2,10 @@
 Mercia Pro Changelog
 ===================================
 
+Version 1.7
+-----------------------------------
+* added extra widget areas
+
 Version 1.6
 -----------------------------------
 * added CSS variables for colors

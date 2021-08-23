@@ -1,0 +1,13 @@
+.before-header-widget-area {
+	padding-top: 1.5em;
+
+	.widget:last-child {
+		margin-bottom: 0;
+	}
+}
+
+@media only screen and (min-width: 40em) {
+	.before-header-widget-area {
+		padding-top: 2em;
+	}
+}
