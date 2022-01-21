@@ -55,7 +55,7 @@ class Mercia_Pro_Header_Search {
 		// Embed header search JS if enabled.
 		if ( ( true === $theme_options['header_search'] || is_customize_preview() ) && ! self::is_amp() ) :
 
-			wp_enqueue_script( 'mercia-pro-header-search', MERCIA_PRO_PLUGIN_URL . 'assets/js/header-search.min.js', array( 'jquery' ), '20210212', true );
+			wp_enqueue_script( 'mercia-pro-header-search', MERCIA_PRO_PLUGIN_URL . 'assets/js/header-search.min.js', array(), '20220121', true );
 
 		endif;
 	}
@@ -75,16 +75,16 @@ class Mercia_Pro_Header_Search {
 
 			<div class="header-search">
 
-				<a class="header-search-icon" aria-expanded="false" <?php self::amp_search_toggle(); ?>>
+				<a class="header-search-icon" aria-expanded="false" aria-controls="header-search-dropdown" <?php self::amp_search_toggle(); ?>>
 					<?php echo mercia_get_svg( 'search' ); ?>
 					<span class="screen-reader-text"><?php esc_html_e( 'Search', 'mercia-pro' ); ?></span>
 				</a>
 
-				<div class="header-search-form-wrap" <?php self::amp_search_is_toggled(); ?>>
+				<div id="header-search-dropdown" class="header-search-form-wrap" <?php self::amp_search_is_toggled(); ?>>
 
 					<div class="header-search-form">
 						<?php get_search_form(); ?>
-						<a class="header-search-close" aria-expanded="true" <?php self::amp_search_toggle(); ?>>
+						<a class="header-search-close" <?php self::amp_search_toggle(); ?>>
 							<?php echo mercia_get_svg( 'close' ); ?>
 						</a>
 					</div>
