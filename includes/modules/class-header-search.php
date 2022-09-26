@@ -75,10 +75,9 @@ class Mercia_Pro_Header_Search {
 
 			<div class="header-search">
 
-				<a class="header-search-icon" aria-expanded="false" aria-controls="header-search-dropdown" <?php self::amp_search_toggle(); ?>>
+				<button class="header-search-icon" aria-label="<?php esc_attr_e( 'Open search form', 'mercia-pro' ); ?>" aria-expanded="false" aria-controls="header-search-dropdown" <?php self::amp_search_toggle(); ?>>
 					<?php echo mercia_get_svg( 'search' ); ?>
-					<span class="screen-reader-text"><?php esc_html_e( 'Search', 'mercia-pro' ); ?></span>
-				</a>
+				</button>
 
 				<div id="header-search-dropdown" class="header-search-form-wrap" <?php self::amp_search_is_toggled(); ?>>
 
