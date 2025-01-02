@@ -115,12 +115,12 @@
 	fill: var(--header-bar-text-hover-color);
 }
 
-.secondary-menu-toggle[aria-expanded="true"] .icon-menu,
-.secondary-menu-toggle[aria-expanded="false"] .icon-close {
+.secondary-menu-toggle[aria-expanded=true] .icon-menu,
+.secondary-menu-toggle[aria-expanded=false] .icon-close {
 	display: none;
 }
 
-.secondary-menu-toggle[aria-expanded="true"] .icon-close {
+.secondary-menu-toggle[aria-expanded=true] .icon-close {
 	display: inline-block;
 }
 
@@ -354,7 +354,6 @@
 		fill: var(--header-bar-text-hover-color);
 	}
 }
-
 /*--------------------------------------------------------------
 # Header Search
 --------------------------------------------------------------*/
@@ -471,7 +470,6 @@
 .before-header-widget-area {
 	padding-top: 1.5em;
 }
-
 .before-header-widget-area .widget:last-child {
 	margin-bottom: 0;
 }
@@ -481,7 +479,6 @@
 		padding-top: 2em;
 	}
 }
-
 /*--------------------------------------------------------------
 # Author Bio
 --------------------------------------------------------------*/
@@ -538,13 +535,11 @@
 		margin-bottom: 2em;
 	}
 }
-
 @media only screen and (min-width: 75em) {
 	.entry-author {
 		margin-bottom: 2.5em;
 	}
 }
-
 /*--------------------------------------------------------------
 # Footer Widgets
 --------------------------------------------------------------*/
@@ -600,7 +595,6 @@
 		width: 100%;
 	}
 }
-
 @media only screen and (min-width: 40em) {
 	.footer-widgets-background {
 		padding: 2em 0 0;
@@ -614,15 +608,13 @@
 		padding-right: 2em;
 	}
 }
-
 @media only screen and (min-width: 50em) {
 	.footer-widget-column:nth-child(1):nth-last-child(3),
 	.footer-widget-column:nth-child(2):nth-last-child(2),
 	.footer-widget-column:nth-child(3):nth-last-child(1) {
-		width: 33.3333333333333%;
+		width: 33.3333333333%;
 	}
 }
-
 @media only screen and (min-width: 57.5em) {
 	.footer-content {
 		position: relative;
@@ -644,7 +636,6 @@
 		-ms-flex-pack: start;
 	}
 }
-
 @media only screen and (min-width: 65em) {
 	.footer-widget-column:nth-child(1):nth-last-child(4),
 	.footer-widget-column:nth-child(2):nth-last-child(3),
@@ -653,7 +644,6 @@
 		width: 25%;
 	}
 }
-
 @media only screen and (min-width: 75em) {
 	.footer-widgets-background {
 		padding: 2.5em 0 0;
@@ -667,7 +657,6 @@
 		padding-right: 2.5em;
 	}
 }
-
 /*--------------------------------------------------------------
 # Footer Menu
 --------------------------------------------------------------*/
@@ -742,7 +731,6 @@
 		text-align: left;
 	}
 }
-
 @media only screen and (min-width: 57.5em) {
 	.site-footer {
 		display: -webkit-box;
@@ -770,7 +758,6 @@
 		-ms-flex-order: 1;
 	}
 }
-
 /*--------------------------------------------------------------
 # Scroll to Top Button
 --------------------------------------------------------------*/

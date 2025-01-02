@@ -1,5 +1,8 @@
+@use "_mixins";
+@use "_variables";
+
 :root {
-	@include variable(--header-bar-text-color, $themeColors);
-	@include variable(--header-bar-text-hover-color, $themeColors);
-	@include variable(--header-bar-border-color, $themeColors);
+	@include mixins.variable(--header-bar-text-color, variables.$themeColors);
+	@include mixins.variable(--header-bar-text-hover-color, variables.$themeColors);
+	@include mixins.variable(--header-bar-border-color, variables.$themeColors);
 }

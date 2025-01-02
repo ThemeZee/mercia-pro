@@ -1,3 +1,4 @@
+@use "../_mixins";
 
 /* Header Search Icon */
 .header-search .header-search-icon {
@@ -25,12 +26,12 @@
 	width: 24px;
 	height: 24px;
 	vertical-align: middle;
-	@include fill(--navi-color);
+	@include mixins.fill(--navi-color);
 }
 
 .header-search .header-search-icon:hover .icon-search,
 .header-search .header-search-icon:active .icon-search {
-	@include fill(--navi-hover-color);
+	@include mixins.fill(--navi-hover-color);
 }
 
 /* Header Search Form */
@@ -44,7 +45,7 @@
 	margin: 0;
 	padding: 0;
 	width: 100%;
-	@include background(--page-background-color);
+	@include mixins.background(--page-background-color);
 	font-size: 17px;
 	font-size: 1.0625rem;
 }
@@ -92,10 +93,10 @@
 	width: 24px;
 	height: 24px;
 	vertical-align: middle;
-	@include fill(--navi-color);
+	@include mixins.fill(--navi-color);
 }
 
 .header-search .header-search-form-wrap .header-search-form .header-search-close:hover .icon-close,
 .header-search .header-search-form-wrap .header-search-form .header-search-close:active .icon-close {
-	@include fill(--navi-hover-color);
+	@include mixins.fill(--navi-hover-color);
 }
